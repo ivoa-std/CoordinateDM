@@ -1,0 +1,22 @@
+  \subsection{Standard Time Scale (TimeScale)}
+  \label{sect:TimeScale}
+
+  \textbf{BaseURL}:  http://www.ivoa.net/rdf \newline
+  \textbf{Vocabulary}: timescale \newline
+
+  We include here the initial Standard Time Scale Vocabulary.  The formal list is stored and maintained as a controlled vocabulary external to this document at the URL listed above.  The URI for each term is built as <BaseURL>/<Vocabulary>/<Term>, where Term is one of:
+
+  \small
+  \begin{itemize}
+    \item[\textbf{TAI}]:  International Atomic Time; 32.184 s behind TT.
+    \item[\textbf{TT}]:  Terrestrial Time
+    \item[\textbf{UT}]:  Earth rotation time; \newline We do not distinguish between UT0, UT1, and UT2.
+    \item[\textbf{UTC}]:  Coordinated Universal Time; 32 s behind TAI in 2000-2005. \newline Includes leap seconds. Pre-1972 times will be assumed to be UT/GMT.
+    \item[\textbf{GPS}]:  Global Positioning System time scale; 19 s behind TAI, 51.184 s behind TT.
+    \item[\textbf{TCG}]:  Geocentric Coordinate Time; properly relativistic time, running a factor 7*10$^{-10}$ faster than TT
+    \item[\textbf{TCB}]:  Barycentric Coordinate Time; properly relativistic time, running a factor of 1.5*10$^{-8}$ faster than TDB.
+    \item[\textbf{TDB}]:  Barycentric Dynamical Time; synchronous with TT, except for variations in Earth ortial motion. \newline Requires specification of the solar system and planetary ephemeris used.
+    \item[\textbf{UNKNOWN}]:  Unknown or unavailable.
+  \end{itemize}
+  \normalsize
+

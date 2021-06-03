@@ -1,0 +1,3522 @@
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:vo-dml="http://www.ivoa.net/xml/VODML/v1">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Astronomical Coordinates and Coordinate Systems</title>
+    <link rel="stylesheet" href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/style/ivoa_wg.css" type="text/css">
+    <link rel="stylesheet" href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/style/xmi.css" type="text/css">
+  </head>
+  <body>
+    <h1>Astronomical Coordinates and Coordinate Systems</h1>
+    <h2><a id="contents" name="contents">Table of Contents</a></h2>
+    <div class="head">
+      <table class=".toc">
+        <tr>
+          <td>1.</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#model_section">model: coords</a></td>
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#packages">Packages and Types</a></td>
+        </tr>
+        <tr>
+          <td>2.1</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#rootpackage">[root package]</a></td>
+        </tr>
+        <tr>
+          <td>2.1.1</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#AstroCoordSystem">objectType:AstroCoordSystem</a></td>
+        </tr>
+        <tr>
+          <td>2.1.2</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axis">objectType:Axis</a></td>
+        </tr>
+        <tr>
+          <td>2.1.3</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#BinnedAxis">objectType:BinnedAxis</a></td>
+        </tr>
+        <tr>
+          <td>2.1.4</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#BinnedCoordinate">dataType:BinnedCoordinate</a></td>
+        </tr>
+        <tr>
+          <td>2.1.5</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CartesianCoordSpace">objectType:CartesianCoordSpace</a></td>
+        </tr>
+        <tr>
+          <td>2.1.6</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ContinuousAxis">objectType:ContinuousAxis</a></td>
+        </tr>
+        <tr>
+          <td>2.1.7</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CoordFrame">objectType:CoordFrame</a></td>
+        </tr>
+        <tr>
+          <td>2.1.8</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CoordSpace">objectType:CoordSpace</a></td>
+        </tr>
+        <tr>
+          <td>2.1.9</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CoordSys">objectType:CoordSys</a></td>
+        </tr>
+        <tr>
+          <td>2.1.10</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Coordinate">dataType:Coordinate</a></td>
+        </tr>
+        <tr>
+          <td>2.1.11</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CustomRefLocation">dataType:CustomRefLocation</a></td>
+        </tr>
+        <tr>
+          <td>2.1.12</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#DiscreteSetAxis">objectType:DiscreteSetAxis</a></td>
+        </tr>
+        <tr>
+          <td>2.1.13</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Epoch">primitiveType:Epoch</a></td>
+        </tr>
+        <tr>
+          <td>2.1.14</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GenericCoordSpace">objectType:GenericCoordSpace</a></td>
+        </tr>
+        <tr>
+          <td>2.1.15</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GenericFrame">objectType:GenericFrame</a></td>
+        </tr>
+        <tr>
+          <td>2.1.16</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GenericSys">objectType:GenericSys</a></td>
+        </tr>
+        <tr>
+          <td>2.1.17</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Handedness">enumeration:Handedness</a></td>
+        </tr>
+        <tr>
+          <td>2.1.18</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ISOTime">dataType:ISOTime</a></td>
+        </tr>
+        <tr>
+          <td>2.1.19</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#JD">dataType:JD</a></td>
+        </tr>
+        <tr>
+          <td>2.1.20</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#MJD">dataType:MJD</a></td>
+        </tr>
+        <tr>
+          <td>2.1.21</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PhysicalCoordSpace">objectType:PhysicalCoordSpace</a></td>
+        </tr>
+        <tr>
+          <td>2.1.22</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PhysicalCoordSys">objectType:PhysicalCoordSys</a></td>
+        </tr>
+        <tr>
+          <td>2.1.23</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PhysicalCoordinate">dataType:PhysicalCoordinate</a></td>
+        </tr>
+        <tr>
+          <td>2.1.24</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PixelCoordSystem">objectType:PixelCoordSystem</a></td>
+        </tr>
+        <tr>
+          <td>2.1.25</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PixelIndex">dataType:PixelIndex</a></td>
+        </tr>
+        <tr>
+          <td>2.1.26</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PixelSpace">objectType:PixelSpace</a></td>
+        </tr>
+        <tr>
+          <td>2.1.27</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Point">dataType:Point</a></td>
+        </tr>
+        <tr>
+          <td>2.1.28</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolCoordinate">dataType:PolCoordinate</a></td>
+        </tr>
+        <tr>
+          <td>2.1.29</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolState">dataType:PolState</a></td>
+        </tr>
+        <tr>
+          <td>2.1.30</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolStateEnum">enumeration:PolStateEnum</a></td>
+        </tr>
+        <tr>
+          <td>2.1.31</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#RefLocation">dataType:RefLocation</a></td>
+        </tr>
+        <tr>
+          <td>2.1.32</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#SpaceFrame">objectType:SpaceFrame</a></td>
+        </tr>
+        <tr>
+          <td>2.1.33</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#SpaceSys">objectType:SpaceSys</a></td>
+        </tr>
+        <tr>
+          <td>2.1.34</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#SphericalCoordSpace">objectType:SphericalCoordSpace</a></td>
+        </tr>
+        <tr>
+          <td>2.1.35</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#StdRefLocation">dataType:StdRefLocation</a></td>
+        </tr>
+        <tr>
+          <td>2.1.36</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#TimeFrame">objectType:TimeFrame</a></td>
+        </tr>
+        <tr>
+          <td>2.1.37</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#TimeInstant">dataType:TimeInstant</a></td>
+        </tr>
+        <tr>
+          <td>2.1.38</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#TimeOffset">dataType:TimeOffset</a></td>
+        </tr>
+        <tr>
+          <td>2.1.39</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#TimeStamp">dataType:TimeStamp</a></td>
+        </tr>
+        <tr>
+          <td>2.1.40</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#TimeSys">objectType:TimeSys</a></td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#vodml-ids">vodml-id-s</a></td>
+        </tr>
+        <tr>
+          <td>4.</td>
+          <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#modelimports">Imported Models</a></td>
+        </tr>
+        <tr>
+          <td>4.1</td>
+          <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#ivoa">ivoa</a></td>
+        </tr>
+      </table>
+    </div>
+    <hr>
+    <h1><a name="model_section">1. Model: Astronomical Coordinates and Coordinate Systems (coords)</a></h1>
+    <table>
+      <tr>
+        <td align="right"><b>Authors</b></td>
+        <td> : </td>
+        <td>Arnold Rots, Mark Cresitello-Dittmar, Omar Laurino</td>
+      </tr>
+      <tr>
+        <td align="right"><b>Date</b></td>
+        <td> : </td>
+        <td>2020-03-13T10:54:42</td>
+      </tr>
+      <tr>
+        <td align="right"><b>Version</b></td>
+        <td> : </td>
+        <td>1.0</td>
+      </tr>
+      <tr>
+        <td align="right">Previous version:</td>
+        <td> : </td>
+        <td><a href="0">0</a></td>
+      </tr>
+      <tr>
+        <td align="right" valign="top"><b>Abstract</b></td>
+        <td valign="top"> : </td>
+        <td>This model defines objects which describe the coordinate space, coordinates within that space, and frames, which provide additional
+          metadata regarding the origin, orientation, etc, of the coordinate space. The model also defines a coordinate system, bundling
+          frames into associated groups.
+          
+        </td>
+      </tr>
+      <tr>
+        <td align="right" valign="top"><b>Diagram</b></td>
+        <td valign="top"> : </td>
+        <td>The following diagram has been generated from the model using the <a href="http://www.graphviz.org/" target="_blank">GraphViz</a> tool.<br>
+          The classes and packages in the diagram can be clicked and are mapped to the descriptions of the corresponding element elsewhere
+          in the document. 
+          
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3"></td>
+      </tr>
+    </table><img src="STC_coords-v1.0.png" usemap="#GVmap"><map id="GVmap" name="GVmap">
+<area shape="rect" id="node1" href="#Epoch" title="{&lt;&lt;primitive type&gt;&gt;\nEpoch}" alt="" coords="5,94,112,143"/>
+<area shape="rect" id="node2" href="#Handedness" title="{&lt;&lt;enumeration&gt;&gt;\nHandedness|+left\l+right\l}" alt="" coords="136,83,235,154"/>
+<area shape="rect" id="node3" href="#PolStateEnum" title="{&lt;&lt;enumeration&gt;&gt;\nPolStateEnum|+I\l+Q\l+U\l+V\l+RR\l+LL\l+RL\l+LR\l+XX\l+YY\l+XY\l+YX\l+PF\l+PP\l+PA\l}" alt="" coords="259,5,357,232"/>
+<area shape="rect" id="node4" href="#Coordinate" title="{&lt;&lt;datatype&gt;&gt;\nCoordinate}" alt="" coords="420,569,503,618"/>
+<area shape="rect" id="node32" href="#CoordSys" title="{CoordSys}" alt="" coords="669,699,741,749"/>
+<area shape="rect" id="node5" href="#BinnedCoordinate" title="{&lt;&lt;datatype&gt;&gt;\nBinnedCoordinate|+cval : ivoa:integer\l}" alt="" coords="93,417,200,476"/>
+<area shape="rect" id="node6" href="#PixelIndex" title="{&lt;&lt;datatype&gt;&gt;\nPixelIndex}" alt="" coords="105,294,188,343"/>
+<area shape="rect" id="node7" href="#PhysicalCoordinate" title="{&lt;&lt;datatype&gt;&gt;\nPhysicalCoordinate|+cval : ivoa:Quantity\l}" alt="" coords="225,417,337,476"/>
+<area shape="rect" id="node8" href="#Point" title="{&lt;&lt;datatype&gt;&gt;\nPoint|+axis1 : ivoa:Quantity\l+axis2 : ivoa:Quantity\l+axis3 : ivoa:Quantity\l}" alt="" coords="363,405,480,488"/>
+<area shape="rect" id="node9" href="#TimeStamp" title="{&lt;&lt;datatype&gt;&gt;\nTimeStamp}" alt="" coords="504,422,587,471"/>
+<area shape="rect" id="node10" href="#TimeOffset" title="{&lt;&lt;datatype&gt;&gt;\nTimeOffset|+time : ivoa:RealQuantity\l+time0 : coords:TimeInstant\l}" alt="" coords="336,283,480,354"/>
+<area shape="rect" id="node11" href="#TimeInstant" title="{&lt;&lt;datatype&gt;&gt;\nTimeInstant}" alt="" coords="504,294,587,343"/>
+<area shape="rect" id="node12" href="#JD" title="{&lt;&lt;datatype&gt;&gt;\nJD|+date : ivoa:real\l}" alt="" coords="381,89,475,148"/>
+<area shape="rect" id="node13" href="#MJD" title="{&lt;&lt;datatype&gt;&gt;\nMJD|+date : ivoa:real\l}" alt="" coords="499,89,592,148"/>
+<area shape="rect" id="node14" href="#ISOTime" title="{&lt;&lt;datatype&gt;&gt;\nISOTime|+date : ivoa:datetime\l}" alt="" coords="617,89,729,148"/>
+<area shape="rect" id="node15" href="#PolCoordinate" title="{&lt;&lt;datatype&gt;&gt;\nPolCoordinate}" alt="" coords="611,422,693,471"/>
+<area shape="rect" id="node16" href="#PolState" title="{&lt;&lt;datatype&gt;&gt;\nPolState|+cval : coords:PolStateEnum\l}" alt="" coords="611,289,757,348"/>
+<area shape="rect" id="node17" href="#RefLocation" title="{&lt;&lt;datatype&gt;&gt;\nRefLocation}" alt="" coords="848,294,931,343"/>
+<area shape="rect" id="node18" href="#StdRefLocation" title="{&lt;&lt;datatype&gt;&gt;\nStdRefLocation|+position : ivoa:string\l}" alt="" coords="793,89,908,148"/>
+<area shape="rect" id="node19" href="#CustomRefLocation" title="{&lt;&lt;datatype&gt;&gt;\nCustomRefLocation|+epoch : coords:Epoch\l+position : coords:Point\l+velocity : coords:Point\l}" alt="" coords="933,77,1056,160"/>
+<area shape="rect" id="node20" href="#CoordSpace" title="{CoordSpace}" alt="" coords="928,811,1003,861"/>
+<area shape="rect" id="node21" href="#Axis" title="{Axis|+name : ivoa:string\l}" alt="" coords="1137,937,1241,986"/>
+<area shape="rect" id="node22" href="#ContinuousAxis" title="{ContinuousAxis|+domainMin : ivoa:Quantity\l+domainMax : ivoa:Quantity\l+cyclic : ivoa:boolean\l}" alt="" coords="1027,801,1172,871"/>
+<area shape="rect" id="node23" href="#BinnedAxis" title="{BinnedAxis|+length : ivoa:nonnegativeInteger\l}" alt="" coords="1197,811,1363,861"/>
+<area shape="rect" id="node24" href="#DiscreteSetAxis" title="{DiscreteSetAxis}" alt="" coords="1388,811,1481,861"/>
+<area shape="rect" id="node25" href="#CoordFrame" title="{CoordFrame}" alt="" coords="1537,699,1612,749"/>
+<area shape="rect" id="node26" href="#GenericFrame" title="{GenericFrame|+refPosition : coords:RefLocation\l+planetaryEphem : ivoa:string\l}" alt="" coords="1394,564,1563,623"/>
+<area shape="rect" id="node27" href="#SpaceFrame" title="{SpaceFrame|+refPosition : coords:RefLocation\l+spaceRefFrame : ivoa:string\l+equinox : coords:Epoch\l+planetaryEphem : ivoa:string\l}" alt="" coords="1587,552,1756,635"/>
+<area shape="rect" id="node28" href="#TimeFrame" title="{TimeFrame|+refPosition : coords:RefLocation\l+timescale : ivoa:string\l+refDirection : coords:RefLocation\l}" alt="" coords="1781,558,1957,629"/>
+<area shape="rect" id="node29" href="#AstroCoordSystem" title="{AstroCoordSystem}" alt="" coords="718,422,820,471"/>
+<area shape="rect" id="node33" href="#PhysicalCoordSys" title="{PhysicalCoordSys}" alt="" coords="860,569,959,618"/>
+<area shape="rect" id="node30" href="#PixelCoordSystem" title="{PixelCoordSystem}" alt="" coords="735,569,836,618"/>
+<area shape="rect" id="node31" href="#PixelSpace" title="{PixelSpace|+handedness : coords:Handedness\l}" alt="" coords="775,699,941,749"/>
+<area shape="rect" id="node37" href="#PhysicalCoordSpace" title="{PhysicalCoordSpace}" alt="" coords="982,699,1092,749"/>
+<area shape="rect" id="node34" href="#GenericSys" title="{GenericSys}" alt="" coords="845,422,917,471"/>
+<area shape="rect" id="node35" href="#SpaceSys" title="{SpaceSys}" alt="" coords="941,422,1013,471"/>
+<area shape="rect" id="node36" href="#TimeSys" title="{TimeSys}" alt="" coords="1037,422,1109,471"/>
+<area shape="rect" id="node38" href="#GenericCoordSpace" title="{GenericCoordSpace}" alt="" coords="983,569,1092,618"/>
+<area shape="rect" id="node39" href="#SphericalCoordSpace" title="{SphericalCoordSpace}" alt="" coords="1116,569,1231,618"/>
+<area shape="rect" id="node40" href="#CartesianCoordSpace" title="{CartesianCoordSpace}" alt="" coords="1255,569,1369,618"/>
+</map>
+
+    <hr>
+    <h1>2.<a name="packages">Model contents: Packages and Types</a></h1>
+    <p>
+      The following sub-sections present all packages in the model with their types.
+      The packages are listed here in alphabetical order.
+      Each sub-section contains a description of the package and a table containing its various features.
+      
+    </p>
+    <h3><a name="rootpackage"></a>2.1 [root package]
+    </h3>
+    <table border="1" cellspacing="2" width="100%">
+      <tr>
+        <td class="objecttype-title" width="20%">Model</td>
+        <td class="objecttype-name">coords</td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">Object types</td>
+        <td colspan="2" class="feature-detail"><a href="#AstroCoordSystem">AstroCoordSystem</a> <a href="#Axis">Axis</a> <a href="#BinnedAxis">BinnedAxis</a> <a href="#CartesianCoordSpace">CartesianCoordSpace</a> <a href="#ContinuousAxis">ContinuousAxis</a> <a href="#CoordFrame">CoordFrame</a> <a href="#CoordSpace">CoordSpace</a> <a href="#CoordSys">CoordSys</a> <a href="#DiscreteSetAxis">DiscreteSetAxis</a> <a href="#GenericCoordSpace">GenericCoordSpace</a> <a href="#GenericFrame">GenericFrame</a> <a href="#GenericSys">GenericSys</a> <a href="#PhysicalCoordSpace">PhysicalCoordSpace</a> <a href="#PhysicalCoordSys">PhysicalCoordSys</a> <a href="#PixelCoordSystem">PixelCoordSystem</a> <a href="#PixelSpace">PixelSpace</a> <a href="#SpaceFrame">SpaceFrame</a> <a href="#SpaceSys">SpaceSys</a> <a href="#SphericalCoordSpace">SphericalCoordSpace</a> <a href="#TimeFrame">TimeFrame</a> <a href="#TimeSys">TimeSys</a> 
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">Data types</td>
+        <td colspan="2" class="feature-detail"><a href="#BinnedCoordinate">BinnedCoordinate</a> <a href="#Coordinate">Coordinate</a> <a href="#CustomRefLocation">CustomRefLocation</a> <a href="#ISOTime">ISOTime</a> <a href="#JD">JD</a> <a href="#MJD">MJD</a> <a href="#PhysicalCoordinate">PhysicalCoordinate</a> <a href="#PixelIndex">PixelIndex</a> <a href="#Point">Point</a> <a href="#PolCoordinate">PolCoordinate</a> <a href="#PolState">PolState</a> <a href="#RefLocation">RefLocation</a> <a href="#StdRefLocation">StdRefLocation</a> <a href="#TimeInstant">TimeInstant</a> <a href="#TimeOffset">TimeOffset</a> <a href="#TimeStamp">TimeStamp</a> 
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">Enumerations</td>
+        <td colspan="2" class="feature-detail"><a href="#Handedness">Handedness</a> <a href="#PolStateEnum">PolStateEnum</a> 
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">Primitive types</td>
+        <td colspan="2" class="feature-detail"><a href="#Epoch">Epoch</a> 
+        </td>
+      </tr>
+    </table>
+    <h3><a name="AstroCoordSystem"></a>2.1.1 objectType: AstroCoordSystem
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">AstroCoordSystem</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">The AstroCoordSystem object holds a collection of component coordinate system descriptions across all represented physical
+            domains.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#CoordSys">CoordSys [coords:CoordSys]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="AstroCoordSystem.coordSys"></a><b>coordSys</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#PhysicalCoordSys">PhysicalCoordSys [coords:PhysicalCoordSys]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">AstroCoordSystem.coordSys</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1..*</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Coordinate system description for each physical domain (Space, Time, etc).</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="Axis"></a>2.1.2 objectType: Axis
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">Axis</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">The abstract parent class for all coordinate axis types.  We provide concrete classes for the most common types of data, Continuous,
+            Binned, and Discrete, but allow extension for other types as needed.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td class="info-title" width="20%">abstract</td>
+                      <td class="feature-detail" colspan="3">True</td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#BinnedAxis">BinnedAxis</a> <a href="#ContinuousAxis">ContinuousAxis</a> <a href="#DiscreteSetAxis">DiscreteSetAxis</a> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Axis.name"></a><b>name</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Axis.name</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Freeform string, provides the name or label for the axis.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="BinnedAxis"></a>2.1.3 objectType: BinnedAxis
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">BinnedAxis</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Axis description for binned data, where values along the axis correspond to a bin number.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#Axis">Axis [coords:Axis]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="BinnedAxis.length"></a><b>length</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#nonnegativeInteger">nonnegativeInteger</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">BinnedAxis.length</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">  The length, or number of bins, along the axis.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="BinnedCoordinate"></a>2.1.4 dataType: BinnedCoordinate
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">BinnedCoordinate</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Coordinate value type specifically intended for binned data (e.g.: pixel indexes).
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#Coordinate">Coordinate [coords:Coordinate]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#PixelIndex">PixelIndex</a> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="BinnedCoordinate.cval"></a><b>cval</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#integer">integer</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">BinnedCoordinate.cval</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The binned coordinate value, expressed as an integer.  e.g.: bin number, pixel index.
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="CartesianCoordSpace"></a>2.1.5 objectType: CartesianCoordSpace
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">CartesianCoordSpace</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Spatial domain, three-dimensional cartesian coordinate space.  The particulars of the axis descriptions depend on the physical
+            constraints of the instance.  In Appendix B, we provide the description of a Standard Cartesian Coordinate Space instance
+            which applies to many Astronomical cases, and may be referenced in serializations.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#PhysicalCoordSpace">PhysicalCoordSpace [coords:PhysicalCoordSpace]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" colspan="3">axis[1..3]</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">role constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="30%">Constrained Role</td>
+                      <td class="feature-heading" width="20%">Constraint Feature</td>
+                      <td class="feature-heading" width="50%">Constraint Value</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="feature-detail" valign="top"><a href="#CoordSpace.axis">axis [coords:CoordSpace.axis]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail"></td>
+                      <td class="feature-heading" valign="top">
+                        	  datatype
+                      </td>
+                      <td class="feature-detail"><a href="#ContinuousAxis">ContinuousAxis [coords:ContinuousAxis]</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="ContinuousAxis"></a>2.1.6 objectType: ContinuousAxis
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">ContinuousAxis</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Axis description for continuous data.  This object describes the domain for a particular axis of the domain space.  It allows
+            for the specification of the legal domain range (min,max), and a flag indicating if the axis is cyclic.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#Axis">Axis [coords:Axis]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="ContinuousAxis.domainMin"></a><b>domainMin</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#Quantity">Quantity</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">ContinuousAxis.domainMin</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Minimum extent of the axis domain space.  If not provided, the domain space is considered to have no lower bound (-INFINITY).</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="ContinuousAxis.domainMax"></a><b>domainMax</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#Quantity">Quantity</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">ContinuousAxis.domainMax</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Maximum extent of the axis domain space.  If not provided, the domain space is considered to have no upper bound (+INFINITY).</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="ContinuousAxis.cyclic"></a><b>cyclic</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#boolean">boolean</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">ContinuousAxis.cyclic</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Flag indicating if the axis is cyclic in nature.  If not provided, it is assumed to be FALSE.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="CoordFrame"></a>2.1.7 objectType: CoordFrame
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">CoordFrame</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">This is the abstract, empty, base class for all coordinate frames.  Coordinate frames provide metadata associated with the
+            coordinate domain space.  Typically, this will be related to the origin and orientation of the axes, but might include any
+            metadata which pertains to the definition of the domain.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td class="info-title" width="20%">abstract</td>
+                      <td class="feature-detail" colspan="3">True</td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#GenericFrame">GenericFrame</a> <a href="#SpaceFrame">SpaceFrame</a> <a href="#TimeFrame">TimeFrame</a> 
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="CoordSpace"></a>2.1.8 objectType: CoordSpace
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">CoordSpace</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">This object defines a domain space.  i.e.: it describes the set of possible coordinate values.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td class="info-title" width="20%">abstract</td>
+                      <td class="feature-detail" colspan="3">True</td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#PhysicalCoordSpace">PhysicalCoordSpace</a> <a href="#PixelSpace">PixelSpace</a> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="CoordSpace.axis"></a><b>axis</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#Axis">Axis [coords:Axis]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">CoordSpace.axis</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1..*</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Describes an axis of the coordinate space.  </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="CoordSys"></a>2.1.9 objectType: CoordSys
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">CoordSys</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Abstract head of the coordinate system object tree.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td class="info-title" width="20%">abstract</td>
+                      <td class="feature-detail" colspan="3">True</td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#AstroCoordSystem">AstroCoordSystem</a> <a href="#PhysicalCoordSys">PhysicalCoordSys</a> <a href="#PixelCoordSystem">PixelCoordSystem</a> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="info-title">referrers</td>
+                      <td class="feature-detail" colspan="3"><a href="#Coordinate">Coordinate</a> 
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="Coordinate"></a>2.1.10 dataType: Coordinate
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">Coordinate</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Abstract base class for the Coordinate data types which represent an absolute location within a coordinate space. Coordinates
+            MUST refer to a coordinate system, providing additional metadata relevant to interpreting the coordinate value, and its representation.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td class="info-title" width="20%">abstract</td>
+                      <td class="feature-detail" colspan="3">True</td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#BinnedCoordinate">BinnedCoordinate</a> <a href="#PhysicalCoordinate">PhysicalCoordinate</a> <a href="#Point">Point</a> <a href="#PolCoordinate">PolCoordinate</a> <a href="#TimeStamp">TimeStamp</a> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">references</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Coordinate.coordSys"></a><b>coordSys</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#CoordSys">CoordSys [coords:CoordSys]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Coordinate.coordSys</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Provided additional metadata relevant to interpreting the coordinate value; for example, the spatial reference position, or
+                        time scale, axis descriptions.
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="CustomRefLocation"></a>2.1.11 dataType: CustomRefLocation
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">CustomRefLocation</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">A custom reference location in phase space (position and velocity).  Position and velocity are given as coordinates with an
+            associated SpaceFrame.  An epoch MAY be provided to further refine the location.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#RefLocation">RefLocation [coords:RefLocation]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="CustomRefLocation.epoch"></a><b>epoch</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#Epoch">Epoch [coords:Epoch]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">CustomRefLocation.epoch</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Epoch for the reference location.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="CustomRefLocation.position"></a><b>position</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#Point">Point [coords:Point]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">CustomRefLocation.position</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The spatial coordinates of the reference location.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="CustomRefLocation.velocity"></a><b>velocity</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#Point">Point [coords:Point]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">CustomRefLocation.velocity</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The velocity of the reference location.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="DiscreteSetAxis"></a>2.1.12 objectType: DiscreteSetAxis
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">DiscreteSetAxis</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Axis type specifically intended for enumerated coordinates.  Since the content and nature of this axis type is heavily dependent
+            on the use case, we define no additional metadata here.  Extensions of this type may include additional metadata relevant
+            to the particular use cases.  For example, an extension could include the allowed set of values.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#Axis">Axis [coords:Axis]</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="Epoch"></a>2.1.13 primitiveType: Epoch
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="1">Epoch</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="1">We define epoch as a primitive data type with the expected form "&lt;type&gt;&lt;year&gt;" where type = "J" or "B" for Julian or Besselian
+          respectively, and year is expressed as a decimal year.  e.g.: "B1950", "J2000.0"
+        </td>
+      </tr>
+    </table><br><h3><a name="GenericCoordSpace"></a>2.1.14 objectType: GenericCoordSpace
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">GenericCoordSpace</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Generic, one-dimensional coordinate space suitable for use with most non-spatial properties.  In Appendix B, we provide the
+            description of a Standard 1D Coordinate Space instance which may be referenced in serializations.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#PhysicalCoordSpace">PhysicalCoordSpace [coords:PhysicalCoordSpace]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" colspan="3">axis[1]</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="GenericFrame"></a>2.1.15 objectType: GenericFrame
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">GenericFrame</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">The generic coordinate frame is for cases where a domain-specific frame (e.g.: Space, Time), is not required, but the relevant
+            reference metadata is still needed (e.g.: for Redshift or Spectral data)
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#CoordFrame">CoordFrame [coords:CoordFrame]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="GenericFrame.refPosition"></a><b>refPosition</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#RefLocation">RefLocation [coords:RefLocation]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">GenericFrame.refPosition</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Spatial location in phase space (position and velocity) at which the observed value is considered to have been taken. This
+                        will typically be given by a standard reference position, but we allow for custom locations as well.
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="GenericFrame.planetaryEphem"></a><b>planetaryEphem</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">GenericFrame.planetaryEphem</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">A planetary ephemeris MAY be provided, and SHOULD be provided whenever appropriate, to indicate which solar system ephemeris
+                        was used.  If needed, but not provided, it is assumed to be "DE405"
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="GenericSys"></a>2.1.16 objectType: GenericSys
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">GenericSys</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Specialized coordinate system for generic, one-dimensional domains not covered by other, more concrete objects.  If a CoordSpace
+            is not provided, it is assumed to be represented by a Standard 1-Dimensional Coordinate Space as described in Appendix B.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#PhysicalCoordSys">PhysicalCoordSys [coords:PhysicalCoordSys]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">role constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="30%">Constrained Role</td>
+                      <td class="feature-heading" width="20%">Constraint Feature</td>
+                      <td class="feature-heading" width="50%">Constraint Value</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="feature-detail" valign="top"><a href="#PhysicalCoordSys.frame">frame [coords:PhysicalCoordSys.frame]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail"></td>
+                      <td class="feature-heading" valign="top">
+                        	  datatype
+                      </td>
+                      <td class="feature-detail"><a href="#GenericFrame">GenericFrame [coords:GenericFrame]</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="Handedness"></a>2.1.17 enumeration: Handedness
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="2">Handedness</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="2">The handedness of a coordinate space.  For most cases, this will be a fixed value in the specification of the coordinate space.
+          We provide this element to allow this flexibility when needed.  In this document, it is used in the Pixel domain.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="info-title" align="center">literals</td>
+      </tr>
+      <tr>
+        <td class="feature-heading" width="25%">name</td>
+        <td class="feature-heading" width="25%">feature</td>
+        <td class="feature-heading" width="50%">value</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="Handedness.left"></a>left
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">Handedness.left</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">positive x and y axes point right and up, the positive z axis points inward</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="Handedness.right"></a>right
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">Handedness.right</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">positive x and y axes point right and up, the positive z axis points outward</td>
+      </tr>
+    </table><br><h3><a name="ISOTime"></a>2.1.18 dataType: ISOTime
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">ISOTime</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Extension of TimeInstant for time expressed as a structured datetime string.
+            The string representation of a datetime value should follow the FITS convention for representing dates (Hanish and Farris
+            et al, 2001).  The FITS standard is effectively ISO8601 format without the 'Z' tag to indicate UTC:  YYYY-MM-DD['T'hh:mm:ss[.SSS]].
+            The TimeScale is provided in the associated TimeFrame.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#TimeInstant">TimeInstant [coords:TimeInstant]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="ISOTime.date"></a><b>date</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#datetime">datetime</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">ISOTime.date</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The ISOTime coordinate value.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="JD"></a>2.1.19 dataType: JD
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">JD</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Extension of TimeInstant for time expressed in Julian days.  Note that JD does not properly specify a time stamp unless it
+            is related to a time scale and reference position.  Precision can easily become an issue with JD, as the numbers tend to be
+            large.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#TimeInstant">TimeInstant [coords:TimeInstant]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="JD.date"></a><b>date</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">JD.date</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The JD coordinate value.  JD dates are dimensionless, with implied units in days.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="MJD"></a>2.1.20 dataType: MJD
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">MJD</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Extension of TimeInstant for time expressed in Modified Julian Days.  T(MJD) = T(JD) - 2400000.5.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#TimeInstant">TimeInstant [coords:TimeInstant]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="MJD.date"></a><b>date</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">MJD.date</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The MJD coordinate value.  MJD dates are dimensionless, with implied units in days.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PhysicalCoordSpace"></a>2.1.21 objectType: PhysicalCoordSpace
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PhysicalCoordSpace</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Abstract head of coordinate spaces related to physical properties.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#CoordSpace">CoordSpace [coords:CoordSpace]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">abstract</td>
+                      <td class="feature-detail" colspan="3">True</td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#CartesianCoordSpace">CartesianCoordSpace</a> <a href="#GenericCoordSpace">GenericCoordSpace</a> <a href="#SphericalCoordSpace">SphericalCoordSpace</a> 
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PhysicalCoordSys"></a>2.1.22 objectType: PhysicalCoordSys
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PhysicalCoordSys</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Coordinate system description for any physical domain, such as Time, Space, Redshift, Temperature, Flux, etc.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#CoordSys">CoordSys [coords:CoordSys]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">abstract</td>
+                      <td class="feature-detail" colspan="3">True</td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#GenericSys">GenericSys</a> <a href="#SpaceSys">SpaceSys</a> <a href="#TimeSys">TimeSys</a> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="PhysicalCoordSys.coordSpace"></a><b>coordSpace</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#PhysicalCoordSpace">PhysicalCoordSpace [coords:PhysicalCoordSpace]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhysicalCoordSys.coordSpace</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Description of the coordinate space occupied by the property.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="PhysicalCoordSys.frame"></a><b>frame</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#CoordFrame">CoordFrame [coords:CoordFrame]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhysicalCoordSys.frame</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PhysicalCoordinate"></a>2.1.23 dataType: PhysicalCoordinate
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PhysicalCoordinate</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">The most common type of coordinate value.  This type is appropriate for any data whose values can be described by an ivoa:Quantity
+            (numeric, with unit).
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#Coordinate">Coordinate [coords:Coordinate]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PhysicalCoordinate.cval"></a><b>cval</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#Quantity">Quantity</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PhysicalCoordinate.cval</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">This coordinate MUST contain a value expressed as an ivoa:Quantity.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PixelCoordSystem"></a>2.1.24 objectType: PixelCoordSystem
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PixelCoordSystem</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">The PixelCoordSystem provides a complete description of the pixel coordinate space.  It SHALL contain one PixelSpace instance
+            describing each pixel axis.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#CoordSys">CoordSys [coords:CoordSys]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="PixelCoordSystem.pixelSpace"></a><b>pixelSpace</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#PixelSpace">PixelSpace [coords:PixelSpace]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PixelCoordSystem.pixelSpace</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The pixel space completely defines the pixel coordinate axes.  Each axis MUST be defined as a BinnedAxis type.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PixelIndex"></a>2.1.25 dataType: PixelIndex
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PixelIndex</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Specialized BinnedCoordinate for the pixel domain for a 1-dimensional pixel index.  PixelIndex MUST refer to a PixelCoordSystem.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#BinnedCoordinate">BinnedCoordinate [coords:BinnedCoordinate]</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PixelSpace"></a>2.1.26 objectType: PixelSpace
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PixelSpace</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">A PixelSpace SHALL include one or more BinnedAxis objects describing the pixel coordinate space.  A handedness value MAY be
+            provided to specify the relative orientation of the axes.  
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#CoordSpace">CoordSpace [coords:CoordSpace]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PixelSpace.handedness"></a><b>handedness</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#Handedness">Handedness [coords:Handedness]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PixelSpace.handedness</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Specifies the handedness of the coordinate space.</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">role constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="30%">Constrained Role</td>
+                      <td class="feature-heading" width="20%">Constraint Feature</td>
+                      <td class="feature-heading" width="50%">Constraint Value</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="feature-detail" valign="top"><a href="#CoordSpace.axis">axis [coords:CoordSpace.axis]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail"></td>
+                      <td class="feature-heading" valign="top">
+                        	  datatype
+                      </td>
+                      <td class="feature-detail"><a href="#BinnedAxis">BinnedAxis [coords:BinnedAxis]</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="Point"></a>2.1.27 dataType: Point
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">Point</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Multi-dimensional spatial coordinate. The Point MUST refer to a spatial coordinate system (SpaceSys).  The coordinate values
+            map, in order, to the axes described by the associated CoordSpace.  Values for unused/undefined dimensions need not be provided.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#Coordinate">Coordinate [coords:Coordinate]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Point.axis1"></a><b>axis1</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#Quantity">Quantity</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Point.axis1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Coordinate value along the first axis of the associated coordinate space, expressed as an ivoa:Quantity.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Point.axis2"></a><b>axis2</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#Quantity">Quantity</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Point.axis2</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Coordinate value along the second axis of the associated coordinate space, expressed as an ivoa:Quantity.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Point.axis3"></a><b>axis3</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#Quantity">Quantity</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Point.axis3</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Coordinate value along the third axis of the associated coordinate space, expressed as an ivoa:Quantity.</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">role constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="30%">Constrained Role</td>
+                      <td class="feature-heading" width="20%">Constraint Feature</td>
+                      <td class="feature-heading" width="50%">Constraint Value</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="feature-detail" valign="top"><a href="#Coordinate.coordSys">coordSys [coords:Coordinate.coordSys]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail"></td>
+                      <td class="feature-heading" valign="top">
+                        	  datatype
+                      </td>
+                      <td class="feature-detail"><a href="#SpaceSys">SpaceSys [coords:SpaceSys]</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PolCoordinate"></a>2.1.28 dataType: PolCoordinate
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PolCoordinate</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Abstract head of the polarization coordinate types. Current use cases only require support for discrete polarization states,
+            however, we include this head class to facilitate extension for other types (eg: polarization fraction and angle).
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#Coordinate">Coordinate [coords:Coordinate]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">abstract</td>
+                      <td class="feature-detail" colspan="3">True</td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#PolState">PolState</a> 
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PolState"></a>2.1.29 dataType: PolState
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">PolState</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Coordinate type for discrete polarization states.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#PolCoordinate">PolCoordinate [coords:PolCoordinate]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="PolState.cval"></a><b>cval</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#PolStateEnum">PolStateEnum [coords:PolStateEnum]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">PolState.cval</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The coordinate value MUST be from the PolStateEnum enumerated set.
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="PolStateEnum"></a>2.1.30 enumeration: PolStateEnum
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="2">PolStateEnum</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="2">Polarization states: Stokes, Circular, Linear and Vector states
+          
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="info-title" align="center">literals</td>
+      </tr>
+      <tr>
+        <td class="feature-heading" width="25%">name</td>
+        <td class="feature-heading" width="25%">feature</td>
+        <td class="feature-heading" width="50%">value</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="PolStateEnum.I"></a>I
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">PolStateEnum.I</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="PolStateEnum.Q"></a>Q
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">PolStateEnum.Q</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="PolStateEnum.U"></a>U
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">PolStateEnum.U</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="PolStateEnum.V"></a>V
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">PolStateEnum.V</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="PolStateEnum.RR"></a>RR
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">PolStateEnum.RR</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="PolStateEnum.LL"></a>LL
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">PolStateEnum.LL</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="PolStateEnum.RL"></a>RL
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">PolStateEnum.RL</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="PolStateEnum.LR"></a>LR
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">PolStateEnum.LR</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="PolStateEnum.XX"></a>XX
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">PolStateEnum.XX</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="PolStateEnum.YY"></a>YY
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">PolStateEnum.YY</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="PolStateEnum.XY"></a>XY
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">PolStateEnum.XY</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="PolStateEnum.YX"></a>YX
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">PolStateEnum.YX</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="PolStateEnum.PF"></a>PF
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">PolStateEnum.PF</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="PolStateEnum.PP"></a>PP
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">PolStateEnum.PP</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="PolStateEnum.PA"></a>PA
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">PolStateEnum.PA</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+    </table><br><h3><a name="RefLocation"></a>2.1.31 dataType: RefLocation
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">RefLocation</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">RefLocation defines the origin of the spatial coordinate space.  This location is represented either by a standard reference
+            position (for which the absolute location in phase space is known by definition), or a specified point in another Spatial
+            frame.  This object is used as the origin of the SpaceFrame here, but also to specify the Spatial Reference Position (refPosition)
+            associated with other domain Frames.  For example, in the Time domain, the Spatial Reference Position indicates that the 'time'
+            values are the time that the 'event' occured at that location, which might be different from the detector location.  
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td class="info-title" width="20%">abstract</td>
+                      <td class="feature-detail" colspan="3">True</td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#CustomRefLocation">CustomRefLocation</a> <a href="#StdRefLocation">StdRefLocation</a> 
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="SpaceFrame"></a>2.1.32 objectType: SpaceFrame
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">SpaceFrame</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">A SpaceFrame is specified by its reference frame (orientation), and a reference position (origin). Currently only standard
+            reference frames are allowed. An equinox MUST be provided for pre-ICRS reference frames. A planetary ephemeris MAY be provided
+            if relevant. If needed, but not provided, it is assumed to be "DE405".
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#CoordFrame">CoordFrame [coords:CoordFrame]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="SpaceFrame.refPosition"></a><b>refPosition</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#RefLocation">RefLocation [coords:RefLocation]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">SpaceFrame.refPosition</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The spatial location at which the coordinates are considered to have been determined.  This model supports locations provided
+                        as either a standard reference position (e.g. GEOCENTER), or a coordinate specifying a custom location (e.g. long, lat, height
+                        ).
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="SpaceFrame.spaceRefFrame"></a><b>spaceRefFrame</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">semanticconcept</td>
+                      <td class="feature-detail">
+                        Semantic top concept:<br><a href="SpaceRefFrame" target="_blank">SpaceRefFrame</a><br>Vocabulary URI:<br><a href="http://www.ivoa.net/rdf/refframe" target="_blank">http://www.ivoa.net/rdf/refframe</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">SpaceFrame.spaceRefFrame</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The spatial reference frame. Values MUST be selected from the controlled vocabulary at the given URL.
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="SpaceFrame.equinox"></a><b>equinox</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#Epoch">Epoch [coords:Epoch]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">SpaceFrame.equinox</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Reference date for the frame, required for pre-ICRS reference frames.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="SpaceFrame.planetaryEphem"></a><b>planetaryEphem</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">SpaceFrame.planetaryEphem</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Ephemeris file for solar system objects SHOULD be specified whenever relevant.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="SpaceSys"></a>2.1.33 objectType: SpaceSys
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">SpaceSys</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Specialized coordinate system for the Spatial domain.  This object SHOULD include an appropriate SpaceFrame.  In Appendix
+            B, we define two standard spatial coordinate space instances (Spherical and Cartesian), which may be referenced in serializations.
+            If a CoordSpace is not provided, it is assumed to be represented by a Standard Spherical Coordinate Space.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#PhysicalCoordSys">PhysicalCoordSys [coords:PhysicalCoordSys]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">role constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="30%">Constrained Role</td>
+                      <td class="feature-heading" width="20%">Constraint Feature</td>
+                      <td class="feature-heading" width="50%">Constraint Value</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="feature-detail" valign="top"><a href="#PhysicalCoordSys.frame">frame [coords:PhysicalCoordSys.frame]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail"></td>
+                      <td class="feature-heading" valign="top">
+                        	  datatype
+                      </td>
+                      <td class="feature-detail"><a href="#SpaceFrame">SpaceFrame [coords:SpaceFrame]</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="SphericalCoordSpace"></a>2.1.34 objectType: SphericalCoordSpace
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">SphericalCoordSpace</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Spatial domain, three-dimensional spherical coordinate space.  The particulars of the axis descriptions depend on the flavor
+            of space being instantiated.  In Appendix B., we provide a Standard Spherical Coordinate Space instance which applies to many
+            Astronomical use cases.  It provides the default space for SpaceSys instances, and may be referenced in serializations.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#PhysicalCoordSpace">PhysicalCoordSpace [coords:PhysicalCoordSpace]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" colspan="3">axis[3]</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">role constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="30%">Constrained Role</td>
+                      <td class="feature-heading" width="20%">Constraint Feature</td>
+                      <td class="feature-heading" width="50%">Constraint Value</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="feature-detail" valign="top"><a href="#CoordSpace.axis">axis [coords:CoordSpace.axis]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail"></td>
+                      <td class="feature-heading" valign="top">
+                        	  datatype
+                      </td>
+                      <td class="feature-detail"><a href="#ContinuousAxis">ContinuousAxis [coords:ContinuousAxis]</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="StdRefLocation"></a>2.1.35 dataType: StdRefLocation
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">StdRefLocation</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">An absolute a-priori known location in phase space (position and velocity).  Values are selected from the StdRefPosition vocabulary.
+            Considering that the GEOCENTER is really the only place for which we know the absolute location at all times, all other locations
+            require the specification of a planetary ephemeris.  LSR[KD] are reserved for spectral and reshift frames.  TOPOCENTER (location
+            of the observer) is special in that it assumes that the observing location is available through other means (e.g. a geographic
+            location or an orbit ephemeris).  RELOCATABLE is available for simulations.  UNKNOWN should only be used if absolutely necessary.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#RefLocation">RefLocation [coords:RefLocation]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="StdRefLocation.position"></a><b>position</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">semanticconcept</td>
+                      <td class="feature-detail">
+                        Semantic top concept:<br><a href="ReferencePosition" target="_blank">ReferencePosition</a><br>Vocabulary URI:<br><a href="http://www.ivoa.net/rdf/refposition" target="_blank">http://www.ivoa.net/rdf/refposition</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">StdRefLocation.position</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Standard reference location.  Values MUST be selected from the controlled vocabulary at the given URL. </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="TimeFrame"></a>2.1.36 objectType: TimeFrame
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">TimeFrame</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">A TimeFrame SHALL include a time scale and reference position.  It MAY also include a reference direction.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#CoordFrame">CoordFrame [coords:CoordFrame]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="TimeFrame.refPosition"></a><b>refPosition</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#RefLocation">RefLocation [coords:RefLocation]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">TimeFrame.refPosition</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The spatial location at which the coordinate is considered to have been taken.  This model supports locations provided as
+                        either a standard reference position (e.g. GEOCENTER), or a coordinate specifying a custom location (e.g. long, lat, height).
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="TimeFrame.timescale"></a><b>timescale</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">semanticconcept</td>
+                      <td class="feature-detail">
+                        Semantic top concept:<br><a href="TimeScale" target="_blank">TimeScale</a><br>Vocabulary URI:<br><a href="http://www.ivoa.net/rdf/timescale" target="_blank">http://www.ivoa.net/rdf/timescale</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">TimeFrame.timescale</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The time scale sets the reference frame.  The value MUST be selected from the controlled vocabulary at the given URL.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="TimeFrame.refDirection"></a><b>refDirection</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#RefLocation">RefLocation [coords:RefLocation]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">TimeFrame.refDirection</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The reference direction is needed if the time stamps are transformed to a time frame with a different reference position.
+                        In those situations, the solar system ephemeris also comes into play.  See: FITS WCS Paper IV for details, but in short: 
+                        The reference direction, presumably the direction to the thing being observed, is used in conjunction with the reference position
+                        and planetary ephemeris to determine the correction applied for the path length change.  To be fully useful, one also needs
+                        to know the location at which the observation was made ( i.e. the observatory location), which is not considered to be Frame
+                        metadata.
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="TimeInstant"></a>2.1.37 dataType: TimeInstant
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">TimeInstant</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">TimeStamps which specify a specific instant in time.  We define three subtypes (ISOTime, JD, MJD), which allow users to explicitly
+            identify the representation and interpretation of the TimeInstant.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#TimeStamp">TimeStamp [coords:TimeStamp]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">abstract</td>
+                      <td class="feature-detail" colspan="3">True</td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#ISOTime">ISOTime</a> <a href="#JD">JD</a> <a href="#MJD">MJD</a> 
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="TimeOffset"></a>2.1.38 dataType: TimeOffset
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">TimeOffset</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Time is given as an offset from a specific point in time (time0).</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#TimeStamp">TimeStamp [coords:TimeStamp]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="TimeOffset.time"></a><b>time</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#RealQuantity">RealQuantity</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">TimeOffset.time</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The TimeOffset coordinate value.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="TimeOffset.time0"></a><b>time0</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#TimeInstant">TimeInstant [coords:TimeInstant]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">TimeOffset.time0</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">The reference time from which the offset is calculated.  This MUST be given as a TimeInstant (e.g.: JD, MJD, ISOTime).</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="TimeStamp"></a>2.1.39 dataType: TimeStamp
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">TimeStamp</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">This is the abstract basis for a set of simple time domain coordinates which are expected to accommodate the vast majority
+            of use cases. All TimeStamps, by definition, exist in a standard 1-D coordinate space, with domainMin|Max of +/-Infinity.
+            All TimeStamps MUST refer to an appropriate TimeSys.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#Coordinate">Coordinate [coords:Coordinate]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">abstract</td>
+                      <td class="feature-detail" colspan="3">True</td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#TimeInstant">TimeInstant</a> <a href="#TimeOffset">TimeOffset</a> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">role constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="30%">Constrained Role</td>
+                      <td class="feature-heading" width="20%">Constraint Feature</td>
+                      <td class="feature-heading" width="50%">Constraint Value</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="feature-detail" valign="top"><a href="#Coordinate.coordSys">coordSys [coords:Coordinate.coordSys]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail"></td>
+                      <td class="feature-heading" valign="top">
+                        	  datatype
+                      </td>
+                      <td class="feature-detail"><a href="#TimeSys">TimeSys [coords:TimeSys]</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="TimeSys"></a>2.1.40 objectType: TimeSys
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">TimeSys</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Specialized coordinate system for the Temporal domain.  This object SHOULD include an appropriate TimeFrame.  If a CoordSpace
+            is not provided, it is assumed to be represented by a Standard 1-Dimensional Coordinate Space as described in Appendix B.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#PhysicalCoordSys">PhysicalCoordSys [coords:PhysicalCoordSys]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">role constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="30%">Constrained Role</td>
+                      <td class="feature-heading" width="20%">Constraint Feature</td>
+                      <td class="feature-heading" width="50%">Constraint Value</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="feature-detail" valign="top"><a href="#PhysicalCoordSys.frame">frame [coords:PhysicalCoordSys.frame]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail"></td>
+                      <td class="feature-heading" valign="top">
+                        	  datatype
+                      </td>
+                      <td class="feature-detail"><a href="#TimeFrame">TimeFrame [coords:TimeFrame]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="feature-detail" valign="top"><a href="#PhysicalCoordSys.coordSpace">coordSpace [coords:PhysicalCoordSys.coordSpace]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail"></td>
+                      <td class="feature-heading" valign="top">
+                        	  datatype
+                      </td>
+                      <td class="feature-detail"><a href="#GenericCoordSpace">GenericCoordSpace [coords:GenericCoordSpace]</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><hr>
+    <h1>3.<a name="vodml-ids">Element Identifiers/VO-DMLrefs</a></h1>  
+    The following table shows all fully qualified vodml-ids for this data model.
+    It is ordered alphabetically and the identifiers are hyper-linked to the location
+    in the document where the actual element is fully defined.
+    
+    
+    <table style="border-style:solid;border-width:1px;" border="1" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-heading">feature type</td>
+        <td class="feature-heading">description</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#"></a></td>
+        <td class="feature-detail">vo-dml:model</td>
+        <td class="feature-detail">This model defines objects which describe the coordinate space, coordinates within that space, and frames, which provide additional
+          metadata regarding the origin, orientation, etc, of the coordinate space. The model also defines a coordinate system, bundling
+          frames into associated groups.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#AstroCoordSystem">AstroCoordSystem</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">The AstroCoordSystem object holds a collection of component coordinate system descriptions across all represented physical
+          domains.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#AstroCoordSystem.coordSys">AstroCoordSystem.coordSys</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">Coordinate system description for each physical domain (Space, Time, etc).</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Axis">Axis</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">The abstract parent class for all coordinate axis types.  We provide concrete classes for the most common types of data, Continuous,
+          Binned, and Discrete, but allow extension for other types as needed.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Axis.name">Axis.name</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Freeform string, provides the name or label for the axis.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#BinnedAxis">BinnedAxis</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Axis description for binned data, where values along the axis correspond to a bin number.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#BinnedAxis.length">BinnedAxis.length</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">  The length, or number of bins, along the axis.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#BinnedCoordinate">BinnedCoordinate</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">Coordinate value type specifically intended for binned data (e.g.: pixel indexes).
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#BinnedCoordinate.cval">BinnedCoordinate.cval</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">The binned coordinate value, expressed as an integer.  e.g.: bin number, pixel index.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#CartesianCoordSpace">CartesianCoordSpace</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Spatial domain, three-dimensional cartesian coordinate space.  The particulars of the axis descriptions depend on the physical
+          constraints of the instance.  In Appendix B, we provide the description of a Standard Cartesian Coordinate Space instance
+          which applies to many Astronomical cases, and may be referenced in serializations.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ContinuousAxis">ContinuousAxis</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Axis description for continuous data.  This object describes the domain for a particular axis of the domain space.  It allows
+          for the specification of the legal domain range (min,max), and a flag indicating if the axis is cyclic.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ContinuousAxis.cyclic">ContinuousAxis.cyclic</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Flag indicating if the axis is cyclic in nature.  If not provided, it is assumed to be FALSE.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ContinuousAxis.domainMax">ContinuousAxis.domainMax</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Maximum extent of the axis domain space.  If not provided, the domain space is considered to have no upper bound (+INFINITY).</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ContinuousAxis.domainMin">ContinuousAxis.domainMin</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Minimum extent of the axis domain space.  If not provided, the domain space is considered to have no lower bound (-INFINITY).</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#CoordFrame">CoordFrame</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">This is the abstract, empty, base class for all coordinate frames.  Coordinate frames provide metadata associated with the
+          coordinate domain space.  Typically, this will be related to the origin and orientation of the axes, but might include any
+          metadata which pertains to the definition of the domain.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#CoordSpace">CoordSpace</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">This object defines a domain space.  i.e.: it describes the set of possible coordinate values.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#CoordSpace.axis">CoordSpace.axis</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">Describes an axis of the coordinate space.  </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#CoordSys">CoordSys</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Abstract head of the coordinate system object tree.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Coordinate">Coordinate</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">Abstract base class for the Coordinate data types which represent an absolute location within a coordinate space. Coordinates
+          MUST refer to a coordinate system, providing additional metadata relevant to interpreting the coordinate value, and its representation.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Coordinate.coordSys">Coordinate.coordSys</a></td>
+        <td class="feature-detail">reference</td>
+        <td class="feature-detail">Provided additional metadata relevant to interpreting the coordinate value; for example, the spatial reference position, or
+          time scale, axis descriptions.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#CustomRefLocation">CustomRefLocation</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">A custom reference location in phase space (position and velocity).  Position and velocity are given as coordinates with an
+          associated SpaceFrame.  An epoch MAY be provided to further refine the location.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#CustomRefLocation.epoch">CustomRefLocation.epoch</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Epoch for the reference location.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#CustomRefLocation.position">CustomRefLocation.position</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">The spatial coordinates of the reference location.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#CustomRefLocation.velocity">CustomRefLocation.velocity</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">The velocity of the reference location.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#DiscreteSetAxis">DiscreteSetAxis</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Axis type specifically intended for enumerated coordinates.  Since the content and nature of this axis type is heavily dependent
+          on the use case, we define no additional metadata here.  Extensions of this type may include additional metadata relevant
+          to the particular use cases.  For example, an extension could include the allowed set of values.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Epoch">Epoch</a></td>
+        <td class="feature-detail">primitiveType</td>
+        <td class="feature-detail">We define epoch as a primitive data type with the expected form "&lt;type&gt;&lt;year&gt;" where type = "J" or "B" for Julian or Besselian
+          respectively, and year is expressed as a decimal year.  e.g.: "B1950", "J2000.0"
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#GenericCoordSpace">GenericCoordSpace</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Generic, one-dimensional coordinate space suitable for use with most non-spatial properties.  In Appendix B, we provide the
+          description of a Standard 1D Coordinate Space instance which may be referenced in serializations.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#GenericFrame">GenericFrame</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">The generic coordinate frame is for cases where a domain-specific frame (e.g.: Space, Time), is not required, but the relevant
+          reference metadata is still needed (e.g.: for Redshift or Spectral data)
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#GenericFrame.planetaryEphem">GenericFrame.planetaryEphem</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">A planetary ephemeris MAY be provided, and SHOULD be provided whenever appropriate, to indicate which solar system ephemeris
+          was used.  If needed, but not provided, it is assumed to be "DE405"
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#GenericFrame.refPosition">GenericFrame.refPosition</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Spatial location in phase space (position and velocity) at which the observed value is considered to have been taken. This
+          will typically be given by a standard reference position, but we allow for custom locations as well.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#GenericSys">GenericSys</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Specialized coordinate system for generic, one-dimensional domains not covered by other, more concrete objects.  If a CoordSpace
+          is not provided, it is assumed to be represented by a Standard 1-Dimensional Coordinate Space as described in Appendix B.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Handedness">Handedness</a></td>
+        <td class="feature-detail">enumeration</td>
+        <td class="feature-detail">The handedness of a coordinate space.  For most cases, this will be a fixed value in the specification of the coordinate space.
+          We provide this element to allow this flexibility when needed.  In this document, it is used in the Pixel domain.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Handedness.left">Handedness.left</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">positive x and y axes point right and up, the positive z axis points inward</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Handedness.right">Handedness.right</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">positive x and y axes point right and up, the positive z axis points outward</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ISOTime">ISOTime</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">Extension of TimeInstant for time expressed as a structured datetime string.
+          The string representation of a datetime value should follow the FITS convention for representing dates (Hanish and Farris
+          et al, 2001).  The FITS standard is effectively ISO8601 format without the 'Z' tag to indicate UTC:  YYYY-MM-DD['T'hh:mm:ss[.SSS]].
+          The TimeScale is provided in the associated TimeFrame.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ISOTime.date">ISOTime.date</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">The ISOTime coordinate value.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#JD">JD</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">Extension of TimeInstant for time expressed in Julian days.  Note that JD does not properly specify a time stamp unless it
+          is related to a time scale and reference position.  Precision can easily become an issue with JD, as the numbers tend to be
+          large.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#JD.date">JD.date</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">The JD coordinate value.  JD dates are dimensionless, with implied units in days.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#MJD">MJD</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">Extension of TimeInstant for time expressed in Modified Julian Days.  T(MJD) = T(JD) - 2400000.5.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#MJD.date">MJD.date</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">The MJD coordinate value.  MJD dates are dimensionless, with implied units in days.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhysicalCoordSpace">PhysicalCoordSpace</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Abstract head of coordinate spaces related to physical properties.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhysicalCoordSys">PhysicalCoordSys</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Coordinate system description for any physical domain, such as Time, Space, Redshift, Temperature, Flux, etc.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhysicalCoordSys.coordSpace">PhysicalCoordSys.coordSpace</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">Description of the coordinate space occupied by the property.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhysicalCoordSys.frame">PhysicalCoordSys.frame</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhysicalCoordinate">PhysicalCoordinate</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">The most common type of coordinate value.  This type is appropriate for any data whose values can be described by an ivoa:Quantity
+          (numeric, with unit).
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PhysicalCoordinate.cval">PhysicalCoordinate.cval</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">This coordinate MUST contain a value expressed as an ivoa:Quantity.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PixelCoordSystem">PixelCoordSystem</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">The PixelCoordSystem provides a complete description of the pixel coordinate space.  It SHALL contain one PixelSpace instance
+          describing each pixel axis.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PixelCoordSystem.pixelSpace">PixelCoordSystem.pixelSpace</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">The pixel space completely defines the pixel coordinate axes.  Each axis MUST be defined as a BinnedAxis type.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PixelIndex">PixelIndex</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">Specialized BinnedCoordinate for the pixel domain for a 1-dimensional pixel index.  PixelIndex MUST refer to a PixelCoordSystem.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PixelSpace">PixelSpace</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">A PixelSpace SHALL include one or more BinnedAxis objects describing the pixel coordinate space.  A handedness value MAY be
+          provided to specify the relative orientation of the axes.  
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PixelSpace.handedness">PixelSpace.handedness</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Specifies the handedness of the coordinate space.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Point">Point</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">Multi-dimensional spatial coordinate. The Point MUST refer to a spatial coordinate system (SpaceSys).  The coordinate values
+          map, in order, to the axes described by the associated CoordSpace.  Values for unused/undefined dimensions need not be provided.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Point.axis1">Point.axis1</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Coordinate value along the first axis of the associated coordinate space, expressed as an ivoa:Quantity.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Point.axis2">Point.axis2</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Coordinate value along the second axis of the associated coordinate space, expressed as an ivoa:Quantity.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Point.axis3">Point.axis3</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Coordinate value along the third axis of the associated coordinate space, expressed as an ivoa:Quantity.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolCoordinate">PolCoordinate</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">Abstract head of the polarization coordinate types. Current use cases only require support for discrete polarization states,
+          however, we include this head class to facilitate extension for other types (eg: polarization fraction and angle).
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolState">PolState</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">Coordinate type for discrete polarization states.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolState.cval">PolState.cval</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">The coordinate value MUST be from the PolStateEnum enumerated set.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolStateEnum">PolStateEnum</a></td>
+        <td class="feature-detail">enumeration</td>
+        <td class="feature-detail">Polarization states: Stokes, Circular, Linear and Vector states
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolStateEnum.I">PolStateEnum.I</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolStateEnum.LL">PolStateEnum.LL</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolStateEnum.LR">PolStateEnum.LR</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolStateEnum.PA">PolStateEnum.PA</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolStateEnum.PF">PolStateEnum.PF</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolStateEnum.PP">PolStateEnum.PP</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolStateEnum.Q">PolStateEnum.Q</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolStateEnum.RL">PolStateEnum.RL</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolStateEnum.RR">PolStateEnum.RR</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolStateEnum.U">PolStateEnum.U</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolStateEnum.V">PolStateEnum.V</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolStateEnum.XX">PolStateEnum.XX</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolStateEnum.XY">PolStateEnum.XY</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolStateEnum.YX">PolStateEnum.YX</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#PolStateEnum.YY">PolStateEnum.YY</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#RefLocation">RefLocation</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">RefLocation defines the origin of the spatial coordinate space.  This location is represented either by a standard reference
+          position (for which the absolute location in phase space is known by definition), or a specified point in another Spatial
+          frame.  This object is used as the origin of the SpaceFrame here, but also to specify the Spatial Reference Position (refPosition)
+          associated with other domain Frames.  For example, in the Time domain, the Spatial Reference Position indicates that the 'time'
+          values are the time that the 'event' occured at that location, which might be different from the detector location.  
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#SpaceFrame">SpaceFrame</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">A SpaceFrame is specified by its reference frame (orientation), and a reference position (origin). Currently only standard
+          reference frames are allowed. An equinox MUST be provided for pre-ICRS reference frames. A planetary ephemeris MAY be provided
+          if relevant. If needed, but not provided, it is assumed to be "DE405".
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#SpaceFrame.equinox">SpaceFrame.equinox</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Reference date for the frame, required for pre-ICRS reference frames.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#SpaceFrame.planetaryEphem">SpaceFrame.planetaryEphem</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Ephemeris file for solar system objects SHOULD be specified whenever relevant.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#SpaceFrame.refPosition">SpaceFrame.refPosition</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">The spatial location at which the coordinates are considered to have been determined.  This model supports locations provided
+          as either a standard reference position (e.g. GEOCENTER), or a coordinate specifying a custom location (e.g. long, lat, height
+          ).
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#SpaceFrame.spaceRefFrame">SpaceFrame.spaceRefFrame</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">The spatial reference frame. Values MUST be selected from the controlled vocabulary at the given URL.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#SpaceSys">SpaceSys</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Specialized coordinate system for the Spatial domain.  This object SHOULD include an appropriate SpaceFrame.  In Appendix
+          B, we define two standard spatial coordinate space instances (Spherical and Cartesian), which may be referenced in serializations.
+          If a CoordSpace is not provided, it is assumed to be represented by a Standard Spherical Coordinate Space.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#SphericalCoordSpace">SphericalCoordSpace</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Spatial domain, three-dimensional spherical coordinate space.  The particulars of the axis descriptions depend on the flavor
+          of space being instantiated.  In Appendix B., we provide a Standard Spherical Coordinate Space instance which applies to many
+          Astronomical use cases.  It provides the default space for SpaceSys instances, and may be referenced in serializations.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#StdRefLocation">StdRefLocation</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">An absolute a-priori known location in phase space (position and velocity).  Values are selected from the StdRefPosition vocabulary.
+          Considering that the GEOCENTER is really the only place for which we know the absolute location at all times, all other locations
+          require the specification of a planetary ephemeris.  LSR[KD] are reserved for spectral and reshift frames.  TOPOCENTER (location
+          of the observer) is special in that it assumes that the observing location is available through other means (e.g. a geographic
+          location or an orbit ephemeris).  RELOCATABLE is available for simulations.  UNKNOWN should only be used if absolutely necessary.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#StdRefLocation.position">StdRefLocation.position</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Standard reference location.  Values MUST be selected from the controlled vocabulary at the given URL. </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TimeFrame">TimeFrame</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">A TimeFrame SHALL include a time scale and reference position.  It MAY also include a reference direction.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TimeFrame.refDirection">TimeFrame.refDirection</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">The reference direction is needed if the time stamps are transformed to a time frame with a different reference position.
+          In those situations, the solar system ephemeris also comes into play.  See: FITS WCS Paper IV for details, but in short: 
+          The reference direction, presumably the direction to the thing being observed, is used in conjunction with the reference position
+          and planetary ephemeris to determine the correction applied for the path length change.  To be fully useful, one also needs
+          to know the location at which the observation was made ( i.e. the observatory location), which is not considered to be Frame
+          metadata.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TimeFrame.refPosition">TimeFrame.refPosition</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">The spatial location at which the coordinate is considered to have been taken.  This model supports locations provided as
+          either a standard reference position (e.g. GEOCENTER), or a coordinate specifying a custom location (e.g. long, lat, height).
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TimeFrame.timescale">TimeFrame.timescale</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">The time scale sets the reference frame.  The value MUST be selected from the controlled vocabulary at the given URL.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TimeInstant">TimeInstant</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">TimeStamps which specify a specific instant in time.  We define three subtypes (ISOTime, JD, MJD), which allow users to explicitly
+          identify the representation and interpretation of the TimeInstant.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TimeOffset">TimeOffset</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">Time is given as an offset from a specific point in time (time0).</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TimeOffset.time">TimeOffset.time</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">The TimeOffset coordinate value.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TimeOffset.time0">TimeOffset.time0</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">The reference time from which the offset is calculated.  This MUST be given as a TimeInstant (e.g.: JD, MJD, ISOTime).</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TimeStamp">TimeStamp</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">This is the abstract basis for a set of simple time domain coordinates which are expected to accommodate the vast majority
+          of use cases. All TimeStamps, by definition, exist in a standard 1-D coordinate space, with domainMin|Max of +/-Infinity.
+          All TimeStamps MUST refer to an appropriate TimeSys.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#TimeSys">TimeSys</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Specialized coordinate system for the Temporal domain.  This object SHOULD include an appropriate TimeFrame.  If a CoordSpace
+          is not provided, it is assumed to be represented by a Standard 1-Dimensional Coordinate Space as described in Appendix B.
+        </td>
+      </tr>
+    </table>
+    <hr>
+    <h1>4.<a name="modelimports">Imported Models</a></h1>
+    <p>This section lists the external models imported by the current data model.
+      For each imported model we list URLs to the VO-DML and HTML representations and the prefix used for vodml-ids from inside
+      the model.
+    </p>
+    <h2><a name="ivoa"></a>4.1 ivoa
+    </h2>
+    <table border="1" cellspacing="2" width="100%">
+      <tr>
+        <td class="objecttype-title" width="20%">Model vodml-id</td>
+        <td class="objecttype-name">ivoa</td>
+      </tr>
+      <tr>
+        <td width="30%" class="info-title">url</td>
+        <td><a href="http://www.ivoa.net/xml/VODML/20180519/IVOA-v1.0.vo-dml.xml">http://www.ivoa.net/xml/VODML/20180519/IVOA-v1.0.vo-dml.xml</a></td>
+      </tr>
+      <tr>
+        <td width="30%" class="info-title">documentation url</td>
+        <td><a href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html">http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html</a></td>
+      </tr>
+    </table>
+  </body>
+</html>

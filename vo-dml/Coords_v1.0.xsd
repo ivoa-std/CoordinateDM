@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:vo-dml="http://www.ivoa.net/xml/VODML/v1"
+            xmlns:vodml-base="http://www.ivoa.net/xml/vo-dml/xsd/base/v0.1"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:coords="http://ivoa.net/dm/models/vo-dml/xsd/coords"
+            xmlns:ivoa="http://ivoa.net/dm/models/vo-dml/xsd/ivoa"
+            targetNamespace="http://ivoa.net/dm/models/vo-dml/xsd/coords">
+   <xsd:import namespace="http://www.ivoa.net/xml/vo-dml/xsd/base/v0.1"
+               schemaLocation="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/xsd/vodml-base.xsd"/>
+   <xsd:import namespace="http://ivoa.net/dm/models/vo-dml/xsd/ivoa"
+               schemaLocation="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA.xsd"/>
+   <xsd:complexType name="CoordSpace" abstract="true">
+      <xsd:annotation>
+         <xsd:documentation>This object defines a domain space.  i.e.: it describes the set of possible coordinate values.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:CoordSpace</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="vodml-base:VODMLObject">
+            <xsd:sequence>
+               <xsd:element name="axis" type="coords:Axis" minOccurs="1" maxOccurs="unbounded"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="Axis" abstract="true">
+      <xsd:annotation>
+         <xsd:documentation>The abstract parent class for all coordinate axis types.  We provide concrete classes for the most common types of data, Continuous, Binned, and Discrete, but allow extension for other types as needed.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:Axis</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="vodml-base:VODMLObject">
+            <xsd:sequence>
+               <xsd:element name="name" type="xsd:string" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>Freeform string, provides the name or label for the axis.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:Axis.name</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="ContinuousAxis">
+      <xsd:annotation>
+         <xsd:documentation>Axis description for continuous data.  This object describes the domain for a particular axis of the domain space.  It allows for the specification of the legal domain range (min,max), and a flag indicating if the axis is cyclic.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:ContinuousAxis</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:Axis">
+            <xsd:sequence>
+               <xsd:element name="domainMin" type="ivoa:Quantity" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>Minimum extent of the axis domain space.  If not provided, the domain space is considered to have no lower bound (-INFINITY).</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:ContinuousAxis.domainMin</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="domainMax" type="ivoa:Quantity" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>Maximum extent of the axis domain space.  If not provided, the domain space is considered to have no upper bound (+INFINITY).</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:ContinuousAxis.domainMax</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="cyclic" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>Flag indicating if the axis is cyclic in nature.  If not provided, it is assumed to be FALSE.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:ContinuousAxis.cyclic</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="BinnedAxis">
+      <xsd:annotation>
+         <xsd:documentation>Axis description for binned data, where values along the axis correspond to a bin number.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:BinnedAxis</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:Axis">
+            <xsd:sequence>
+               <xsd:element name="length" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>  The length, or number of bins, along the axis.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:BinnedAxis.length</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="DiscreteSetAxis">
+      <xsd:annotation>
+         <xsd:documentation>Axis type specifically intended for enumerated coordinates.  Since the content and nature of this axis type is heavily dependent on the use case, we define no additional metadata here.  Extensions of this type may include additional metadata relevant to the particular use cases.  For example, an extension could include the allowed set of values.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:DiscreteSetAxis</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:Axis"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="CoordFrame" abstract="true">
+      <xsd:annotation>
+         <xsd:documentation>This is the abstract, empty, base class for all coordinate frames.  Coordinate frames provide metadata associated with the coordinate domain space.  Typically, this will be related to the origin and orientation of the axes, but might include any metadata which pertains to the definition of the domain.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:CoordFrame</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="vodml-base:VODMLObject"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="GenericFrame">
+      <xsd:annotation>
+         <xsd:documentation>The generic coordinate frame is for cases where a domain-specific frame (e.g.: Space, Time), is not required, but the relevant reference metadata is still needed (e.g.: for Redshift or Spectral data)</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:GenericFrame</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:CoordFrame">
+            <xsd:sequence>
+               <xsd:element name="refPosition" type="coords:RefLocation" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>Spatial location in phase space (position and velocity) at which the observed value is considered to have been taken. This will typically be given by a standard reference position, but we allow for custom locations as well.
+</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:GenericFrame.refPosition</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="planetaryEphem" type="xsd:string" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>A planetary ephemeris MAY be provided, and SHOULD be provided whenever appropriate, to indicate which solar system ephemeris was used.  If needed, but not provided, it is assumed to be "DE405"</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:GenericFrame.planetaryEphem</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="SpaceFrame">
+      <xsd:annotation>
+         <xsd:documentation>A SpaceFrame is specified by its reference frame (orientation), and a reference position (origin). Currently only standard reference frames are allowed. An equinox MUST be provided for pre-ICRS reference frames. A planetary ephemeris MAY be provided if relevant. If needed, but not provided, it is assumed to be "DE405".
+</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:SpaceFrame</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:CoordFrame">
+            <xsd:sequence>
+               <xsd:element name="refPosition" type="coords:RefLocation" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The spatial location at which the coordinates are considered to have been determined.  This model supports locations provided as either a standard reference position (e.g. GEOCENTER), or a coordinate specifying a custom location (e.g. long, lat, height ).</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:SpaceFrame.refPosition</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="spaceRefFrame" type="xsd:string" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The spatial reference frame. Values MUST be selected from the controlled vocabulary at the given URL.
+</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:SpaceFrame.spaceRefFrame</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="equinox" type="coords:Epoch" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>Reference date for the frame, required for pre-ICRS reference frames.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:SpaceFrame.equinox</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="planetaryEphem" type="xsd:string" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>Ephemeris file for solar system objects SHOULD be specified whenever relevant.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:SpaceFrame.planetaryEphem</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="TimeFrame">
+      <xsd:annotation>
+         <xsd:documentation>A TimeFrame SHALL include a time scale and reference position.  It MAY also include a reference direction.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:TimeFrame</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:CoordFrame">
+            <xsd:sequence>
+               <xsd:element name="refPosition" type="coords:RefLocation" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The spatial location at which the coordinate is considered to have been taken.  This model supports locations provided as either a standard reference position (e.g. GEOCENTER), or a coordinate specifying a custom location (e.g. long, lat, height).</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:TimeFrame.refPosition</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="timescale" type="xsd:string" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The time scale sets the reference frame.  The value MUST be selected from the controlled vocabulary at the given URL.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:TimeFrame.timescale</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="refDirection" type="coords:RefLocation" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The reference direction is needed if the time stamps are transformed to a time frame with a different reference position.  In those situations, the solar system ephemeris also comes into play.  See: FITS WCS Paper IV for details, but in short:  The reference direction, presumably the direction to the thing being observed, is used in conjunction with the reference position and planetary ephemeris to determine the correction applied for the path length change.  To be fully useful, one also needs to know the location at which the observation was made ( i.e. the observatory location), which is not considered to be Frame metadata.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:TimeFrame.refDirection</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="AstroCoordSystem">
+      <xsd:annotation>
+         <xsd:documentation>The AstroCoordSystem object holds a collection of component coordinate system descriptions across all represented physical domains.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:AstroCoordSystem</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:CoordSys">
+            <xsd:sequence>
+               <xsd:element name="coordSys" type="coords:PhysicalCoordSys" minOccurs="1"
+                            maxOccurs="unbounded"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="PixelCoordSystem">
+      <xsd:annotation>
+         <xsd:documentation>The PixelCoordSystem provides a complete description of the pixel coordinate space.  It SHALL contain one PixelSpace instance describing each pixel axis.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:PixelCoordSystem</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:CoordSys">
+            <xsd:sequence>
+               <xsd:element name="pixelSpace" type="coords:PixelSpace" minOccurs="1" maxOccurs="1"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="PixelSpace">
+      <xsd:annotation>
+         <xsd:documentation>A PixelSpace SHALL include one or more BinnedAxis objects describing the pixel coordinate space.  A handedness value MAY be provided to specify the relative orientation of the axes.  </xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:PixelSpace</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:CoordSpace">
+            <xsd:sequence>
+               <xsd:element name="handedness" type="coords:Handedness" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>Specifies the handedness of the coordinate space.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:PixelSpace.handedness</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="CoordSys" abstract="true">
+      <xsd:annotation>
+         <xsd:documentation>Abstract head of the coordinate system object tree.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:CoordSys</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="vodml-base:VODMLObject"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="PhysicalCoordSys" abstract="true">
+      <xsd:annotation>
+         <xsd:documentation>Coordinate system description for any physical domain, such as Time, Space, Redshift, Temperature, Flux, etc.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:PhysicalCoordSys</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:CoordSys">
+            <xsd:sequence>
+               <xsd:element name="coordSpace" type="coords:PhysicalCoordSpace" minOccurs="0" maxOccurs="1"/>
+               <xsd:element name="frame" type="coords:CoordFrame" minOccurs="0" maxOccurs="1"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="GenericSys">
+      <xsd:annotation>
+         <xsd:documentation>Specialized coordinate system for generic, one-dimensional domains not covered by other, more concrete objects.  If a CoordSpace is not provided, it is assumed to be represented by a Standard 1-Dimensional Coordinate Space as described in Appendix B.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:GenericSys</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:PhysicalCoordSys"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="SpaceSys">
+      <xsd:annotation>
+         <xsd:documentation>Specialized coordinate system for the Spatial domain.  This object SHOULD include an appropriate SpaceFrame.  In Appendix B, we define two standard spatial coordinate space instances (Spherical and Cartesian), which may be referenced in serializations.  If a CoordSpace is not provided, it is assumed to be represented by a Standard Spherical Coordinate Space.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:SpaceSys</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:PhysicalCoordSys"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="TimeSys">
+      <xsd:annotation>
+         <xsd:documentation>Specialized coordinate system for the Temporal domain.  This object SHOULD include an appropriate TimeFrame.  If a CoordSpace is not provided, it is assumed to be represented by a Standard 1-Dimensional Coordinate Space as described in Appendix B.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:TimeSys</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:PhysicalCoordSys"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="PhysicalCoordSpace" abstract="true">
+      <xsd:annotation>
+         <xsd:documentation>Abstract head of coordinate spaces related to physical properties.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:PhysicalCoordSpace</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:CoordSpace"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="GenericCoordSpace">
+      <xsd:annotation>
+         <xsd:documentation>Generic, one-dimensional coordinate space suitable for use with most non-spatial properties.  In Appendix B, we provide the description of a Standard 1D Coordinate Space instance which may be referenced in serializations.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:GenericCoordSpace</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:PhysicalCoordSpace"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="SphericalCoordSpace">
+      <xsd:annotation>
+         <xsd:documentation>Spatial domain, three-dimensional spherical coordinate space.  The particulars of the axis descriptions depend on the flavor of space being instantiated.  In Appendix B., we provide a Standard Spherical Coordinate Space instance which applies to many Astronomical use cases.  It provides the default space for SpaceSys instances, and may be referenced in serializations.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:SphericalCoordSpace</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:PhysicalCoordSpace"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="CartesianCoordSpace">
+      <xsd:annotation>
+         <xsd:documentation>Spatial domain, three-dimensional cartesian coordinate space.  The particulars of the axis descriptions depend on the physical constraints of the instance.  In Appendix B, we provide the description of a Standard Cartesian Coordinate Space instance which applies to many Astronomical cases, and may be referenced in serializations.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:CartesianCoordSpace</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:PhysicalCoordSpace"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="Coordinate" abstract="true">
+      <xsd:annotation>
+         <xsd:documentation>Abstract base class for the Coordinate data types which represent an absolute location within a coordinate space. Coordinates MUST refer to a coordinate system, providing additional metadata relevant to interpreting the coordinate value, and its representation.
+</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:Coordinate</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="coordSys" type="vodml-base:VODMLReference" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>Provided additional metadata relevant to interpreting the coordinate value; for example, the spatial reference position, or time scale, axis descriptions.
+</xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:Coordinate.coordSys</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="BinnedCoordinate">
+      <xsd:annotation>
+         <xsd:documentation>Coordinate value type specifically intended for binned data (e.g.: pixel indexes).
+</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:BinnedCoordinate</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:Coordinate">
+            <xsd:sequence>
+               <xsd:element name="cval" type="xsd:int" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The binned coordinate value, expressed as an integer.  e.g.: bin number, pixel index.
+</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:BinnedCoordinate.cval</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="PixelIndex">
+      <xsd:annotation>
+         <xsd:documentation>Specialized BinnedCoordinate for the pixel domain for a 1-dimensional pixel index.  PixelIndex MUST refer to a PixelCoordSystem.
+</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:PixelIndex</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:BinnedCoordinate"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="PhysicalCoordinate">
+      <xsd:annotation>
+         <xsd:documentation>The most common type of coordinate value.  This type is appropriate for any data whose values can be described by an ivoa:Quantity (numeric, with unit).</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:PhysicalCoordinate</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:Coordinate">
+            <xsd:sequence>
+               <xsd:element name="cval" type="ivoa:Quantity" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>This coordinate MUST contain a value expressed as an ivoa:Quantity.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:PhysicalCoordinate.cval</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="Point">
+      <xsd:annotation>
+         <xsd:documentation>Multi-dimensional spatial coordinate. The Point MUST refer to a spatial coordinate system (SpaceSys).  The coordinate values map, in order, to the axes described by the associated CoordSpace.  Values for unused/undefined dimensions need not be provided.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:Point</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:Coordinate">
+            <xsd:sequence>
+               <xsd:element name="axis1" type="ivoa:Quantity" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>Coordinate value along the first axis of the associated coordinate space, expressed as an ivoa:Quantity.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:Point.axis1</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="axis2" type="ivoa:Quantity" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>Coordinate value along the second axis of the associated coordinate space, expressed as an ivoa:Quantity.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:Point.axis2</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="axis3" type="ivoa:Quantity" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>Coordinate value along the third axis of the associated coordinate space, expressed as an ivoa:Quantity.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:Point.axis3</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="TimeStamp" abstract="true">
+      <xsd:annotation>
+         <xsd:documentation>This is the abstract basis for a set of simple time domain coordinates which are expected to accommodate the vast majority of use cases. All TimeStamps, by definition, exist in a standard 1-D coordinate space, with domainMin|Max of +/-Infinity.  All TimeStamps MUST refer to an appropriate TimeSys.
+</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:TimeStamp</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:Coordinate"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="TimeOffset">
+      <xsd:annotation>
+         <xsd:documentation>Time is given as an offset from a specific point in time (time0).</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:TimeOffset</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:TimeStamp">
+            <xsd:sequence>
+               <xsd:element name="time" type="ivoa:RealQuantity" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The TimeOffset coordinate value.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:TimeOffset.time</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="time0" type="coords:TimeInstant" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The reference time from which the offset is calculated.  This MUST be given as a TimeInstant (e.g.: JD, MJD, ISOTime).</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:TimeOffset.time0</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="TimeInstant" abstract="true">
+      <xsd:annotation>
+         <xsd:documentation>TimeStamps which specify a specific instant in time.  We define three subtypes (ISOTime, JD, MJD), which allow users to explicitly identify the representation and interpretation of the TimeInstant.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:TimeInstant</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:TimeStamp"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="JD">
+      <xsd:annotation>
+         <xsd:documentation>Extension of TimeInstant for time expressed in Julian days.  Note that JD does not properly specify a time stamp unless it is related to a time scale and reference position.  Precision can easily become an issue with JD, as the numbers tend to be large.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:JD</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:TimeInstant">
+            <xsd:sequence>
+               <xsd:element name="date" type="xsd:float" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The JD coordinate value.  JD dates are dimensionless, with implied units in days.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:JD.date</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="MJD">
+      <xsd:annotation>
+         <xsd:documentation>Extension of TimeInstant for time expressed in Modified Julian Days.  T(MJD) = T(JD) - 2400000.5.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:MJD</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:TimeInstant">
+            <xsd:sequence>
+               <xsd:element name="date" type="xsd:float" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The MJD coordinate value.  MJD dates are dimensionless, with implied units in days.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:MJD.date</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="ISOTime">
+      <xsd:annotation>
+         <xsd:documentation>Extension of TimeInstant for time expressed as a structured datetime string.
+The string representation of a datetime value should follow the FITS convention for representing dates (Hanish and Farris et al, 2001).  The FITS standard is effectively ISO8601 format without the 'Z' tag to indicate UTC:  YYYY-MM-DD['T'hh:mm:ss[.SSS]].  The TimeScale is provided in the associated TimeFrame.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:ISOTime</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:TimeInstant">
+            <xsd:sequence>
+               <xsd:element name="date" type="xsd:dateTime" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The ISOTime coordinate value.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:ISOTime.date</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="PolCoordinate" abstract="true">
+      <xsd:annotation>
+         <xsd:documentation>Abstract head of the polarization coordinate types. Current use cases only require support for discrete polarization states, however, we include this head class to facilitate extension for other types (eg: polarization fraction and angle).</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:PolCoordinate</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:Coordinate"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="PolState">
+      <xsd:annotation>
+         <xsd:documentation>Coordinate type for discrete polarization states.
+</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:PolState</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:PolCoordinate">
+            <xsd:sequence>
+               <xsd:element name="cval" type="coords:PolStateEnum" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The coordinate value MUST be from the PolStateEnum enumerated set.
+</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:PolState.cval</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="RefLocation" abstract="true">
+      <xsd:annotation>
+         <xsd:documentation>RefLocation defines the origin of the spatial coordinate space.  This location is represented either by a standard reference position (for which the absolute location in phase space is known by definition), or a specified point in another Spatial frame.  This object is used as the origin of the SpaceFrame here, but also to specify the Spatial Reference Position (refPosition) associated with other domain Frames.  For example, in the Time domain, the Spatial Reference Position indicates that the 'time' values are the time that the 'event' occured at that location, which might be different from the detector location.  
+ </xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:RefLocation</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+   </xsd:complexType>
+
+   <xsd:complexType name="StdRefLocation">
+      <xsd:annotation>
+         <xsd:documentation>An absolute a-priori known location in phase space (position and velocity).  Values are selected from the StdRefPosition vocabulary.  Considering that the GEOCENTER is really the only place for which we know the absolute location at all times, all other locations require the specification of a planetary ephemeris.  LSR[KD] are reserved for spectral and reshift frames.  TOPOCENTER (location of the observer) is special in that it assumes that the observing location is available through other means (e.g. a geographic location or an orbit ephemeris).  RELOCATABLE is available for simulations.  UNKNOWN should only be used if absolutely necessary.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:StdRefLocation</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:RefLocation">
+            <xsd:sequence>
+               <xsd:element name="position" type="xsd:string" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>Standard reference location.  Values MUST be selected from the controlled vocabulary at the given URL. </xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:StdRefLocation.position</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="CustomRefLocation">
+      <xsd:annotation>
+         <xsd:documentation>A custom reference location in phase space (position and velocity).  Position and velocity are given as coordinates with an associated SpaceFrame.  An epoch MAY be provided to further refine the location.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:CustomRefLocation</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:RefLocation">
+            <xsd:sequence>
+               <xsd:element name="epoch" type="coords:Epoch" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>Epoch for the reference location.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:CustomRefLocation.epoch</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="position" type="coords:Point" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The spatial coordinates of the reference location.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:CustomRefLocation.position</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="velocity" type="coords:Point" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The velocity of the reference location.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:CustomRefLocation.velocity</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:simpleType name="Epoch">
+      <xsd:annotation>
+         <xsd:documentation>We define epoch as a primitive data type with the expected form "&lt;type&gt;&lt;year&gt;" where type = "J" or "B" for Julian or Besselian respectively, and year is expressed as a decimal year.  e.g.: "B1950", "J2000.0"</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:Epoch</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:string"/>
+   </xsd:simpleType>
+
+   <xsd:simpleType name="Handedness">
+      <xsd:annotation>
+         <xsd:documentation>The handedness of a coordinate space.  For most cases, this will be a fixed value in the specification of the coordinate space.  We provide this element to allow this flexibility when needed.  In this document, it is used in the Pixel domain.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:Handedness</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:string">
+         <xsd:enumeration value="left">
+            <xsd:annotation>
+               <xsd:documentation>positive x and y axes point right and up, the positive z axis points inward</xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:Handedness.left</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="right">
+            <xsd:annotation>
+               <xsd:documentation>positive x and y axes point right and up, the positive z axis points outward</xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:Handedness.right</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+
+   <xsd:simpleType name="PolStateEnum">
+      <xsd:annotation>
+         <xsd:documentation>Polarization states: Stokes, Circular, Linear and Vector states
+</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:PolStateEnum</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:string">
+         <xsd:enumeration value="I">
+            <xsd:annotation>
+               <xsd:documentation>
+          TODO : Missing description : please, update your UML model asap.
+        </xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:PolStateEnum.I</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Q">
+            <xsd:annotation>
+               <xsd:documentation>
+          TODO : Missing description : please, update your UML model asap.
+        </xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:PolStateEnum.Q</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="U">
+            <xsd:annotation>
+               <xsd:documentation>
+          TODO : Missing description : please, update your UML model asap.
+        </xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:PolStateEnum.U</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="V">
+            <xsd:annotation>
+               <xsd:documentation>
+          TODO : Missing description : please, update your UML model asap.
+        </xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:PolStateEnum.V</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RR">
+            <xsd:annotation>
+               <xsd:documentation>
+          TODO : Missing description : please, update your UML model asap.
+        </xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:PolStateEnum.RR</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LL">
+            <xsd:annotation>
+               <xsd:documentation>
+          TODO : Missing description : please, update your UML model asap.
+        </xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:PolStateEnum.LL</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RL">
+            <xsd:annotation>
+               <xsd:documentation>
+          TODO : Missing description : please, update your UML model asap.
+        </xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:PolStateEnum.RL</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LR">
+            <xsd:annotation>
+               <xsd:documentation>
+          TODO : Missing description : please, update your UML model asap.
+        </xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:PolStateEnum.LR</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XX">
+            <xsd:annotation>
+               <xsd:documentation>
+          TODO : Missing description : please, update your UML model asap.
+        </xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:PolStateEnum.XX</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="YY">
+            <xsd:annotation>
+               <xsd:documentation>
+          TODO : Missing description : please, update your UML model asap.
+        </xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:PolStateEnum.YY</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XY">
+            <xsd:annotation>
+               <xsd:documentation>
+          TODO : Missing description : please, update your UML model asap.
+        </xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:PolStateEnum.XY</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="YX">
+            <xsd:annotation>
+               <xsd:documentation>
+          TODO : Missing description : please, update your UML model asap.
+        </xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:PolStateEnum.YX</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PF">
+            <xsd:annotation>
+               <xsd:documentation>
+          TODO : Missing description : please, update your UML model asap.
+        </xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:PolStateEnum.PF</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PP">
+            <xsd:annotation>
+               <xsd:documentation>
+          TODO : Missing description : please, update your UML model asap.
+        </xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:PolStateEnum.PP</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PA">
+            <xsd:annotation>
+               <xsd:documentation>
+          TODO : Missing description : please, update your UML model asap.
+        </xsd:documentation>
+               <xsd:appinfo>
+                  <vodml-ref>coords:PolStateEnum.PA</vodml-ref>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+
+</xsd:schema>
