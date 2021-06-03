@@ -1,4 +1,5 @@
-[![PDF-Preview](https://img.shields.io/badge/PDF-Preview-blue)](https://github.com/ivoa-std/CoordinatesDM/releases/download/auto-pdf-preview/Coordinates-draft.pdf)
+[![Update PDF Preview](https://github.com/mcdittmar/CoordinateDM/actions/workflows/preview.yml/badge.svg)](https://github.com/mcdittmar/CoordinateDM/actions/workflows/preview.yml)
+[![PDF-Preview](https://img.shields.io/badge/PDF-Preview-blue)](https://github.com/mcdittmar/CoordinateDM/releases/download/auto-pdf-preview/Coordinates-draft.pdf)
 
 # What is it?
 IVOA Data Model for Astronomical Coordinates and Systems, covering the following concepts:
