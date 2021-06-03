@@ -1,4 +1,4 @@
-[![PDF-Preview](https://img.shields.io/badge/PDF-Preview-blue)](https://github.com/ivoa-std/TransformDM/releases/download/auto-pdf-preview/Transforms-draft.pdf)
+[![PDF-Preview](https://img.shields.io/badge/PDF-Preview-blue)](https://github.com/ivoa-std/CoordinatesDM/releases/download/auto-pdf-preview/Coordinates-draft.pdf)
 
 # What is it?
 IVOA Data Model for Astronomical Coordinates and Systems, covering the following concepts:
@@ -13,7 +13,7 @@ IVOA Data Model for Astronomical Coordinates and Systems, covering the following
 
 
 # Status
-Latest stable version is [WD-1.0](https://www.ivoa.net/documents/WCSTrans/20200803/index.html)
+Latest stable version is [WD-1.0](https://www.ivoa.net/documents/Coords/20200310/index.html)
 
 
 # License
