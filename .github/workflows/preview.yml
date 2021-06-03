@@ -17,9 +17,9 @@ env:
 on:
   push:
     branches:
-      - master
+    - master
     paths:
-      - 'doc/**'
+    - 'doc/**'
 
 jobs:
   build:
