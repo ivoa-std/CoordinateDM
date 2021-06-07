@@ -1,0 +1,311 @@
+\documentclass[11pt,a4paper]{ivoa}
+\usepackage[margin=4.25cm]{geometry} 
+\usepackage{longtable}
+\input tthdefs
+\setcounter{tocdepth}{2}
+
+\title{Astronomical Coordinates and Coordinate Systems}
+
+% see ivoatexDoc for what group names to use here
+\ivoagroup{Data Model Working Group}
+
+%\author[????URL????]{????Alfred Usher Thor????}
+\author{Arnold Rots}
+\author{Mark Cresitello-Dittmar}
+\author{Omar Laurino}
+
+\editor{Arnold Rots}
+\editor{Mark Cresitello-Dittmar}
+
+% \previousversion[????URL????]{????Funny Label????}
+\previousversion{This is the first public release}
+       
+\begin{document}
+\begin{abstract}
+  In creating version 2 of the ``Space-Time Coordinate Metadata for the Virtual Observatory'' (STC) Data Model \citep{std:STC}, it was decided to split the content into various component models which focus on particular aspects of the previous model scope.  
+  
+  This model describes the Coordinates model and covers the following concepts.
+  \begin{itemize}
+  \item Description of single and multi-dimensional coordinate space, and coordinates within that space.
+  \item Coordinate Frames, providing metadata describing the origin and orientation of the coordinate space.
+  \item Definition of simple domain-specific coordinate types for the most common use cases.
+  \item Coordinate Systems, description of the coordinate domain space.
+  \end{itemize}
+\end{abstract}
+
+
+\section*{Acknowledgments}
+This document has been developed with support from NSF and NASA under the Virtual Astronomical Observatory (VAO) project, the National Science Foundation’s (\url{http://www.nsf.gov}) Information Technology Research Program under Cooperative Agreement AST0122449 with The Johns Hopkins University, from the UK Particle Physics and Astronomy Research Council (PPARC),\url{http://www.pparc.ac.uk}, and from the Euro-VO projects (European Commission 7th program): Euro-VO Aida, VO-ICE and CoSADIE.
+
+\section*{Conformance-related definitions}
+
+The words ``MUST'', ``SHALL'', ``SHOULD'', ``MAY'', ``RECOMMENDED'', and
+``OPTIONAL'' (in upper or lower case) used in this document are to be
+interpreted as described in IETF standard RFC2119 \citep{std:RFC2119}.
+
+The \emph{Virtual Observatory (VO)} is a
+general term for a collection of federated resources that can be used
+to conduct astronomical research, education, and outreach.
+The \href{http://www.ivoa.net}{International
+Virtual Observatory Alliance (IVOA)} is a global
+collaboration of separately funded projects to develop standards and
+infrastructure that enable VO applications.
+
+
+\newgeometry{left=1.0in,right=1.0in,bottom=1.0in}
+\section{Introduction}
+
+\subsection{Motivation}
+Astronomy, being primarily a science that crucially depends on observations, has a very basic 
+need for complete, accurate, and unambiguous metadata regarding coordinate information, meaning 
+all coordinates of the observable space and noting that several of these are intertwined. The Data 
+Model described in this document aims to provide a model for such metadata.
+
+\subsection{Context and Scope}
+This document results from updating the \href{http://www.ivoa.net/documents/latest/STC.html}{``Space-Time Coordinate Metadata for the Virtual Observatory''} (STC) \citep{std:STC} model for use in VO-DML compliant models. That model provides metadata describing Space-Time related, and other Coordinates. These metadata are to be used for specifying coordinate-related information for datasets, catalogs, and queries.  In this work, our primary focus is to support the use cases described below, while keeping the broader scope in mind to inform design decisions for future expansion.
+
+The update and revision of the STC model has sub-divided the content into component models, each covering a portion of the scope of the parent model.  This allows for a better description of the relations between the various components, allows for independent development of the component models, and creates smaller, more digestible content for users.
+
+In the astronomical community, the terms ``quantity'', ``coordinate'', and ``measurement'' are used interchangably, but not always 
+with the same meaning.  The ``coordinate'' of a star is typically a measured location, while the ``coordinate'' of the center
+of a circular region is not.  We provide here a short glossary of these terms in the IVOA data model context.
+\begin{itemize}
+  \item Quantity: [ivoa model]  A number with a unit.
+  \item Coordinate: [coords model]  An absolute location within a coordinate space.  Comprised of a 'value' (often a Quantity), 
+associated with an axis in a coordinate space, and a coordinate frame providing additional metadata about the orientation and origin of the coordinate space.
+In other words, a location in a domain space.
+  \item Measurement: [meas model]  For 'measured', or 'determined' data.  Combines a Coordinate (ie: the determined value) with 
+corresponding Error(s).  For the majority of cases dealing with astronomical data, this is what we are referring to.
+  \item Coordinate System: [coords model]  The term 'Coordinate System' is used to mean both ``the space in which a coordinate resides'', and ``a unique domain space, factoring in specific reference frame metadata''.  In this model, we adopt the latter definition.  A Coordinate System provides a complete description of the domain space, including both the coordinate space description and any associated Frame metadata.
+\end{itemize}
+
+This document describes the Coordinates model which provides the metadata describing:
+\begin{itemize}
+\item the coordinate space; axes, and domain ranges
+\item coordinate frames with metadata describing the origin and orientation of the coordinate space
+\item a general model for specifying coordinate values within the coordinate space
+\item coordinate systems for defining various domain spaces.
+\end{itemize}
+
+\section{Use Cases and Requirements}
+\label{sect:ucreq}
+
+\subsection{Use Cases}
+\label{sect:usecases}
+
+\subsubsection{Cube model support}
+\label{uc:Cube-model-support}
+  The primary use case for this work is in support of the CubeDM. \\
+  The CubeDM is a N-Dimensional model for pixelated images and sparse cube data.  
+  The following is a brief outline of the most relevant features pertaining to the
+  development of the Measurement, Coordinates, and Transform component models.
+
+  \begin{itemize}
+    \item General
+    \begin{itemize}
+       \item knowledge of the pixel and physical domain spaces provided at a high level
+       \item definition of the domain space includes the following criteria
+       \begin{itemize}
+          \item dimensionality (typically 1,2 or 3 for physical domain), pixel domain may be of any dimension
+          \item axis configuration (for spatial domain which has >1D).  The most common configurations for astronomical data are Cartesian and Spherical, but others may be used as well.
+          \item domain range along each axis, typically +/- Inf, but may be limited due to physical constraints (e.g. physical size of a detector, sensitivity limitiations, etc)
+          \item association with additional metadata further describing the nature of the domain space ( Frame ).  This is especially true for the Spatial and Temporal domains, but may apply to others as well.  Examples include:
+          \begin{itemize}
+             \item reference position (location of origin)
+             \item reference frame (orientation of the domain space)
+             \item planetary ephemeris
+             \item equinox
+          \end{itemize}
+       \end{itemize}
+    \end{itemize}
+    \item Pixelated Image Cube
+    \begin{itemize}
+       \item complete specification of pixel coordinate domain; number of axes, number of pixels per axis
+       \item mappings of various pixel axes to corresponding physical axes
+       \begin{itemize}
+          \item spatial domain typically mapping 2-3 pixel axes to physical axes
+          \item other domains are typically 1 dimensional
+          \item pixel axes may be involved in multiple mappings to different physical spaces
+        \end{itemize}
+        \item mappings may be stacked to define progressive transitions through a domain (e.g.:  pixel -> ccd -> detector -> sky -> wcs )
+        \begin{itemize}
+           \item intermediate stages may or may not be explicitely defined 
+        \end{itemize}
+        \item image data value is typically given in a physical domain, but may itself be mapped to other domains
+    \end{itemize}
+    \item Sparse Cube
+    \begin{itemize}
+       \item data axes cover a wide array of physical domains including, but not limited to Spatial, Temporal, Spectral, Polarization,
+       \item individual domains may be represented multiple times in different frames ( ccd, detector, sky;  pha, energy )
+       \item data values may have associated errors
+       \begin{itemize}
+          \item typical error forms include: symmetric( +/- a ), asymmetric( +a:-b ), interval ( a:b ), matrix, elliptical
+          \item can become quite complex: probability distributions, error maps, etc.
+          \item quality indicators:
+          \begin{itemize}
+             \item global status, typically numeric
+             \item bit array, where each bit is associated with a particular quality state 
+          \end{itemize}
+          \item associated errors may be separable or correlated among multiple data axes
+        \end{itemize}
+        \item data axes may be virtual, defined as a mapping from other data axes (same description as above)
+    \end{itemize}
+    \item Physical Data (Observables)
+    \begin{itemize}
+       \item focus on the following domains which are frequently included in astronomical data cubes: Spatial, Spectral, Temporal, Polarization
+       \item Spatial
+       \begin{itemize}
+          \item Cartesian space:  chip, detector, sky
+          \item Spherical space: Equatorial, Ecliptic, Galactic, LongLat
+       \end{itemize}
+       \item Time
+       \begin{itemize}
+          \item 1-Dimensional: JD, MJD, ISOTime, TimeOffset
+       \end{itemize}
+       \item Polarization
+       \begin{itemize}
+          \item Discrete space: Polarization states (Stokes, Linear, Circular, Vector )
+       \end{itemize}
+       \item Spectral
+       \begin{itemize}
+          \item 1-Dimensional: energy, frequency, wavelength
+       \end{itemize}
+    \end{itemize}
+  \end{itemize}
+
+\subsubsection{Transform workflow}
+\label{uc:Transform-workflow}
+An implementation project focused on the Transform model. The purpose of which is to exercise the Transform model through a workflow consisting of:
+  \begin{itemize}
+    \item serialization in YAML of complete WCS metadata, including source/target frames and the various Transform operation sequences between them.
+    \item the generation and passing thereof between two Transform library implementations ( AST, gWCS )
+  \end{itemize}
+
+
+\subsection{Requirements}
+\label{sect:reqs}
+
+ Examination and implementation of the above cases leads to a set of requirements distributed through the various STC component models.  Here we 
+itemize those relevant to the coordinates model specifically.  We note that some elements of this model are included based on the knowledge and 
+experience incorporated into previous STC data model and not from direct requirements from the given use cases.  
+
+In Appendix \ref{sect:req_map}, we provide a mapping of the data model elements to the various requirements they serve.
+
+\subsubsection{General}
+Requirements pertaining to the overall criteria that the model must satisfy.
+  \begin{itemize}
+    \item [\textbf{[vodml.001]:}] The model shall be vo-dml compliant
+    \item [\textbf{[vodml.002]:}] shall re-use, or refer to, dependent models for objects and concepts already defined in other models
+    \item [\textbf{[vodml.003]:}] shall produce a validated vo-dml XML description
+    \item [\textbf{[vodml.004]:}] shall produce documentation in vo-dml HTML format
+    \item [\textbf{[vodml.005]:}] shall produce documentation in standard PDF format
+  \end{itemize}
+
+\subsubsection{Application/Usage}
+Requirements pertaining to the user experience.  Note, as a data model, users will not typically interact directly with the model,
+  \begin{itemize}
+    \item [\textbf{[user.001]:}] Users should be able to identify and use basic content with minimal specialized information. 
+      In other words, a generic utility should be able to find and use core elements without knowing a lot about the various extensions and uses of those elements.
+    \item [\textbf{[user.002]:}] When applicable, the model should support usability by simplifying common scenarios. i.e. common things simple, complex things possible
+  \end{itemize}
+
+\subsubsection{Content}
+Requirements pertaining to the elements to be defined by the model.
+\begin{itemize}
+  \item Domains
+  \begin{itemize}
+    \item [\textbf{[dom.001]:}] Shall accommodate the description of data in any observable domain
+    \item [\textbf{[dom.002]:}] Shall provide enhanced/specialized description for data pertaining to
+    \begin{itemize}
+      \item [\textbf{[dom.002.1]:}] Pixel domain: binned, integerized, n-dimensional domain
+      \item [\textbf{[dom.002.2]:}] Spatial domain: continuous domain, typically in 2-3 dimensional cartesian or spherical spaces
+      \item [\textbf{[dom.002.3]:}] Time domain: continuous 1D domain, typically provided in JD, MJD, ISO, or as an Offset from a zero point
+      \item [\textbf{[dom.002.4]:}] Polarization domain: discrete 1D domain of polarization states. 
+    \end{itemize}
+  \end{itemize}
+  \item Coordinates
+  \begin{itemize}
+    \item Coordinate Spaces:
+    \begin{itemize}
+      \item [\textbf{[coords.001]:}] Shall facilitate the description of the domain space
+      \begin{itemize}
+        \item [\textbf{[coords.001.1]:}] Coordinate space shall consist of 1 to N dimensional axes
+        \item [\textbf{[coords.001.2]:}] Shall support the description of axes which are continuous, binned, and discrete in nature
+        \item [\textbf{[coords.001.3]:}] Each dimensional axis shall define the domain range of that axis as appropriate for its nature
+      \end{itemize}
+    \end{itemize}
+    \item Coordinate frames: 
+    \begin{itemize}
+      \item [\textbf{[coords.002]:}] Shall facilitate the specification of the nature of the domain, providing additional metadata relevant to the interpretation of coordinates in that domain.
+    \end{itemize}
+    \item Coordinates: 
+    \begin{itemize}
+      \item [\textbf{[coords.003]:}] Shall identify a location within the coordinate domain space
+      \item [\textbf{[coords.004]:}] Shall be associated with a corresponding coordinate frame providing metadata relevant to the interpretation of the coordinate
+      \item [\textbf{[coords.005]:}] Shall be associated with a particular axis of the coordinate space to provide context for the coordinate and facilitate the application of mapping Transforms
+      \item [\textbf{[coords.006]:}] Shall be complete quantities, including value and units as appropriate
+      \item [\textbf{[coords.007]:}] Shall support the association of atomic coordinates into a multi-dimensional compound grouping
+    \end{itemize}
+    \item Coordinate systems: 
+    \begin{itemize}
+      \item [\textbf{[coords.008]:}] Shall provide for encapsulating the description of the entire domain space
+      \item [\textbf{[coords.009]:}] for Pixel domain, this must include the full coordinate space description
+      \item [\textbf{[coords.010]:}] for Physical domains, this must include the Frame specifications, as it is this metadata that is more relevant to users.  The coordinate space is typically well defined or implied by the coordinate itself.
+    \end{itemize}
+  \end{itemize}
+
+  \item Transforms
+  \begin{itemize}
+    \item [\textbf{[trans.001]:}] Shall facilitate the relation of two coordinate systems through a mathematical formula (Transforms)
+    \begin{itemize}
+      \item [\textbf{[trans.001.1]:}] Shall facilitate the transport of same independent of any actual data.
+    \end{itemize}
+  \end{itemize}
+
+\end{itemize}
+
+
+\pagebreak
+\subsection{Role within the VO Architecture}
+
+\begin{figure}[h]
+\centering
+
+% As of ivoatex 1.2, the architecture diagram is generated by ivoatex in
+% SVG; copy ivoatex/archdiag-full.xml to archdiag.xml and throw out
+% all lines not relevant to your standard.
+% Notes don't generally need this.  If you don't copy archdiag.xml,
+% you must remove archdiag.svg from FIGURES in the Makefile.
+
+\includegraphics[width=0.9\textwidth]{role_diagram.pdf}
+\caption{Architecture diagram for this document}
+\label{fig:archdiag}
+\end{figure}
+
+Fig.~\ref{fig:archdiag} shows the role this document plays within the
+IVOA architecture \citep{note:VOARCH}.
+
+\input{body}
+
+\appendix
+% Use Cases and Requirements
+\input{RequirementsMap}
+
+% Standard Coordinate Spaces
+\input{StdCoordSpaces}
+
+% Vocabularies defined by the model
+\input{Vocabularies}
+
+% Changes from previous version
+\input{history}
+
+% Appendix for UML diagram conventions
+\input{modeling_conventions}
+
+% Appendix for IVOA Base types
+\input{ivoa_types}
+
+\bibliography{ivoatex/ivoabib,ivoatex/docrepo,other}
+
+\end{document}

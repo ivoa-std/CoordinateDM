@@ -1,0 +1,101 @@
+\pagebreak
+\section{Requirements Mapping}
+\label{sect:req_map}
+
+The table below provides a mapping of the various elements of this model to requirements served by that object.
+
+% The following is generated from the list of vo-dml IDs at the bottom of the vo-dml.html documentation
+\small
+\begin{longtable}[l]{|l|l|}
+  \hline
+  \textbf{vodml-id} & \textbf{pertains to}    \\
+  \hline
+  \endfirsthead
+  \hline
+  \textbf{vodml-id} & \textbf{pertains to}    \\
+  \hline
+  \endhead
+
+%==== HERE =====
+        AstroCoordSystem                  & coords.008, coords.010                      \\
+%       AstroCoordSystem.coordSys         &                                             \\
+        Axis                              & coords.001.1, coords.001.2                  \\
+%       Axis.name                         &                                             \\
+        BinnedAxis                        & dom.002.1, coords.001.2                     \\
+        BinnedAxis.length                 & coords.001.3                                \\
+        BinnedCoordinate                  & coords.006                                  \\
+%       BinnedCoordinate.cval             &                                             \\
+        CartesianCoordSpace               & user.002                                    \\
+        ContinuousAxis                    & dom.002.2, dom.002.3, coords.001.2          \\
+        ContinuousAxis.cyclic             & coords.001.3                                \\
+        ContinuousAxis.domainMax          & coords.001.3                                \\
+        ContinuousAxis.domainMin          & coords.001.3                                \\
+        CoordFrame                        & coords.002, coords.004                      \\
+        Coordinate                        & user.001, coords.003, coords.007            \\
+        Coordinate.coordSys               & user.001, coords.004                        \\
+        CoordSpace                        & coords.001                                  \\
+%       CoordSpace.axis                   &                                             \\
+        CoordSys                          & coords.008                                  \\
+        CustomRefLocation                 & dom.002.2, coords.002                       \\
+%       CustomRefLocation.epoch           &                                             \\
+%       CustomRefLocation.position        &                                             \\
+%       CustomRefLocation.velocity        &                                             \\
+        DiscreteSetAxis                   & dom.002.4, coords.001.2                     \\
+        Epoch                             & dom.002.2, coords.001.2                     \\
+        GenericCoordSpace                 & user.002                                    \\
+        GenericCoordSys                   & user.002                                    \\
+        GenericFrame                      & coords.002                                  \\
+%       GenericFrame.planetaryEphem       &                                             \\
+%       GenericFrame.refPosition          &                                             \\
+        Handedness                        & coords.001                                  \\
+%       Handedness.left                   &                                             \\
+%       Handedness.right                  &                                             \\
+        ISOTime                           & user.002, coords.006                        \\
+%       ISOTime.date                      &                                             \\
+        JD                                & user.002, coords.006                        \\
+%       JD.date                           &                                             \\
+        MJD                               & user.002, coords.006                        \\
+%       MJD.date                          &                                             \\
+        PhysicalCoordinate                & user.001, user.002, dom.001, coords.003, coords.005, coords.006 \\
+%       PhysicalCoordinate.cval           &                                             \\
+        PhysicalCoordSpace                & coords.001                                  \\
+        PhysicalCoordSys                  & dom.001, coords.001, coords.002             \\
+%        PhysicalCoordSys.coordSpace       & dom.001, coords.001                        \\
+%        PhysicalCoordSys.frame            & dom.001, coords.002                        \\
+        PixelCoordSystem                  & dom.002.1, coords.008                       \\
+        PixelCoordSystem.pixelSpace       & dom.002.1, coords.008, coords.009           \\
+        PixelIndex                        & dom.002.1, coords.003, coords.005           \\
+        PixelSpace                        & dom.002.1, coords.001.1                     \\
+%       PixelSpace.handedness             &                                             \\
+        Point                             & dom.002.2, user.001, user.002, coords.003, coords.005, coords.006, coords.007     \\
+%       Point.axis1                       & coords.007                       \\
+%       Point.axis2                       & coords.007                       \\
+%       Point.axis3                       & coords.007                       \\
+        PolCoordinate                     & dom.002.4, coords.005              \\
+        PolState                          & dom.002.4, coords.003                       \\
+%       PolState.cval                     &                                             \\
+%       PolStateEnum                      &                                             \\
+        RefLocation                       & dom.002.2, coords.002                       \\
+        SpaceFrame                        & dom.002.2, coords.002                       \\
+%       SpaceFrame.equinox                &                                             \\
+%       SpaceFrame.planetaryEphem         &                                             \\
+%       SpaceFrame.refPosition            &                                             \\
+%       SpaceFrame.spaceRefFrame          &                                             \\
+        SpaceSys                          & user.002                                    \\
+        SphericalCoordSpace               & user.002                                    \\
+        StdRefLocation                    & dom.002.2, coords.002                       \\
+%       StdRefLocation.position           &                                             \\
+        TimeFrame                         & dom.002.3, coords.002                       \\
+%       TimeFrame.refDirection            &                                             \\
+%       TimeFrame.refPosition             &                                             \\
+%       TimeFrame.timescale               &                                             \\
+        TimeInstant                       & dom.002.3                                   \\
+        TimeOffset                        & dom.002.3, user.002, coords.006             \\
+%       TimeOffset.time                   &                                             \\
+%       TimeOffset.time0                  &                                             \\
+        TimeStamp                         & dom.002.3, user.002, coords.003, coords.005, coords.007 \\
+        TimeSys                           & user.002                                    \\
+
+  \hline
+\end{longtable}
+\normalsize
