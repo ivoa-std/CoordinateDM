@@ -2,9 +2,9 @@
 <xsd:schema xmlns:vo-dml="http://www.ivoa.net/xml/VODML/v1"
             xmlns:vodml-base="http://www.ivoa.net/xml/vo-dml/xsd/base/v0.1"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xmlns:coords="http://ivoa.net/dm/models/vo-dml/xsd/coords"
+            xmlns:coords="http://ivoa.net/xml/coords"
             xmlns:ivoa="http://ivoa.net/dm/models/vo-dml/xsd/ivoa"
-            targetNamespace="http://ivoa.net/dm/models/vo-dml/xsd/coords">
+            targetNamespace="http://ivoa.net/xml/coords">
    <xsd:import namespace="http://www.ivoa.net/xml/vo-dml/xsd/base/v0.1"
                schemaLocation="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/xsd/vodml-base.xsd"/>
    <xsd:import namespace="http://ivoa.net/dm/models/vo-dml/xsd/ivoa"
@@ -505,21 +505,113 @@
       </xsd:complexContent>
    </xsd:complexType>
 
-   <xsd:complexType name="Point">
+   <xsd:complexType name="Point" abstract="true">
       <xsd:annotation>
-         <xsd:documentation>Multi-dimensional spatial coordinate. The Point MUST refer to a spatial coordinate system (SpaceSys).  The coordinate values map, in order, to the axes described by the associated CoordSpace.  Values for unused/undefined dimensions need not be provided.</xsd:documentation>
+         <xsd:documentation>Multi-dimensional spatial coordinate. The Point MUST refer to a spatial coordinate system (SpaceSys) which associates the point with corresponding coordinate domain space and frame metadata.</xsd:documentation>
          <xsd:appinfo>
             <vodml-ref>coords:Point</vodml-ref>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:complexContent>
-         <xsd:extension base="coords:Coordinate">
+         <xsd:extension base="coords:Coordinate"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="CartesianPoint">
+      <xsd:annotation>
+         <xsd:documentation>A spatial coordinate in a Cartesian coordinate space.  Any associated CoordSpace MUST be a CartesianCoordSpace.  If no CoordSpace is provided, a Standard Cartesian CoordSpace is assumed.  Values for unused/undefined dimensions need not be provided.
+</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:CartesianPoint</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:Point">
+            <xsd:sequence>
+               <xsd:element name="x" type="ivoa:Quantity" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The coordinate value along the 'X' axis.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:CartesianPoint.x</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="y" type="ivoa:Quantity" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The coordinate value along the 'Y' axis.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:CartesianPoint.y</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="z" type="ivoa:Quantity" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The coordinate value along the 'Z' axis.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:CartesianPoint.z</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="LonLatPoint">
+      <xsd:annotation>
+         <xsd:documentation>A spatial coordinate in a Spherical coordinate space defining a Celestial position in Latitude and Longitude.  Any associated CoordSpace MUST conform to this description.  If no CoordSpace is provided, a Standard Spherical CoordSpace is assumed.  Values for unused/undefined dimensions need not be provided.
+</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:LonLatPoint</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:Point">
+            <xsd:sequence>
+               <xsd:element name="lon" type="ivoa:Quantity" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The longitude of the Point, as a Quantity with angular units.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:LonLatPoint.lon</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="lat" type="ivoa:Quantity" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The latitude of the Point, as a Quantity with angular units.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:LonLatPoint.lat</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="dist" type="ivoa:Quantity" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                     <xsd:documentation>The distance to the Point from the origin.</xsd:documentation>
+                     <xsd:appinfo>
+                        <vodml-ref>coords:LonLatPoint.dist</vodml-ref>
+                     </xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="GenericPoint">
+      <xsd:annotation>
+         <xsd:documentation>GenericPoint supports the representation of spatial coordinates in a custom coordinate space, or any space which is not covered by the other specializations.   The coordinate values map, in order, to the axes described by the associated CoordSpace.  If no CoordSpace is provided, the behavior is undefined.  Values for unused/undefined dimensions need not be provided.</xsd:documentation>
+         <xsd:appinfo>
+            <vodml-ref>coords:GenericPoint</vodml-ref>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:complexContent>
+         <xsd:extension base="coords:Point">
             <xsd:sequence>
                <xsd:element name="axis1" type="ivoa:Quantity" minOccurs="0" maxOccurs="1">
                   <xsd:annotation>
                      <xsd:documentation>Coordinate value along the first axis of the associated coordinate space, expressed as an ivoa:Quantity.</xsd:documentation>
                      <xsd:appinfo>
-                        <vodml-ref>coords:Point.axis1</vodml-ref>
+                        <vodml-ref>coords:GenericPoint.axis1</vodml-ref>
                      </xsd:appinfo>
                   </xsd:annotation>
                </xsd:element>
@@ -527,7 +619,7 @@
                   <xsd:annotation>
                      <xsd:documentation>Coordinate value along the second axis of the associated coordinate space, expressed as an ivoa:Quantity.</xsd:documentation>
                      <xsd:appinfo>
-                        <vodml-ref>coords:Point.axis2</vodml-ref>
+                        <vodml-ref>coords:GenericPoint.axis2</vodml-ref>
                      </xsd:appinfo>
                   </xsd:annotation>
                </xsd:element>
@@ -535,7 +627,7 @@
                   <xsd:annotation>
                      <xsd:documentation>Coordinate value along the third axis of the associated coordinate space, expressed as an ivoa:Quantity.</xsd:documentation>
                      <xsd:appinfo>
-                        <vodml-ref>coords:Point.axis3</vodml-ref>
+                        <vodml-ref>coords:GenericPoint.axis3</vodml-ref>
                      </xsd:appinfo>
                   </xsd:annotation>
                </xsd:element>
