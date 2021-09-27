@@ -1,612 +1,668 @@
-<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IVOA_UML_Profile="http:///schemas/IVOA_UML_Profile/_GgiccGVcEeq6Sft_TbB9Qw/0" xmlns:IVOA_UML_Profile_1="http:///schemas/IVOA_UML_Profile/_GgjDgGVcEeq6Sft_TbB9Qw/0" xmlns:default="http:///schemas/default/_GgojEGVcEeq6Sft_TbB9Qw/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.omg.org/spec/UML/20110701" xmi:version="2.1" xsi:schemaLocation="http://www.eclipse.org/uml2/3.0.0/UML http://schema.omg.org/spec/UML/20110701 http:///schemas/IVOA_UML_Profile/_GgiccGVcEeq6Sft_TbB9Qw/0 IVOA_UML_Profile.profile.xmi#_Ggq_V2VcEeq6Sft_TbB9Qw http:///schemas/IVOA_UML_Profile/_GgjDgGVcEeq6Sft_TbB9Qw/0 IVOA_UML_Profile.profile.xmi#_Gg9TN2VcEeq6Sft_TbB9Qw http:///schemas/default/_GgojEGVcEeq6Sft_TbB9Qw/0 default.profile.xmi#_Ghe3p2VcEeq6Sft_TbB9Qw">
-  <uml:Model xmi:id="_GghOUGVcEeq6Sft_TbB9Qw" name="coords">
-    <eAnnotations xmi:id="_GghOUWVcEeq6Sft_TbB9Qw" source="Objing">
-      <contents xmi:type="uml:Property" xmi:id="_GghOUmVcEeq6Sft_TbB9Qw" name="exporterVersion">
-        <defaultValue xmi:type="uml:LiteralString" xmi:id="_GghOU2VcEeq6Sft_TbB9Qw" value="3.0.0"/>
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IVOA_UML_Profile="http:///schemas/IVOA_UML_Profile/_d84igM-qEeu47NMYgfKudg/0" xmlns:IVOA_UML_Profile_1="http:///schemas/IVOA_UML_Profile/_d88z8M-qEeu47NMYgfKudg/0" xmlns:default="http:///schemas/default/_d9Gk8M-qEeu47NMYgfKudg/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.omg.org/spec/UML/20110701" xmi:version="2.1" xsi:schemaLocation="http://www.eclipse.org/uml2/3.0.0/UML http://schema.omg.org/spec/UML/20110701 http:///schemas/IVOA_UML_Profile/_d84igM-qEeu47NMYgfKudg/0 IVOA_UML_Profile.profile.xmi#_d-KU58-qEeu47NMYgfKudg http:///schemas/IVOA_UML_Profile/_d88z8M-qEeu47NMYgfKudg/0 IVOA_UML_Profile.profile.xmi#_eA78F8-qEeu47NMYgfKudg http:///schemas/default/_d9Gk8M-qEeu47NMYgfKudg/0 default.profile.xmi#_eCc_B8-qEeu47NMYgfKudg">
+  <uml:Model xmi:id="_d8uxgM-qEeu47NMYgfKudg" name="coords">
+    <eAnnotations xmi:id="_d8uxgc-qEeu47NMYgfKudg" source="Objing">
+      <contents xmi:type="uml:Property" xmi:id="_d8uxgs-qEeu47NMYgfKudg" name="exporterVersion">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_d8uxg8-qEeu47NMYgfKudg" value="3.0.0"/>
       </contents>
     </eAnnotations>
-    <ownedComment xmi:type="uml:Comment" xmi:id="_GghOVGVcEeq6Sft_TbB9Qw">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_d8uxhM-qEeu47NMYgfKudg">
       <body>This model defines objects which describe the coordinate space, coordinates within that space, and frames, which provide additional metadata regarding the origin, orientation, etc, of the coordinate space. The model also defines a coordinate system, bundling frames into associated groups.
 </body>
     </ownedComment>
-    <ownedRule xmi:type="uml:Constraint" xmi:id="_GghOVWVcEeq6Sft_TbB9Qw" name="coords:Coordinate.coordSys" constrainedElement="_GghO6GVcEeq6Sft_TbB9Qw">
-      <specification xmi:type="uml:LiteralString" xmi:id="_GghOVmVcEeq6Sft_TbB9Qw" value="coords:SpaceSys"/>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_d8uxhc-qEeu47NMYgfKudg" name="coords:Coordinate.coordSys" constrainedElement="_d8vY8c-qEeu47NMYgfKudg">
+      <specification xmi:type="uml:LiteralString" xmi:id="_d8uxhs-qEeu47NMYgfKudg" value="coords:SpaceSys"/>
     </ownedRule>
-    <ownedRule xmi:type="uml:Constraint" xmi:id="_GghOV2VcEeq6Sft_TbB9Qw" name="coords:Coordinate.coordSys" constrainedElement="_GghO9GVcEeq6Sft_TbB9Qw">
-      <specification xmi:type="uml:LiteralString" xmi:id="_GghOWGVcEeq6Sft_TbB9Qw" value="coords:TimeSys"/>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_d8uxh8-qEeu47NMYgfKudg" name="coords:Coordinate.coordSys" constrainedElement="_d8vZGM-qEeu47NMYgfKudg">
+      <specification xmi:type="uml:LiteralString" xmi:id="_d8uxiM-qEeu47NMYgfKudg" value="coords:TimeSys"/>
     </ownedRule>
-    <ownedRule xmi:type="uml:Constraint" xmi:id="_GghOWWVcEeq6Sft_TbB9Qw" name="coords:CoordSpace.axis" constrainedElement="_GghPRGVcEeq6Sft_TbB9Qw">
-      <specification xmi:type="uml:LiteralString" xmi:id="_GghOWmVcEeq6Sft_TbB9Qw" value="coords:BinnedAxis"/>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_d8uxic-qEeu47NMYgfKudg" name="coords:CoordSpace.axis" constrainedElement="_d8vZaM-qEeu47NMYgfKudg">
+      <specification xmi:type="uml:LiteralString" xmi:id="_d8uxis-qEeu47NMYgfKudg" value="coords:BinnedAxis"/>
     </ownedRule>
-    <ownedRule xmi:type="uml:Constraint" xmi:id="_GghOW2VcEeq6Sft_TbB9Qw" name="coords:PhysicalCoordSys.frame" constrainedElement="_GghPWGVcEeq6Sft_TbB9Qw">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghOXGVcEeq6Sft_TbB9Qw">
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_d8uxi8-qEeu47NMYgfKudg" name="coords:PhysicalCoordSys.frame" constrainedElement="_d8vZfM-qEeu47NMYgfKudg">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8uxjM-qEeu47NMYgfKudg">
         <body>&lt;Enter note text here&gt;</body>
       </ownedComment>
-      <specification xmi:type="uml:LiteralString" xmi:id="_GghOXWVcEeq6Sft_TbB9Qw" value="coords:GenericFrame"/>
+      <specification xmi:type="uml:LiteralString" xmi:id="_d8uxjc-qEeu47NMYgfKudg" value="coords:GenericFrame"/>
     </ownedRule>
-    <ownedRule xmi:type="uml:Constraint" xmi:id="_GghOXmVcEeq6Sft_TbB9Qw" name="coords:PhysicalCoordSys.frame" constrainedElement="_GghPW2VcEeq6Sft_TbB9Qw">
-      <specification xmi:type="uml:LiteralString" xmi:id="_GghOX2VcEeq6Sft_TbB9Qw" value="coords:SpaceFrame"/>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_d8uxjs-qEeu47NMYgfKudg" name="coords:PhysicalCoordSys.frame" constrainedElement="_d8vZf8-qEeu47NMYgfKudg">
+      <specification xmi:type="uml:LiteralString" xmi:id="_d8uxj8-qEeu47NMYgfKudg" value="coords:SpaceFrame"/>
     </ownedRule>
-    <ownedRule xmi:type="uml:Constraint" xmi:id="_GghOYGVcEeq6Sft_TbB9Qw" name="coords:PhysicalCoordSys.frame" constrainedElement="_GghPXmVcEeq6Sft_TbB9Qw">
-      <specification xmi:type="uml:LiteralString" xmi:id="_GghOYWVcEeq6Sft_TbB9Qw" value="coords:TimeFrame"/>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_d8uxkM-qEeu47NMYgfKudg" name="coords:PhysicalCoordSys.frame" constrainedElement="_d8vZgs-qEeu47NMYgfKudg">
+      <specification xmi:type="uml:LiteralString" xmi:id="_d8uxkc-qEeu47NMYgfKudg" value="coords:TimeFrame"/>
     </ownedRule>
-    <ownedRule xmi:type="uml:Constraint" xmi:id="_GghOYmVcEeq6Sft_TbB9Qw" name="coords:PhysicalCoordSys.coordSpace" constrainedElement="_GghPXmVcEeq6Sft_TbB9Qw">
-      <specification xmi:type="uml:LiteralString" xmi:id="_GghOY2VcEeq6Sft_TbB9Qw" value="coords:GenericCoordSpace"/>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_d8uxks-qEeu47NMYgfKudg" name="coords:PhysicalCoordSys.coordSpace" constrainedElement="_d8vZgs-qEeu47NMYgfKudg">
+      <specification xmi:type="uml:LiteralString" xmi:id="_d8uxk8-qEeu47NMYgfKudg" value="coords:GenericCoordSpace"/>
     </ownedRule>
-    <ownedRule xmi:type="uml:Constraint" xmi:id="_GghOZGVcEeq6Sft_TbB9Qw" constrainedElement="_GghPZGVcEeq6Sft_TbB9Qw">
-      <specification xmi:type="uml:LiteralString" xmi:id="_GghOZWVcEeq6Sft_TbB9Qw" value="axis[1]"/>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_d8uxlM-qEeu47NMYgfKudg" constrainedElement="_d8vZiM-qEeu47NMYgfKudg">
+      <specification xmi:type="uml:LiteralString" xmi:id="_d8uxlc-qEeu47NMYgfKudg" value="axis[1]"/>
     </ownedRule>
-    <ownedRule xmi:type="uml:Constraint" xmi:id="_GghOZmVcEeq6Sft_TbB9Qw" constrainedElement="_GghPZ2VcEeq6Sft_TbB9Qw">
-      <specification xmi:type="uml:LiteralString" xmi:id="_GghOZ2VcEeq6Sft_TbB9Qw" value="axis[3]"/>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_d8uxls-qEeu47NMYgfKudg" constrainedElement="_d8vZi8-qEeu47NMYgfKudg">
+      <specification xmi:type="uml:LiteralString" xmi:id="_d8uxl8-qEeu47NMYgfKudg" value="axis[3]"/>
     </ownedRule>
-    <ownedRule xmi:type="uml:Constraint" xmi:id="_GghOaGVcEeq6Sft_TbB9Qw" name="coords:CoordSpace.axis" constrainedElement="_GghPZ2VcEeq6Sft_TbB9Qw">
-      <specification xmi:type="uml:LiteralString" xmi:id="_GghOaWVcEeq6Sft_TbB9Qw" value="coords:ContinuousAxis"/>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_d8uxmM-qEeu47NMYgfKudg" name="coords:CoordSpace.axis" constrainedElement="_d8vZi8-qEeu47NMYgfKudg">
+      <specification xmi:type="uml:LiteralString" xmi:id="_d8uxmc-qEeu47NMYgfKudg" value="coords:ContinuousAxis"/>
     </ownedRule>
-    <ownedRule xmi:type="uml:Constraint" xmi:id="_GghOamVcEeq6Sft_TbB9Qw" constrainedElement="_GghPamVcEeq6Sft_TbB9Qw">
-      <specification xmi:type="uml:LiteralString" xmi:id="_GghOa2VcEeq6Sft_TbB9Qw" value="axis[1..3]"/>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_d8uxms-qEeu47NMYgfKudg" constrainedElement="_d8vZjs-qEeu47NMYgfKudg">
+      <specification xmi:type="uml:LiteralString" xmi:id="_d8uxm8-qEeu47NMYgfKudg" value="axis[1..3]"/>
     </ownedRule>
-    <ownedRule xmi:type="uml:Constraint" xmi:id="_GghObGVcEeq6Sft_TbB9Qw" name="coords:CoordSpace.axis" constrainedElement="_GghPamVcEeq6Sft_TbB9Qw">
-      <specification xmi:type="uml:LiteralString" xmi:id="_GghObWVcEeq6Sft_TbB9Qw" value="coords:ContinuousAxis"/>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_d8uxnM-qEeu47NMYgfKudg" name="coords:CoordSpace.axis" constrainedElement="_d8vZjs-qEeu47NMYgfKudg">
+      <specification xmi:type="uml:LiteralString" xmi:id="_d8uxnc-qEeu47NMYgfKudg" value="coords:ContinuousAxis"/>
     </ownedRule>
-    <packagedElement xmi:type="uml:Package" xmi:id="_GghObmVcEeq6Sft_TbB9Qw" name="ivoa">
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_GghOb2VcEeq6Sft_TbB9Qw" name="nonnegativeInteger"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_GghOcGVcEeq6Sft_TbB9Qw" name="integer"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_GghOcWVcEeq6Sft_TbB9Qw" name="rational"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_GghOcmVcEeq6Sft_TbB9Qw" name="real"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_GghOc2VcEeq6Sft_TbB9Qw" name="complex"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_GghOdGVcEeq6Sft_TbB9Qw" name="string"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_GghOdWVcEeq6Sft_TbB9Qw" name="boolean"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_GghOdmVcEeq6Sft_TbB9Qw" name="datetime"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_GghOd2VcEeq6Sft_TbB9Qw" name="anyURI">
-        <generalization xmi:type="uml:Generalization" xmi:id="_GghOeGVcEeq6Sft_TbB9Qw" general="_GghOdGVcEeq6Sft_TbB9Qw"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_d8uxns-qEeu47NMYgfKudg" name="ivoa">
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_d8uxn8-qEeu47NMYgfKudg" name="nonnegativeInteger"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_d8uxoM-qEeu47NMYgfKudg" name="integer"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_d8uxoc-qEeu47NMYgfKudg" name="rational"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_d8uxos-qEeu47NMYgfKudg" name="real"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_d8uxo8-qEeu47NMYgfKudg" name="complex"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_d8uxpM-qEeu47NMYgfKudg" name="string"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_d8uxpc-qEeu47NMYgfKudg" name="boolean"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_d8uxps-qEeu47NMYgfKudg" name="datetime"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_d8uxp8-qEeu47NMYgfKudg" name="anyURI">
+        <generalization xmi:type="uml:Generalization" xmi:id="_d8uxqM-qEeu47NMYgfKudg" general="_d8uxpM-qEeu47NMYgfKudg"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_GghOeWVcEeq6Sft_TbB9Qw" name="Quantity" isAbstract="true">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_GghOemVcEeq6Sft_TbB9Qw" name="unit" visibility="public" type="_GghOgmVcEeq6Sft_TbB9Qw" isUnique="false">
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghOe2VcEeq6Sft_TbB9Qw"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_d8uxqc-qEeu47NMYgfKudg" name="Quantity" isAbstract="true">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_d8uxqs-qEeu47NMYgfKudg" name="unit" visibility="public" type="_d8uxss-qEeu47NMYgfKudg" isUnique="false">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8uxq8-qEeu47NMYgfKudg"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_GghOfGVcEeq6Sft_TbB9Qw" name="IntegerQuantity">
-        <generalization xmi:type="uml:Generalization" xmi:id="_GghOfWVcEeq6Sft_TbB9Qw" general="_GghOeWVcEeq6Sft_TbB9Qw"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_GghOfmVcEeq6Sft_TbB9Qw" name="value" visibility="public" type="_GghOcGVcEeq6Sft_TbB9Qw" isUnique="false"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_d8uxrM-qEeu47NMYgfKudg" name="IntegerQuantity">
+        <generalization xmi:type="uml:Generalization" xmi:id="_d8uxrc-qEeu47NMYgfKudg" general="_d8uxqc-qEeu47NMYgfKudg"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_d8uxrs-qEeu47NMYgfKudg" name="value" visibility="public" type="_d8uxoM-qEeu47NMYgfKudg" isUnique="false"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_GghOf2VcEeq6Sft_TbB9Qw" name="RealQuantity">
-        <generalization xmi:type="uml:Generalization" xmi:id="_GghOgGVcEeq6Sft_TbB9Qw" general="_GghOeWVcEeq6Sft_TbB9Qw"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_GghOgWVcEeq6Sft_TbB9Qw" name="value" visibility="public" type="_GghOcmVcEeq6Sft_TbB9Qw" isUnique="false"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_d8uxr8-qEeu47NMYgfKudg" name="RealQuantity">
+        <generalization xmi:type="uml:Generalization" xmi:id="_d8uxsM-qEeu47NMYgfKudg" general="_d8uxqc-qEeu47NMYgfKudg"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_d8uxsc-qEeu47NMYgfKudg" name="value" visibility="public" type="_d8uxos-qEeu47NMYgfKudg" isUnique="false"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_GghOgmVcEeq6Sft_TbB9Qw" name="Unit">
-        <generalization xmi:type="uml:Generalization" xmi:id="_GghOg2VcEeq6Sft_TbB9Qw" general="_GghOdGVcEeq6Sft_TbB9Qw"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_d8uxss-qEeu47NMYgfKudg" name="Unit">
+        <generalization xmi:type="uml:Generalization" xmi:id="_d8uxs8-qEeu47NMYgfKudg" general="_d8uxpM-qEeu47NMYgfKudg"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:InformationItem" xmi:id="_GghOhGVcEeq6Sft_TbB9Qw" name="Astronomical Coordinates and Systems model (2017)"/>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_GghOhWVcEeq6Sft_TbB9Qw" name="Coordinate" isAbstract="true">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghOhmVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:InformationItem" xmi:id="_d8uxtM-qEeu47NMYgfKudg" name="Astronomical Coordinates and Systems model (2017)"/>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8uxtc-qEeu47NMYgfKudg" name="Coordinate" isAbstract="true">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8uxts-qEeu47NMYgfKudg">
         <body>Abstract base class for the Coordinate data types which represent an absolute location within a coordinate space. Coordinates MUST refer to a coordinate system, providing additional metadata relevant to interpreting the coordinate value, and its representation.
 </body>
       </ownedComment>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghOh2VcEeq6Sft_TbB9Qw" name="coordSys" visibility="public" type="_GghPSmVcEeq6Sft_TbB9Qw" association="_GghOiWVcEeq6Sft_TbB9Qw">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghOiGVcEeq6Sft_TbB9Qw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vYkM-qEeu47NMYgfKudg" name="coordSys" visibility="public" type="_d8vZbs-qEeu47NMYgfKudg" association="_d8vYks-qEeu47NMYgfKudg">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYkc-qEeu47NMYgfKudg">
           <body>Provided additional metadata relevant to interpreting the coordinate value; for example, the spatial reference position, or time scale, axis descriptions.
 </body>
         </ownedComment>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_GghOiWVcEeq6Sft_TbB9Qw" memberEnd="_GghOh2VcEeq6Sft_TbB9Qw _GghOimVcEeq6Sft_TbB9Qw">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_GghOimVcEeq6Sft_TbB9Qw" visibility="public" type="_GghOhWVcEeq6Sft_TbB9Qw" association="_GghOiWVcEeq6Sft_TbB9Qw">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghOi2VcEeq6Sft_TbB9Qw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_d8vYks-qEeu47NMYgfKudg" memberEnd="_d8vYkM-qEeu47NMYgfKudg _d8vYk8-qEeu47NMYgfKudg">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_d8vYk8-qEeu47NMYgfKudg" visibility="public" type="_d8uxtc-qEeu47NMYgfKudg" association="_d8vYks-qEeu47NMYgfKudg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vYlM-qEeu47NMYgfKudg"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Enumeration" xmi:id="_GghOjGVcEeq6Sft_TbB9Qw" name="Handedness">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghOjWVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_d8vYlc-qEeu47NMYgfKudg" name="Handedness">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYls-qEeu47NMYgfKudg">
         <body>The handedness of a coordinate space.  For most cases, this will be a fixed value in the specification of the coordinate space.  We provide this element to allow this flexibility when needed.  In this document, it is used in the Pixel domain.</body>
       </ownedComment>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghOjmVcEeq6Sft_TbB9Qw" name="left">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghOj2VcEeq6Sft_TbB9Qw">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vYl8-qEeu47NMYgfKudg" name="left">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYmM-qEeu47NMYgfKudg">
           <body>positive x and y axes point right and up, the positive z axis points inward</body>
         </ownedComment>
       </ownedLiteral>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghOkGVcEeq6Sft_TbB9Qw" name="right">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghOkWVcEeq6Sft_TbB9Qw">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vYmc-qEeu47NMYgfKudg" name="right">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYms-qEeu47NMYgfKudg">
           <body>positive x and y axes point right and up, the positive z axis points outward</body>
         </ownedComment>
       </ownedLiteral>
     </packagedElement>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_GghOkmVcEeq6Sft_TbB9Qw" name="BinnedCoordinate">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghOk2VcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vYm8-qEeu47NMYgfKudg" name="BinnedCoordinate">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYnM-qEeu47NMYgfKudg">
         <body>Coordinate value type specifically intended for binned data (e.g.: pixel indexes).
 </body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghOlGVcEeq6Sft_TbB9Qw" general="_GghOhWVcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghOlWVcEeq6Sft_TbB9Qw" name="cval" visibility="public" type="_GghOcGVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghOlmVcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vYnc-qEeu47NMYgfKudg" general="_d8uxtc-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vYns-qEeu47NMYgfKudg" name="cval" visibility="public" type="_d8uxoM-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYn8-qEeu47NMYgfKudg">
           <body>The binned coordinate value, expressed as an integer.  e.g.: bin number, pixel index.
 </body>
         </ownedComment>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_GghOl2VcEeq6Sft_TbB9Qw" name="PixelIndex">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghOmGVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vYoM-qEeu47NMYgfKudg" name="PixelIndex">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYoc-qEeu47NMYgfKudg">
         <body>Specialized BinnedCoordinate for the pixel domain for a 1-dimensional pixel index.  PixelIndex MUST refer to a PixelCoordSystem.
 </body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghOmWVcEeq6Sft_TbB9Qw" general="_GghOkmVcEeq6Sft_TbB9Qw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vYos-qEeu47NMYgfKudg" general="_d8vYm8-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_GghOmmVcEeq6Sft_TbB9Qw" name="PhysicalCoordinate">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghOm2VcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vYo8-qEeu47NMYgfKudg" name="PhysicalCoordinate">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYpM-qEeu47NMYgfKudg">
         <body>The most common type of coordinate value.  This type is appropriate for any data whose values can be described by an ivoa:Quantity (numeric, with unit).</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghOnGVcEeq6Sft_TbB9Qw" general="_GghOhWVcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghOnWVcEeq6Sft_TbB9Qw" name="cval" visibility="public" type="_GghOeWVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghOnmVcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vYpc-qEeu47NMYgfKudg" general="_d8uxtc-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vYps-qEeu47NMYgfKudg" name="cval" visibility="public" type="_d8uxqc-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYp8-qEeu47NMYgfKudg">
           <body>This coordinate MUST contain a value expressed as an ivoa:Quantity.</body>
         </ownedComment>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghOn2VcEeq6Sft_TbB9Qw" name="CoordSpace" isAbstract="true">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghOoGVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vYqM-qEeu47NMYgfKudg" name="CoordSpace" isAbstract="true">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYqc-qEeu47NMYgfKudg">
         <body>This object defines a domain space.  i.e.: it describes the set of possible coordinate values.</body>
       </ownedComment>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghOoWVcEeq6Sft_TbB9Qw" name="axis" visibility="public" type="_GghOpmVcEeq6Sft_TbB9Qw" aggregation="composite" association="_GghOpGVcEeq6Sft_TbB9Qw">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghOomVcEeq6Sft_TbB9Qw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vYqs-qEeu47NMYgfKudg" name="axis" visibility="public" type="_d8vYr8-qEeu47NMYgfKudg" aggregation="composite" association="_d8vYrc-qEeu47NMYgfKudg">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYq8-qEeu47NMYgfKudg">
           <body>Describes an axis of the coordinate space.  </body>
         </ownedComment>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GghOo2VcEeq6Sft_TbB9Qw" value="*"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_d8vYrM-qEeu47NMYgfKudg" value="*"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_GghOpGVcEeq6Sft_TbB9Qw" memberEnd="_GghOoWVcEeq6Sft_TbB9Qw _GghOpWVcEeq6Sft_TbB9Qw">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_GghOpWVcEeq6Sft_TbB9Qw" visibility="public" type="_GghOn2VcEeq6Sft_TbB9Qw" association="_GghOpGVcEeq6Sft_TbB9Qw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_d8vYrc-qEeu47NMYgfKudg" memberEnd="_d8vYqs-qEeu47NMYgfKudg _d8vYrs-qEeu47NMYgfKudg">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_d8vYrs-qEeu47NMYgfKudg" visibility="public" type="_d8vYqM-qEeu47NMYgfKudg" association="_d8vYrc-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghOpmVcEeq6Sft_TbB9Qw" name="Axis" isAbstract="true">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghOp2VcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vYr8-qEeu47NMYgfKudg" name="Axis" isAbstract="true">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYsM-qEeu47NMYgfKudg">
         <body>The abstract parent class for all coordinate axis types.  We provide concrete classes for the most common types of data, Continuous, Binned, and Discrete, but allow extension for other types as needed.</body>
       </ownedComment>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghOqGVcEeq6Sft_TbB9Qw" name="name" visibility="public" type="_GghOdGVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghOqWVcEeq6Sft_TbB9Qw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vYsc-qEeu47NMYgfKudg" name="name" visibility="public" type="_d8uxpM-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYss-qEeu47NMYgfKudg">
           <body>Freeform string, provides the name or label for the axis.</body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghOqmVcEeq6Sft_TbB9Qw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vYs8-qEeu47NMYgfKudg"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghOq2VcEeq6Sft_TbB9Qw" name="ContinuousAxis">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghOrGVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vYtM-qEeu47NMYgfKudg" name="ContinuousAxis">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYtc-qEeu47NMYgfKudg">
         <body>Axis description for continuous data.  This object describes the domain for a particular axis of the domain space.  It allows for the specification of the legal domain range (min,max), and a flag indicating if the axis is cyclic.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghOrWVcEeq6Sft_TbB9Qw" general="_GghOpmVcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghOrmVcEeq6Sft_TbB9Qw" name="domainMin" visibility="public" type="_GghOeWVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghOr2VcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vYts-qEeu47NMYgfKudg" general="_d8vYr8-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vYt8-qEeu47NMYgfKudg" name="domainMin" visibility="public" type="_d8uxqc-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYuM-qEeu47NMYgfKudg">
           <body>Minimum extent of the axis domain space.  If not provided, the domain space is considered to have no lower bound (-INFINITY).</body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghOsGVcEeq6Sft_TbB9Qw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vYuc-qEeu47NMYgfKudg"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghOsWVcEeq6Sft_TbB9Qw" name="domainMax" visibility="public" type="_GghOeWVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghOsmVcEeq6Sft_TbB9Qw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vYus-qEeu47NMYgfKudg" name="domainMax" visibility="public" type="_d8uxqc-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYu8-qEeu47NMYgfKudg">
           <body>Maximum extent of the axis domain space.  If not provided, the domain space is considered to have no upper bound (+INFINITY).</body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghOs2VcEeq6Sft_TbB9Qw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vYvM-qEeu47NMYgfKudg"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghOtGVcEeq6Sft_TbB9Qw" name="cyclic" visibility="public" type="_GghOdWVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghOtWVcEeq6Sft_TbB9Qw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vYvc-qEeu47NMYgfKudg" name="cyclic" visibility="public" type="_d8uxpc-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYvs-qEeu47NMYgfKudg">
           <body>Flag indicating if the axis is cyclic in nature.  If not provided, it is assumed to be FALSE.</body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghOtmVcEeq6Sft_TbB9Qw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vYv8-qEeu47NMYgfKudg"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghOt2VcEeq6Sft_TbB9Qw" name="BinnedAxis">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghOuGVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vYwM-qEeu47NMYgfKudg" name="BinnedAxis">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYwc-qEeu47NMYgfKudg">
         <body>Axis description for binned data, where values along the axis correspond to a bin number.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghOuWVcEeq6Sft_TbB9Qw" general="_GghOpmVcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghOumVcEeq6Sft_TbB9Qw" name="length" visibility="public" type="_GghOb2VcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghOu2VcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vYws-qEeu47NMYgfKudg" general="_d8vYr8-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vYw8-qEeu47NMYgfKudg" name="length" visibility="public" type="_d8uxn8-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYxM-qEeu47NMYgfKudg">
           <body>  The length, or number of bins, along the axis.</body>
         </ownedComment>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghOvGVcEeq6Sft_TbB9Qw" name="DiscreteSetAxis">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghOvWVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vYxc-qEeu47NMYgfKudg" name="DiscreteSetAxis">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYxs-qEeu47NMYgfKudg">
         <body>Axis type specifically intended for enumerated coordinates.  Since the content and nature of this axis type is heavily dependent on the use case, we define no additional metadata here.  Extensions of this type may include additional metadata relevant to the particular use cases.  For example, an extension could include the allowed set of values.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghOvmVcEeq6Sft_TbB9Qw" general="_GghOpmVcEeq6Sft_TbB9Qw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vYx8-qEeu47NMYgfKudg" general="_d8vYr8-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghOv2VcEeq6Sft_TbB9Qw" name="CoordFrame" isAbstract="true">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghOwGVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vYyM-qEeu47NMYgfKudg" name="CoordFrame" isAbstract="true">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYyc-qEeu47NMYgfKudg">
         <body>This is the abstract, empty, base class for all coordinate frames.  Coordinate frames provide metadata associated with the coordinate domain space.  Typically, this will be related to the origin and orientation of the axes, but might include any metadata which pertains to the definition of the domain.</body>
       </ownedComment>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghOwWVcEeq6Sft_TbB9Qw" name="GenericFrame">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghOwmVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vYys-qEeu47NMYgfKudg" name="GenericFrame">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYy8-qEeu47NMYgfKudg">
         <body>The generic coordinate frame is for cases where a domain-specific frame (e.g.: Space, Time), is not required, but the relevant reference metadata is still needed (e.g.: for Redshift or Spectral data)</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghOw2VcEeq6Sft_TbB9Qw" general="_GghOv2VcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghOxGVcEeq6Sft_TbB9Qw" name="refPosition" visibility="public" type="_GghPK2VcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghOxWVcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vYzM-qEeu47NMYgfKudg" general="_d8vYyM-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vYzc-qEeu47NMYgfKudg" name="refPosition" visibility="public" type="_d8vZT8-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vYzs-qEeu47NMYgfKudg">
           <body>Spatial location in phase space (position and velocity) at which the observed value is considered to have been taken. This will typically be given by a standard reference position, but we allow for custom locations as well.
 </body>
         </ownedComment>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghOxmVcEeq6Sft_TbB9Qw" name="planetaryEphem" visibility="public" type="_GghOdGVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghOx2VcEeq6Sft_TbB9Qw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vYz8-qEeu47NMYgfKudg" name="planetaryEphem" visibility="public" type="_d8uxpM-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY0M-qEeu47NMYgfKudg">
           <body>A planetary ephemeris MAY be provided, and SHOULD be provided whenever appropriate, to indicate which solar system ephemeris was used.  If needed, but not provided, it is assumed to be "DE405"</body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghOyGVcEeq6Sft_TbB9Qw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vY0c-qEeu47NMYgfKudg"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghOyWVcEeq6Sft_TbB9Qw" name="SpaceFrame">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghOymVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vY0s-qEeu47NMYgfKudg" name="SpaceFrame">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY08-qEeu47NMYgfKudg">
         <body>A SpaceFrame is specified by its reference frame (orientation), and a reference position (origin). Currently only standard reference frames are allowed. An equinox MUST be provided for pre-ICRS reference frames. A planetary ephemeris MAY be provided if relevant. If needed, but not provided, it is assumed to be "DE405".
 </body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghOy2VcEeq6Sft_TbB9Qw" general="_GghOv2VcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghOzGVcEeq6Sft_TbB9Qw" name="refPosition" visibility="public" type="_GghPK2VcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghOzWVcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vY1M-qEeu47NMYgfKudg" general="_d8vYyM-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vY1c-qEeu47NMYgfKudg" name="refPosition" visibility="public" type="_d8vZT8-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY1s-qEeu47NMYgfKudg">
           <body>The spatial location at which the coordinates are considered to have been determined.  This model supports locations provided as either a standard reference position (e.g. GEOCENTER), or a coordinate specifying a custom location (e.g. long, lat, height ).</body>
         </ownedComment>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghOzmVcEeq6Sft_TbB9Qw" name="spaceRefFrame" visibility="public" type="_GghOdGVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghOz2VcEeq6Sft_TbB9Qw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vY18-qEeu47NMYgfKudg" name="spaceRefFrame" visibility="public" type="_d8uxpM-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY2M-qEeu47NMYgfKudg">
           <body>The spatial reference frame. Values MUST be selected from the controlled vocabulary at the given URL.
 </body>
         </ownedComment>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghO0GVcEeq6Sft_TbB9Qw" name="equinox" visibility="public" type="_GghPKWVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghO0WVcEeq6Sft_TbB9Qw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vY2c-qEeu47NMYgfKudg" name="equinox" visibility="public" type="_d8vZTc-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY2s-qEeu47NMYgfKudg">
           <body>Reference date for the frame, required for pre-ICRS reference frames.</body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghO0mVcEeq6Sft_TbB9Qw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vY28-qEeu47NMYgfKudg"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghO02VcEeq6Sft_TbB9Qw" name="planetaryEphem" visibility="public" type="_GghOdGVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghO1GVcEeq6Sft_TbB9Qw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vY3M-qEeu47NMYgfKudg" name="planetaryEphem" visibility="public" type="_d8uxpM-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY3c-qEeu47NMYgfKudg">
           <body>Ephemeris file for solar system objects SHOULD be specified whenever relevant.</body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghO1WVcEeq6Sft_TbB9Qw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vY3s-qEeu47NMYgfKudg"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghO1mVcEeq6Sft_TbB9Qw" name="TimeFrame">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghO12VcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vY38-qEeu47NMYgfKudg" name="TimeFrame">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY4M-qEeu47NMYgfKudg">
         <body>A TimeFrame SHALL include a time scale and reference position.  It MAY also include a reference direction.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghO2GVcEeq6Sft_TbB9Qw" general="_GghOv2VcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghO2WVcEeq6Sft_TbB9Qw" name="refPosition" visibility="public" type="_GghPK2VcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghO2mVcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vY4c-qEeu47NMYgfKudg" general="_d8vYyM-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vY4s-qEeu47NMYgfKudg" name="refPosition" visibility="public" type="_d8vZT8-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY48-qEeu47NMYgfKudg">
           <body>The spatial location at which the coordinate is considered to have been taken.  This model supports locations provided as either a standard reference position (e.g. GEOCENTER), or a coordinate specifying a custom location (e.g. long, lat, height).</body>
         </ownedComment>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghO22VcEeq6Sft_TbB9Qw" name="timescale" visibility="public" type="_GghOdGVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghO3GVcEeq6Sft_TbB9Qw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vY5M-qEeu47NMYgfKudg" name="timescale" visibility="public" type="_d8uxpM-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY5c-qEeu47NMYgfKudg">
           <body>The time scale sets the reference frame.  The value MUST be selected from the controlled vocabulary at the given URL.</body>
         </ownedComment>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghO3WVcEeq6Sft_TbB9Qw" name="refDirection" visibility="public" type="_GghPK2VcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghO3mVcEeq6Sft_TbB9Qw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vY5s-qEeu47NMYgfKudg" name="refDirection" visibility="public" type="_d8vZT8-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY58-qEeu47NMYgfKudg">
           <body>The reference direction is needed if the time stamps are transformed to a time frame with a different reference position.  In those situations, the solar system ephemeris also comes into play.  See: FITS WCS Paper IV for details, but in short:  The reference direction, presumably the direction to the thing being observed, is used in conjunction with the reference position and planetary ephemeris to determine the correction applied for the path length change.  To be fully useful, one also needs to know the location at which the observation was made ( i.e. the observatory location), which is not considered to be Frame metadata.</body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghO32VcEeq6Sft_TbB9Qw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vY6M-qEeu47NMYgfKudg"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghO4GVcEeq6Sft_TbB9Qw" name="AstroCoordSystem">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghO4WVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vY6c-qEeu47NMYgfKudg" name="AstroCoordSystem">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY6s-qEeu47NMYgfKudg">
         <body>The AstroCoordSystem object holds a collection of component coordinate system descriptions across all represented physical domains.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghO4mVcEeq6Sft_TbB9Qw" general="_GghPSmVcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghO42VcEeq6Sft_TbB9Qw" name="coordSys" visibility="public" type="_GghPTGVcEeq6Sft_TbB9Qw" aggregation="composite" association="_GghO5mVcEeq6Sft_TbB9Qw">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghO5GVcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vY68-qEeu47NMYgfKudg" general="_d8vZbs-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vY7M-qEeu47NMYgfKudg" name="coordSys" visibility="public" type="_d8vZcM-qEeu47NMYgfKudg" aggregation="composite" association="_d8vY78-qEeu47NMYgfKudg">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY7c-qEeu47NMYgfKudg">
           <body>Coordinate system description for each physical domain (Space, Time, etc).</body>
         </ownedComment>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GghO5WVcEeq6Sft_TbB9Qw" value="*"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_d8vY7s-qEeu47NMYgfKudg" value="*"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_GghO5mVcEeq6Sft_TbB9Qw" memberEnd="_GghO42VcEeq6Sft_TbB9Qw _GghO52VcEeq6Sft_TbB9Qw">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_GghO52VcEeq6Sft_TbB9Qw" visibility="public" type="_GghO4GVcEeq6Sft_TbB9Qw" association="_GghO5mVcEeq6Sft_TbB9Qw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_d8vY78-qEeu47NMYgfKudg" memberEnd="_d8vY7M-qEeu47NMYgfKudg _d8vY8M-qEeu47NMYgfKudg">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_d8vY8M-qEeu47NMYgfKudg" visibility="public" type="_d8vY6c-qEeu47NMYgfKudg" association="_d8vY78-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_GghO6GVcEeq6Sft_TbB9Qw" name="Point">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghO6WVcEeq6Sft_TbB9Qw">
-        <body>Multi-dimensional spatial coordinate. The Point MUST refer to a spatial coordinate system (SpaceSys).  The coordinate values map, in order, to the axes described by the associated CoordSpace.  Values for unused/undefined dimensions need not be provided.</body>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vY8c-qEeu47NMYgfKudg" name="Point" isAbstract="true">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY8s-qEeu47NMYgfKudg">
+        <body>Multi-dimensional spatial coordinate. The Point MUST refer to a spatial coordinate system (SpaceSys) which associates the point with corresponding coordinate domain space and frame metadata.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghO6mVcEeq6Sft_TbB9Qw" general="_GghOhWVcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghO62VcEeq6Sft_TbB9Qw" name="axis1" visibility="public" type="_GghOeWVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghO7GVcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vY88-qEeu47NMYgfKudg" general="_d8uxtc-qEeu47NMYgfKudg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vY9M-qEeu47NMYgfKudg" name="CartesianPoint">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY9c-qEeu47NMYgfKudg">
+        <body>A spatial coordinate in a Cartesian coordinate space.  Any associated CoordSpace MUST be a CartesianCoordSpace.  If no CoordSpace is provided, a Standard Cartesian CoordSpace is assumed.  Values for unused/undefined dimensions need not be provided.
+</body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vY9s-qEeu47NMYgfKudg" general="_d8vY8c-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vY98-qEeu47NMYgfKudg" name="x" visibility="public" type="_d8uxqc-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY-M-qEeu47NMYgfKudg">
+          <body>The coordinate value along the 'X' axis.</body>
+        </ownedComment>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vY-c-qEeu47NMYgfKudg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vY-s-qEeu47NMYgfKudg" name="y" visibility="public" type="_d8uxqc-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY-8-qEeu47NMYgfKudg">
+          <body>The coordinate value along the 'Y' axis.</body>
+        </ownedComment>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vY_M-qEeu47NMYgfKudg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vY_c-qEeu47NMYgfKudg" name="z" visibility="public" type="_d8uxqc-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vY_s-qEeu47NMYgfKudg">
+          <body>The coordinate value along the 'Z' axis.</body>
+        </ownedComment>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vY_8-qEeu47NMYgfKudg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vZAM-qEeu47NMYgfKudg" name="LonLatPoint">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZAc-qEeu47NMYgfKudg">
+        <body>A spatial coordinate in a Spherical coordinate space defining a Celestial position in Latitude and Longitude.  Any associated CoordSpace MUST conform to this description.  If no CoordSpace is provided, a Standard Spherical CoordSpace is assumed.  Values for unused/undefined dimensions need not be provided.
+</body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZAs-qEeu47NMYgfKudg" general="_d8vY8c-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZA8-qEeu47NMYgfKudg" name="lon" visibility="public" type="_d8uxqc-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZBM-qEeu47NMYgfKudg">
+          <body>The longitude of the Point, as a Quantity with angular units.</body>
+        </ownedComment>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vZBc-qEeu47NMYgfKudg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZBs-qEeu47NMYgfKudg" name="lat" visibility="public" type="_d8uxqc-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZB8-qEeu47NMYgfKudg">
+          <body>The latitude of the Point, as a Quantity with angular units.</body>
+        </ownedComment>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vZCM-qEeu47NMYgfKudg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZCc-qEeu47NMYgfKudg" name="dist" visibility="public" type="_d8uxqc-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZCs-qEeu47NMYgfKudg">
+          <body>The distance to the Point from the origin.</body>
+        </ownedComment>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vZC8-qEeu47NMYgfKudg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vZDM-qEeu47NMYgfKudg" name="GenericPoint">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZDc-qEeu47NMYgfKudg">
+        <body>GenericPoint supports the representation of spatial coordinates in a custom coordinate space, or any space which is not covered by the other specializations.   The coordinate values map, in order, to the axes described by the associated CoordSpace.  If no CoordSpace is provided, the behavior is undefined.  Values for unused/undefined dimensions need not be provided.</body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZDs-qEeu47NMYgfKudg" general="_d8vY8c-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZD8-qEeu47NMYgfKudg" name="axis1" visibility="public" type="_d8uxqc-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZEM-qEeu47NMYgfKudg">
           <body>Coordinate value along the first axis of the associated coordinate space, expressed as an ivoa:Quantity.</body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghO7WVcEeq6Sft_TbB9Qw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vZEc-qEeu47NMYgfKudg"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghO7mVcEeq6Sft_TbB9Qw" name="axis2" visibility="public" type="_GghOeWVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghO72VcEeq6Sft_TbB9Qw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZEs-qEeu47NMYgfKudg" name="axis2" visibility="public" type="_d8uxqc-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZE8-qEeu47NMYgfKudg">
           <body>Coordinate value along the second axis of the associated coordinate space, expressed as an ivoa:Quantity.</body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghO8GVcEeq6Sft_TbB9Qw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vZFM-qEeu47NMYgfKudg"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghO8WVcEeq6Sft_TbB9Qw" name="axis3" visibility="public" type="_GghOeWVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghO8mVcEeq6Sft_TbB9Qw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZFc-qEeu47NMYgfKudg" name="axis3" visibility="public" type="_d8uxqc-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZFs-qEeu47NMYgfKudg">
           <body>Coordinate value along the third axis of the associated coordinate space, expressed as an ivoa:Quantity.</body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghO82VcEeq6Sft_TbB9Qw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vZF8-qEeu47NMYgfKudg"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_GghO9GVcEeq6Sft_TbB9Qw" name="TimeStamp" isAbstract="true">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghO9WVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vZGM-qEeu47NMYgfKudg" name="TimeStamp" isAbstract="true">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZGc-qEeu47NMYgfKudg">
         <body>This is the abstract basis for a set of simple time domain coordinates which are expected to accommodate the vast majority of use cases. All TimeStamps, by definition, exist in a standard 1-D coordinate space, with domainMin|Max of +/-Infinity.  All TimeStamps MUST refer to an appropriate TimeSys.
 </body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghO9mVcEeq6Sft_TbB9Qw" general="_GghOhWVcEeq6Sft_TbB9Qw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZGs-qEeu47NMYgfKudg" general="_d8uxtc-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_GghO92VcEeq6Sft_TbB9Qw" name="TimeOffset">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghO-GVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vZG8-qEeu47NMYgfKudg" name="TimeOffset">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZHM-qEeu47NMYgfKudg">
         <body>Time is given as an offset from a specific point in time (time0).</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghO-WVcEeq6Sft_TbB9Qw" general="_GghO9GVcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghO-mVcEeq6Sft_TbB9Qw" name="time" visibility="public" type="_GghOf2VcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghO-2VcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZHc-qEeu47NMYgfKudg" general="_d8vZGM-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZHs-qEeu47NMYgfKudg" name="time" visibility="public" type="_d8uxr8-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZH8-qEeu47NMYgfKudg">
           <body>The TimeOffset coordinate value.</body>
         </ownedComment>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghO_GVcEeq6Sft_TbB9Qw" name="time0" visibility="public" type="_GghO_mVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghO_WVcEeq6Sft_TbB9Qw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZIM-qEeu47NMYgfKudg" name="time0" visibility="public" type="_d8vZIs-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZIc-qEeu47NMYgfKudg">
           <body>The reference time from which the offset is calculated.  This MUST be given as a TimeInstant (e.g.: JD, MJD, ISOTime).</body>
         </ownedComment>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_GghO_mVcEeq6Sft_TbB9Qw" name="TimeInstant" isAbstract="true">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghO_2VcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vZIs-qEeu47NMYgfKudg" name="TimeInstant" isAbstract="true">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZI8-qEeu47NMYgfKudg">
         <body>TimeStamps which specify a specific instant in time.  We define three subtypes (ISOTime, JD, MJD), which allow users to explicitly identify the representation and interpretation of the TimeInstant.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPAGVcEeq6Sft_TbB9Qw" general="_GghO9GVcEeq6Sft_TbB9Qw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZJM-qEeu47NMYgfKudg" general="_d8vZGM-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_GghPAWVcEeq6Sft_TbB9Qw" name="JD">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPAmVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vZJc-qEeu47NMYgfKudg" name="JD">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZJs-qEeu47NMYgfKudg">
         <body>Extension of TimeInstant for time expressed in Julian days.  Note that JD does not properly specify a time stamp unless it is related to a time scale and reference position.  Precision can easily become an issue with JD, as the numbers tend to be large.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPA2VcEeq6Sft_TbB9Qw" general="_GghO_mVcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghPBGVcEeq6Sft_TbB9Qw" name="date" visibility="public" type="_GghOcmVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghPBWVcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZJ8-qEeu47NMYgfKudg" general="_d8vZIs-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZKM-qEeu47NMYgfKudg" name="date" visibility="public" type="_d8uxos-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZKc-qEeu47NMYgfKudg">
           <body>The JD coordinate value.  JD dates are dimensionless, with implied units in days.</body>
         </ownedComment>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_GghPBmVcEeq6Sft_TbB9Qw" name="MJD">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPB2VcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vZKs-qEeu47NMYgfKudg" name="MJD">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZK8-qEeu47NMYgfKudg">
         <body>Extension of TimeInstant for time expressed in Modified Julian Days.  T(MJD) = T(JD) - 2400000.5.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPCGVcEeq6Sft_TbB9Qw" general="_GghO_mVcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghPCWVcEeq6Sft_TbB9Qw" name="date" visibility="public" type="_GghOcmVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghPCmVcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZLM-qEeu47NMYgfKudg" general="_d8vZIs-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZLc-qEeu47NMYgfKudg" name="date" visibility="public" type="_d8uxos-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZLs-qEeu47NMYgfKudg">
           <body>The MJD coordinate value.  MJD dates are dimensionless, with implied units in days.</body>
         </ownedComment>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_GghPC2VcEeq6Sft_TbB9Qw" name="ISOTime">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPDGVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vZL8-qEeu47NMYgfKudg" name="ISOTime">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZMM-qEeu47NMYgfKudg">
         <body>Extension of TimeInstant for time expressed as a structured datetime string.
 The string representation of a datetime value should follow the FITS convention for representing dates (Hanish and Farris et al, 2001).  The FITS standard is effectively ISO8601 format without the 'Z' tag to indicate UTC:  YYYY-MM-DD['T'hh:mm:ss[.SSS]].  The TimeScale is provided in the associated TimeFrame.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPDWVcEeq6Sft_TbB9Qw" general="_GghO_mVcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghPDmVcEeq6Sft_TbB9Qw" name="date" visibility="public" type="_GghOdmVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghPD2VcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZMc-qEeu47NMYgfKudg" general="_d8vZIs-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZMs-qEeu47NMYgfKudg" name="date" visibility="public" type="_d8uxps-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZM8-qEeu47NMYgfKudg">
           <body>The ISOTime coordinate value.</body>
         </ownedComment>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_GghPEGVcEeq6Sft_TbB9Qw" name="PolCoordinate" isAbstract="true">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPEWVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vZNM-qEeu47NMYgfKudg" name="PolCoordinate" isAbstract="true">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZNc-qEeu47NMYgfKudg">
         <body>Abstract head of the polarization coordinate types. Current use cases only require support for discrete polarization states, however, we include this head class to facilitate extension for other types (eg: polarization fraction and angle).</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPEmVcEeq6Sft_TbB9Qw" general="_GghOhWVcEeq6Sft_TbB9Qw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZNs-qEeu47NMYgfKudg" general="_d8uxtc-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_GghPE2VcEeq6Sft_TbB9Qw" name="PolState">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPFGVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vZN8-qEeu47NMYgfKudg" name="PolState">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZOM-qEeu47NMYgfKudg">
         <body>Coordinate type for discrete polarization states.
 </body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPFWVcEeq6Sft_TbB9Qw" general="_GghPEGVcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghPFmVcEeq6Sft_TbB9Qw" name="cval" visibility="public" type="_GghPGGVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghPF2VcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZOc-qEeu47NMYgfKudg" general="_d8vZNM-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZOs-qEeu47NMYgfKudg" name="cval" visibility="public" type="_d8vZPM-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZO8-qEeu47NMYgfKudg">
           <body>The coordinate value MUST be from the PolStateEnum enumerated set.
 </body>
         </ownedComment>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Enumeration" xmi:id="_GghPGGVcEeq6Sft_TbB9Qw" name="PolStateEnum">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPGWVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_d8vZPM-qEeu47NMYgfKudg" name="PolStateEnum">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZPc-qEeu47NMYgfKudg">
         <body>Polarization states: Stokes, Circular, Linear and Vector states
 </body>
       </ownedComment>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghPGmVcEeq6Sft_TbB9Qw" name="I"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghPG2VcEeq6Sft_TbB9Qw" name="Q"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghPHGVcEeq6Sft_TbB9Qw" name="U"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghPHWVcEeq6Sft_TbB9Qw" name="V"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghPHmVcEeq6Sft_TbB9Qw" name="RR"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghPH2VcEeq6Sft_TbB9Qw" name="LL"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghPIGVcEeq6Sft_TbB9Qw" name="RL"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghPIWVcEeq6Sft_TbB9Qw" name="LR"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghPImVcEeq6Sft_TbB9Qw" name="XX"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghPI2VcEeq6Sft_TbB9Qw" name="YY"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghPJGVcEeq6Sft_TbB9Qw" name="XY"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghPJWVcEeq6Sft_TbB9Qw" name="YX"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghPJmVcEeq6Sft_TbB9Qw" name="PF"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghPJ2VcEeq6Sft_TbB9Qw" name="PP"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GghPKGVcEeq6Sft_TbB9Qw" name="PA"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vZPs-qEeu47NMYgfKudg" name="I"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vZP8-qEeu47NMYgfKudg" name="Q"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vZQM-qEeu47NMYgfKudg" name="U"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vZQc-qEeu47NMYgfKudg" name="V"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vZQs-qEeu47NMYgfKudg" name="RR"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vZQ8-qEeu47NMYgfKudg" name="LL"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vZRM-qEeu47NMYgfKudg" name="RL"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vZRc-qEeu47NMYgfKudg" name="LR"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vZRs-qEeu47NMYgfKudg" name="XX"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vZR8-qEeu47NMYgfKudg" name="YY"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vZSM-qEeu47NMYgfKudg" name="XY"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vZSc-qEeu47NMYgfKudg" name="YX"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vZSs-qEeu47NMYgfKudg" name="PF"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vZS8-qEeu47NMYgfKudg" name="PP"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d8vZTM-qEeu47NMYgfKudg" name="PA"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_GghPKWVcEeq6Sft_TbB9Qw" name="Epoch">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPKmVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_d8vZTc-qEeu47NMYgfKudg" name="Epoch">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZTs-qEeu47NMYgfKudg">
         <body>We define epoch as a primitive data type with the expected form "&lt;type&gt;&lt;year&gt;" where type = "J" or "B" for Julian or Besselian respectively, and year is expressed as a decimal year.  e.g.: "B1950", "J2000.0"</body>
       </ownedComment>
     </packagedElement>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_GghPK2VcEeq6Sft_TbB9Qw" name="RefLocation" isAbstract="true">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPLGVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vZT8-qEeu47NMYgfKudg" name="RefLocation" isAbstract="true">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZUM-qEeu47NMYgfKudg">
         <body>RefLocation defines the origin of the spatial coordinate space.  This location is represented either by a standard reference position (for which the absolute location in phase space is known by definition), or a specified point in another Spatial frame.  This object is used as the origin of the SpaceFrame here, but also to specify the Spatial Reference Position (refPosition) associated with other domain Frames.  For example, in the Time domain, the Spatial Reference Position indicates that the 'time' values are the time that the 'event' occured at that location, which might be different from the detector location.  
  </body>
       </ownedComment>
     </packagedElement>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_GghPLWVcEeq6Sft_TbB9Qw" name="StdRefLocation">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPLmVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vZUc-qEeu47NMYgfKudg" name="StdRefLocation">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZUs-qEeu47NMYgfKudg">
         <body>An absolute a-priori known location in phase space (position and velocity).  Values are selected from the StdRefPosition vocabulary.  Considering that the GEOCENTER is really the only place for which we know the absolute location at all times, all other locations require the specification of a planetary ephemeris.  LSR[KD] are reserved for spectral and reshift frames.  TOPOCENTER (location of the observer) is special in that it assumes that the observing location is available through other means (e.g. a geographic location or an orbit ephemeris).  RELOCATABLE is available for simulations.  UNKNOWN should only be used if absolutely necessary.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPL2VcEeq6Sft_TbB9Qw" general="_GghPK2VcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghPMGVcEeq6Sft_TbB9Qw" name="position" visibility="public" type="_GghOdGVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghPMWVcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZU8-qEeu47NMYgfKudg" general="_d8vZT8-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZVM-qEeu47NMYgfKudg" name="position" visibility="public" type="_d8uxpM-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZVc-qEeu47NMYgfKudg">
           <body>Standard reference location.  Values MUST be selected from the controlled vocabulary at the given URL. </body>
         </ownedComment>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_GghPMmVcEeq6Sft_TbB9Qw" name="CustomRefLocation">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPM2VcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_d8vZVs-qEeu47NMYgfKudg" name="CustomRefLocation">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZV8-qEeu47NMYgfKudg">
         <body>A custom reference location in phase space (position and velocity).  Position and velocity are given as coordinates with an associated SpaceFrame.  An epoch MAY be provided to further refine the location.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPNGVcEeq6Sft_TbB9Qw" general="_GghPK2VcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghPNWVcEeq6Sft_TbB9Qw" name="epoch" visibility="public" type="_GghPKWVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghPNmVcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZWM-qEeu47NMYgfKudg" general="_d8vZT8-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZWc-qEeu47NMYgfKudg" name="epoch" visibility="public" type="_d8vZTc-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZWs-qEeu47NMYgfKudg">
           <body>Epoch for the reference location.</body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghPN2VcEeq6Sft_TbB9Qw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vZW8-qEeu47NMYgfKudg"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghPOGVcEeq6Sft_TbB9Qw" name="position" visibility="public" type="_GghO6GVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghPOWVcEeq6Sft_TbB9Qw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZXM-qEeu47NMYgfKudg" name="position" visibility="public" type="_d8vY8c-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZXc-qEeu47NMYgfKudg">
           <body>The spatial coordinates of the reference location.</body>
         </ownedComment>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghPOmVcEeq6Sft_TbB9Qw" name="velocity" visibility="public" type="_GghO6GVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghPO2VcEeq6Sft_TbB9Qw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZXs-qEeu47NMYgfKudg" name="velocity" visibility="public" type="_d8vY8c-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZX8-qEeu47NMYgfKudg">
           <body>The velocity of the reference location.</body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghPPGVcEeq6Sft_TbB9Qw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vZYM-qEeu47NMYgfKudg"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghPPWVcEeq6Sft_TbB9Qw" name="PixelCoordSystem">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPPmVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vZYc-qEeu47NMYgfKudg" name="PixelCoordSystem">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZYs-qEeu47NMYgfKudg">
         <body>The PixelCoordSystem provides a complete description of the pixel coordinate space.  It SHALL contain one PixelSpace instance describing each pixel axis.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPP2VcEeq6Sft_TbB9Qw" general="_GghPSmVcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghPQGVcEeq6Sft_TbB9Qw" name="pixelSpace" visibility="public" type="_GghPRGVcEeq6Sft_TbB9Qw" aggregation="composite" association="_GghPQmVcEeq6Sft_TbB9Qw">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghPQWVcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZY8-qEeu47NMYgfKudg" general="_d8vZbs-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZZM-qEeu47NMYgfKudg" name="pixelSpace" visibility="public" type="_d8vZaM-qEeu47NMYgfKudg" aggregation="composite" association="_d8vZZs-qEeu47NMYgfKudg">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZZc-qEeu47NMYgfKudg">
           <body>The pixel space completely defines the pixel coordinate axes.  Each axis MUST be defined as a BinnedAxis type.</body>
         </ownedComment>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_GghPQmVcEeq6Sft_TbB9Qw" memberEnd="_GghPQGVcEeq6Sft_TbB9Qw _GghPQ2VcEeq6Sft_TbB9Qw">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_GghPQ2VcEeq6Sft_TbB9Qw" visibility="public" type="_GghPPWVcEeq6Sft_TbB9Qw" association="_GghPQmVcEeq6Sft_TbB9Qw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_d8vZZs-qEeu47NMYgfKudg" memberEnd="_d8vZZM-qEeu47NMYgfKudg _d8vZZ8-qEeu47NMYgfKudg">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_d8vZZ8-qEeu47NMYgfKudg" visibility="public" type="_d8vZYc-qEeu47NMYgfKudg" association="_d8vZZs-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghPRGVcEeq6Sft_TbB9Qw" name="PixelSpace">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPRWVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vZaM-qEeu47NMYgfKudg" name="PixelSpace">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZac-qEeu47NMYgfKudg">
         <body>A PixelSpace SHALL include one or more BinnedAxis objects describing the pixel coordinate space.  A handedness value MAY be provided to specify the relative orientation of the axes.  </body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPRmVcEeq6Sft_TbB9Qw" general="_GghOn2VcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghPR2VcEeq6Sft_TbB9Qw" name="handedness" visibility="public" type="_GghOjGVcEeq6Sft_TbB9Qw" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghPSGVcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZas-qEeu47NMYgfKudg" general="_d8vYqM-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZa8-qEeu47NMYgfKudg" name="handedness" visibility="public" type="_d8vYlc-qEeu47NMYgfKudg" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZbM-qEeu47NMYgfKudg">
           <body>Specifies the handedness of the coordinate space.</body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghPSWVcEeq6Sft_TbB9Qw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vZbc-qEeu47NMYgfKudg"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghPSmVcEeq6Sft_TbB9Qw" name="CoordSys" isAbstract="true">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPS2VcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vZbs-qEeu47NMYgfKudg" name="CoordSys" isAbstract="true">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZb8-qEeu47NMYgfKudg">
         <body>Abstract head of the coordinate system object tree.</body>
       </ownedComment>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghPTGVcEeq6Sft_TbB9Qw" name="PhysicalCoordSys" isAbstract="true">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPTWVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vZcM-qEeu47NMYgfKudg" name="PhysicalCoordSys" isAbstract="true">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZcc-qEeu47NMYgfKudg">
         <body>Coordinate system description for any physical domain, such as Time, Space, Redshift, Temperature, Flux, etc.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPTmVcEeq6Sft_TbB9Qw" general="_GghPSmVcEeq6Sft_TbB9Qw"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghPT2VcEeq6Sft_TbB9Qw" name="coordSpace" visibility="public" type="_GghPYWVcEeq6Sft_TbB9Qw" aggregation="composite" association="_GghPVGVcEeq6Sft_TbB9Qw">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_GghPUGVcEeq6Sft_TbB9Qw">
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZcs-qEeu47NMYgfKudg" general="_d8vZbs-qEeu47NMYgfKudg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZc8-qEeu47NMYgfKudg" name="coordSpace" visibility="public" type="_d8vZhc-qEeu47NMYgfKudg" aggregation="composite" association="_d8vZeM-qEeu47NMYgfKudg">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZdM-qEeu47NMYgfKudg">
           <body>Description of the coordinate space occupied by the property.</body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghPUWVcEeq6Sft_TbB9Qw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vZdc-qEeu47NMYgfKudg"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GghPUmVcEeq6Sft_TbB9Qw" name="frame" visibility="public" type="_GghOv2VcEeq6Sft_TbB9Qw" aggregation="composite" association="_GghPVmVcEeq6Sft_TbB9Qw">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GghPU2VcEeq6Sft_TbB9Qw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8vZds-qEeu47NMYgfKudg" name="frame" visibility="public" type="_d8vYyM-qEeu47NMYgfKudg" aggregation="composite" association="_d8vZes-qEeu47NMYgfKudg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8vZd8-qEeu47NMYgfKudg"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_GghPVGVcEeq6Sft_TbB9Qw" memberEnd="_GghPT2VcEeq6Sft_TbB9Qw _GghPVWVcEeq6Sft_TbB9Qw">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_GghPVWVcEeq6Sft_TbB9Qw" visibility="public" type="_GghPTGVcEeq6Sft_TbB9Qw" association="_GghPVGVcEeq6Sft_TbB9Qw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_d8vZeM-qEeu47NMYgfKudg" memberEnd="_d8vZc8-qEeu47NMYgfKudg _d8vZec-qEeu47NMYgfKudg">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_d8vZec-qEeu47NMYgfKudg" visibility="public" type="_d8vZcM-qEeu47NMYgfKudg" association="_d8vZeM-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_GghPVmVcEeq6Sft_TbB9Qw" memberEnd="_GghPUmVcEeq6Sft_TbB9Qw _GghPV2VcEeq6Sft_TbB9Qw">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_GghPV2VcEeq6Sft_TbB9Qw" visibility="public" type="_GghPTGVcEeq6Sft_TbB9Qw" association="_GghPVmVcEeq6Sft_TbB9Qw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_d8vZes-qEeu47NMYgfKudg" memberEnd="_d8vZds-qEeu47NMYgfKudg _d8vZe8-qEeu47NMYgfKudg">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_d8vZe8-qEeu47NMYgfKudg" visibility="public" type="_d8vZcM-qEeu47NMYgfKudg" association="_d8vZes-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghPWGVcEeq6Sft_TbB9Qw" name="GenericSys">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPWWVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vZfM-qEeu47NMYgfKudg" name="GenericSys">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZfc-qEeu47NMYgfKudg">
         <body>Specialized coordinate system for generic, one-dimensional domains not covered by other, more concrete objects.  If a CoordSpace is not provided, it is assumed to be represented by a Standard 1-Dimensional Coordinate Space as described in Appendix B.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPWmVcEeq6Sft_TbB9Qw" general="_GghPTGVcEeq6Sft_TbB9Qw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZfs-qEeu47NMYgfKudg" general="_d8vZcM-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghPW2VcEeq6Sft_TbB9Qw" name="SpaceSys">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPXGVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vZf8-qEeu47NMYgfKudg" name="SpaceSys">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZgM-qEeu47NMYgfKudg">
         <body>Specialized coordinate system for the Spatial domain.  This object SHOULD include an appropriate SpaceFrame.  In Appendix B, we define two standard spatial coordinate space instances (Spherical and Cartesian), which may be referenced in serializations.  If a CoordSpace is not provided, it is assumed to be represented by a Standard Spherical Coordinate Space.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPXWVcEeq6Sft_TbB9Qw" general="_GghPTGVcEeq6Sft_TbB9Qw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZgc-qEeu47NMYgfKudg" general="_d8vZcM-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghPXmVcEeq6Sft_TbB9Qw" name="TimeSys">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPX2VcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vZgs-qEeu47NMYgfKudg" name="TimeSys">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZg8-qEeu47NMYgfKudg">
         <body>Specialized coordinate system for the Temporal domain.  This object SHOULD include an appropriate TimeFrame.  If a CoordSpace is not provided, it is assumed to be represented by a Standard 1-Dimensional Coordinate Space as described in Appendix B.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPYGVcEeq6Sft_TbB9Qw" general="_GghPTGVcEeq6Sft_TbB9Qw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZhM-qEeu47NMYgfKudg" general="_d8vZcM-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghPYWVcEeq6Sft_TbB9Qw" name="PhysicalCoordSpace" isAbstract="true">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPYmVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vZhc-qEeu47NMYgfKudg" name="PhysicalCoordSpace" isAbstract="true">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZhs-qEeu47NMYgfKudg">
         <body>Abstract head of coordinate spaces related to physical properties.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPY2VcEeq6Sft_TbB9Qw" general="_GghOn2VcEeq6Sft_TbB9Qw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZh8-qEeu47NMYgfKudg" general="_d8vYqM-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghPZGVcEeq6Sft_TbB9Qw" name="GenericCoordSpace">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPZWVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vZiM-qEeu47NMYgfKudg" name="GenericCoordSpace">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZic-qEeu47NMYgfKudg">
         <body>Generic, one-dimensional coordinate space suitable for use with most non-spatial properties.  In Appendix B, we provide the description of a Standard 1D Coordinate Space instance which may be referenced in serializations.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPZmVcEeq6Sft_TbB9Qw" general="_GghPYWVcEeq6Sft_TbB9Qw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZis-qEeu47NMYgfKudg" general="_d8vZhc-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghPZ2VcEeq6Sft_TbB9Qw" name="SphericalCoordSpace">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPaGVcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vZi8-qEeu47NMYgfKudg" name="SphericalCoordSpace">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZjM-qEeu47NMYgfKudg">
         <body>Spatial domain, three-dimensional spherical coordinate space.  The particulars of the axis descriptions depend on the flavor of space being instantiated.  In Appendix B., we provide a Standard Spherical Coordinate Space instance which applies to many Astronomical use cases.  It provides the default space for SpaceSys instances, and may be referenced in serializations.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPaWVcEeq6Sft_TbB9Qw" general="_GghPYWVcEeq6Sft_TbB9Qw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZjc-qEeu47NMYgfKudg" general="_d8vZhc-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_GghPamVcEeq6Sft_TbB9Qw" name="CartesianCoordSpace">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_GghPa2VcEeq6Sft_TbB9Qw">
+    <packagedElement xmi:type="uml:Class" xmi:id="_d8vZjs-qEeu47NMYgfKudg" name="CartesianCoordSpace">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_d8vZj8-qEeu47NMYgfKudg">
         <body>Spatial domain, three-dimensional cartesian coordinate space.  The particulars of the axis descriptions depend on the physical constraints of the instance.  In Appendix B, we provide the description of a Standard Cartesian Coordinate Space instance which applies to many Astronomical cases, and may be referenced in serializations.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_GghPbGVcEeq6Sft_TbB9Qw" general="_GghPYWVcEeq6Sft_TbB9Qw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_d8vZkM-qEeu47NMYgfKudg" general="_d8vZhc-qEeu47NMYgfKudg"/>
     </packagedElement>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:applyingPackage="_GghOUGVcEeq6Sft_TbB9Qw" xmi:id="_GiKNEGVcEeq6Sft_TbB9Qw">
-      <eAnnotations xmi:id="_GiKNEWVcEeq6Sft_TbB9Qw" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="IVOA_UML_Profile.profile.xmi#_Ggq_V2VcEeq6Sft_TbB9Qw"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:applyingPackage="_d8uxgM-qEeu47NMYgfKudg" xmi:id="_eDzC0M-qEeu47NMYgfKudg">
+      <eAnnotations xmi:id="_eD04AM-qEeu47NMYgfKudg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="IVOA_UML_Profile.profile.xmi#_d-KU58-qEeu47NMYgfKudg"/>
       </eAnnotations>
-      <appliedProfile xmi:type="uml:Profile" xmi:applyingPackage="_GiKNEGVcEeq6Sft_TbB9Qw" href="IVOA_UML_Profile.profile.xmi#_Ggq_UGVcEeq6Sft_TbB9Qw"/>
+      <appliedProfile xmi:type="uml:Profile" xmi:applyingPackage="_eDzC0M-qEeu47NMYgfKudg" href="IVOA_UML_Profile.profile.xmi#_d-KU4M-qEeu47NMYgfKudg"/>
     </profileApplication>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:applyingPackage="_GghOUGVcEeq6Sft_TbB9Qw" xmi:id="_GiMCQGVcEeq6Sft_TbB9Qw">
-      <eAnnotations xmi:id="_GiMCQWVcEeq6Sft_TbB9Qw" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="IVOA_UML_Profile.profile.xmi#_Gg9TN2VcEeq6Sft_TbB9Qw"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:applyingPackage="_d8uxgM-qEeu47NMYgfKudg" xmi:id="_eD37UM-qEeu47NMYgfKudg">
+      <eAnnotations xmi:id="_eD37Uc-qEeu47NMYgfKudg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="IVOA_UML_Profile.profile.xmi#_eA78F8-qEeu47NMYgfKudg"/>
       </eAnnotations>
-      <appliedProfile xmi:type="uml:Profile" xmi:applyingPackage="_GiMCQGVcEeq6Sft_TbB9Qw" href="IVOA_UML_Profile.profile.xmi#_Gg9TMGVcEeq6Sft_TbB9Qw"/>
+      <appliedProfile xmi:type="uml:Profile" xmi:applyingPackage="_eD37UM-qEeu47NMYgfKudg" href="IVOA_UML_Profile.profile.xmi#_eA78EM-qEeu47NMYgfKudg"/>
     </profileApplication>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:applyingPackage="_GghOUGVcEeq6Sft_TbB9Qw" xmi:id="_GiN3cGVcEeq6Sft_TbB9Qw">
-      <eAnnotations xmi:id="_GiN3cWVcEeq6Sft_TbB9Qw" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="default.profile.xmi#_Ghe3p2VcEeq6Sft_TbB9Qw"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:applyingPackage="_d8uxgM-qEeu47NMYgfKudg" xmi:id="_eD5wgM-qEeu47NMYgfKudg">
+      <eAnnotations xmi:id="_eD5wgc-qEeu47NMYgfKudg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="default.profile.xmi#_eCc_B8-qEeu47NMYgfKudg"/>
       </eAnnotations>
-      <appliedProfile xmi:type="uml:Profile" xmi:applyingPackage="_GiN3cGVcEeq6Sft_TbB9Qw" href="default.profile.xmi#_Ghe3oGVcEeq6Sft_TbB9Qw"/>
+      <appliedProfile xmi:type="uml:Profile" xmi:applyingPackage="_eD5wgM-qEeu47NMYgfKudg" href="default.profile.xmi#_eCc_AM-qEeu47NMYgfKudg"/>
     </profileApplication>
   </uml:Model>
-  <IVOA_UML_Profile:model xmi:id="_GiPsoGVcEeq6Sft_TbB9Qw" base_Element="_GghOUGVcEeq6Sft_TbB9Qw" title="Astronomical Coordinates and Coordinate Systems" version="1.0" authors="Arnold Rots, Mark Cresitello-Dittmar, Omar Laurino" previousVersion="0"/>
-  <IVOA_UML_Profile:modelimport xmi:id="_GiQTsGVcEeq6Sft_TbB9Qw" base_Element="_GghObmVcEeq6Sft_TbB9Qw" name="ivoa" version="1.0" url="http://www.ivoa.net/xml/VODML/20180519/IVOA-v1.0.vo-dml.xml" documentationURL="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_GiQTsWVcEeq6Sft_TbB9Qw" base_Element="_GghOb2VcEeq6Sft_TbB9Qw" vodmlid="nonnegativeInteger"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_GiQTsmVcEeq6Sft_TbB9Qw" base_Element="_GghOcGVcEeq6Sft_TbB9Qw" vodmlid="integer"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_GiQTs2VcEeq6Sft_TbB9Qw" base_Element="_GghOcWVcEeq6Sft_TbB9Qw" vodmlid="rational"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_GiQTtGVcEeq6Sft_TbB9Qw" base_Element="_GghOcmVcEeq6Sft_TbB9Qw" vodmlid="real"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_GiQ6wGVcEeq6Sft_TbB9Qw" base_Element="_GghOc2VcEeq6Sft_TbB9Qw" vodmlid="complex"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_GiQ6wWVcEeq6Sft_TbB9Qw" base_Element="_GghOdGVcEeq6Sft_TbB9Qw" vodmlid="string"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_GiQ6wmVcEeq6Sft_TbB9Qw" base_Element="_GghOdWVcEeq6Sft_TbB9Qw" vodmlid="boolean"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_GiQ6w2VcEeq6Sft_TbB9Qw" base_Element="_GghOdmVcEeq6Sft_TbB9Qw" vodmlid="datetime"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_GiQ6xGVcEeq6Sft_TbB9Qw" base_Element="_GghOd2VcEeq6Sft_TbB9Qw" vodmlid="anyURI"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_GiQ6xWVcEeq6Sft_TbB9Qw" base_Element="_GghOeWVcEeq6Sft_TbB9Qw" vodmlid="Quantity"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_GiQ6xmVcEeq6Sft_TbB9Qw" base_Element="_GghOfGVcEeq6Sft_TbB9Qw" vodmlid="IntegerQuantity"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_GiQ6x2VcEeq6Sft_TbB9Qw" base_Element="_GghOf2VcEeq6Sft_TbB9Qw" vodmlid="RealQuantity"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_GiRh0GVcEeq6Sft_TbB9Qw" base_Element="_GghOgmVcEeq6Sft_TbB9Qw" vodmlid="Unit"/>
-  <IVOA_UML_Profile_1:semanticconcept xmi:id="_GiRh0WVcEeq6Sft_TbB9Qw" base_Element="_GghOzmVcEeq6Sft_TbB9Qw" topconcept="SpaceRefFrame" vocabularyURI="http://www.ivoa.net/rdf/refframe"/>
-  <IVOA_UML_Profile_1:semanticconcept xmi:id="_GiRh0mVcEeq6Sft_TbB9Qw" base_Element="_GghO22VcEeq6Sft_TbB9Qw" topconcept="TimeScale" vocabularyURI="http://www.ivoa.net/rdf/timescale"/>
-  <default:subset xmi:id="_GiRh02VcEeq6Sft_TbB9Qw" base_Element="_GghOVWVcEeq6Sft_TbB9Qw"/>
-  <default:subset xmi:id="_GiRh1GVcEeq6Sft_TbB9Qw" base_Element="_GghOV2VcEeq6Sft_TbB9Qw"/>
-  <IVOA_UML_Profile_1:semanticconcept xmi:id="_GiRh1WVcEeq6Sft_TbB9Qw" base_Element="_GghPMGVcEeq6Sft_TbB9Qw" topconcept="ReferencePosition" vocabularyURI="http://www.ivoa.net/rdf/refposition"/>
-  <default:subset xmi:id="_GiSI4GVcEeq6Sft_TbB9Qw" base_Element="_GghOWWVcEeq6Sft_TbB9Qw"/>
-  <default:subset xmi:id="_GiSI4WVcEeq6Sft_TbB9Qw" base_Element="_GghOW2VcEeq6Sft_TbB9Qw"/>
-  <default:subset xmi:id="_GiSI4mVcEeq6Sft_TbB9Qw" base_Element="_GghOXmVcEeq6Sft_TbB9Qw"/>
-  <default:subset xmi:id="_GiSI42VcEeq6Sft_TbB9Qw" base_Element="_GghOYGVcEeq6Sft_TbB9Qw"/>
-  <default:subset xmi:id="_GiSI5GVcEeq6Sft_TbB9Qw" base_Element="_GghOYmVcEeq6Sft_TbB9Qw"/>
-  <default:subset xmi:id="_GiSv8GVcEeq6Sft_TbB9Qw" base_Element="_GghOaGVcEeq6Sft_TbB9Qw"/>
-  <default:subset xmi:id="_GiSv8WVcEeq6Sft_TbB9Qw" base_Element="_GghObGVcEeq6Sft_TbB9Qw"/>
+  <IVOA_UML_Profile:model xmi:id="_eD-pAM-qEeu47NMYgfKudg" base_Element="_d8uxgM-qEeu47NMYgfKudg" title="Astronomical Coordinates and Coordinate Systems" version="1.0" authors="Arnold Rots, Mark Cresitello-Dittmar, Omar Laurino" previousVersion="0"/>
+  <IVOA_UML_Profile:modelimport xmi:id="_eD_QEM-qEeu47NMYgfKudg" base_Element="_d8uxns-qEeu47NMYgfKudg" name="ivoa" version="1.0" url="http://www.ivoa.net/xml/VODML/20180519/IVOA-v1.0.vo-dml.xml" documentationURL="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_eD_3IM-qEeu47NMYgfKudg" base_Element="_d8uxn8-qEeu47NMYgfKudg" vodmlid="nonnegativeInteger"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_eD_3Ic-qEeu47NMYgfKudg" base_Element="_d8uxoM-qEeu47NMYgfKudg" vodmlid="integer"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_eD_3Is-qEeu47NMYgfKudg" base_Element="_d8uxoc-qEeu47NMYgfKudg" vodmlid="rational"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_eEAeMM-qEeu47NMYgfKudg" base_Element="_d8uxos-qEeu47NMYgfKudg" vodmlid="real"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_eEAeMc-qEeu47NMYgfKudg" base_Element="_d8uxo8-qEeu47NMYgfKudg" vodmlid="complex"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_eEAeMs-qEeu47NMYgfKudg" base_Element="_d8uxpM-qEeu47NMYgfKudg" vodmlid="string"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_eEBFQM-qEeu47NMYgfKudg" base_Element="_d8uxpc-qEeu47NMYgfKudg" vodmlid="boolean"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_eEBFQc-qEeu47NMYgfKudg" base_Element="_d8uxps-qEeu47NMYgfKudg" vodmlid="datetime"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_eEBFQs-qEeu47NMYgfKudg" base_Element="_d8uxp8-qEeu47NMYgfKudg" vodmlid="anyURI"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_eEBFQ8-qEeu47NMYgfKudg" base_Element="_d8uxqc-qEeu47NMYgfKudg" vodmlid="Quantity"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_eEBsUM-qEeu47NMYgfKudg" base_Element="_d8uxrM-qEeu47NMYgfKudg" vodmlid="IntegerQuantity"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_eEBsUc-qEeu47NMYgfKudg" base_Element="_d8uxr8-qEeu47NMYgfKudg" vodmlid="RealQuantity"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_eEBsUs-qEeu47NMYgfKudg" base_Element="_d8uxss-qEeu47NMYgfKudg" vodmlid="Unit"/>
+  <IVOA_UML_Profile_1:semanticconcept xmi:id="_eECTYM-qEeu47NMYgfKudg" base_Element="_d8vY18-qEeu47NMYgfKudg" topconcept="SpaceRefFrame" vocabularyURI="http://www.ivoa.net/rdf/refframe"/>
+  <IVOA_UML_Profile_1:semanticconcept xmi:id="_eECTYc-qEeu47NMYgfKudg" base_Element="_d8vY5M-qEeu47NMYgfKudg" topconcept="TimeScale" vocabularyURI="http://www.ivoa.net/rdf/timescale"/>
+  <default:subset xmi:id="_eEC6cM-qEeu47NMYgfKudg" base_Element="_d8uxhc-qEeu47NMYgfKudg"/>
+  <default:subset xmi:id="_eEC6cc-qEeu47NMYgfKudg" base_Element="_d8uxh8-qEeu47NMYgfKudg"/>
+  <IVOA_UML_Profile_1:semanticconcept xmi:id="_eEC6cs-qEeu47NMYgfKudg" base_Element="_d8vZVM-qEeu47NMYgfKudg" topconcept="ReferencePosition" vocabularyURI="http://www.ivoa.net/rdf/refposition"/>
+  <default:subset xmi:id="_eEC6c8-qEeu47NMYgfKudg" base_Element="_d8uxic-qEeu47NMYgfKudg"/>
+  <default:subset xmi:id="_eEDhgM-qEeu47NMYgfKudg" base_Element="_d8uxi8-qEeu47NMYgfKudg"/>
+  <default:subset xmi:id="_eEDhgc-qEeu47NMYgfKudg" base_Element="_d8uxjs-qEeu47NMYgfKudg"/>
+  <default:subset xmi:id="_eEDhgs-qEeu47NMYgfKudg" base_Element="_d8uxkM-qEeu47NMYgfKudg"/>
+  <default:subset xmi:id="_eEDhg8-qEeu47NMYgfKudg" base_Element="_d8uxks-qEeu47NMYgfKudg"/>
+  <default:subset xmi:id="_eEEIkM-qEeu47NMYgfKudg" base_Element="_d8uxmM-qEeu47NMYgfKudg"/>
+  <default:subset xmi:id="_eEEIkc-qEeu47NMYgfKudg" base_Element="_d8uxnM-qEeu47NMYgfKudg"/>
 </xmi:XMI>

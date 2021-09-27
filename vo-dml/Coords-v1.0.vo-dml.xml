@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vo-dml:model xmlns:vo-dml="http://www.ivoa.net/xml/VODML/v1"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://www.ivoa.net/xml/VODML/v1 file:///data/vao/staff/mcd/docs/models/dm/vo-dml/xsd/vo-dml-v1.xsd">
+              xsi:schemaLocation="http://www.ivoa.net/xml/VODML/v1 https://www.ivoa.net/xml/VODML/vo-dml-v1.xsd">
   <name>coords</name>
   <description>This model defines objects which describe the coordinate space, coordinates within that space, and frames, which provide additional metadata regarding the origin, orientation, etc, of the coordinate space. The model also defines a coordinate system, bundling frames into associated groups.
 </description>
@@ -10,7 +10,7 @@
   <author>Arnold Rots, Mark Cresitello-Dittmar, Omar Laurino</author>
   <version>1.0</version>
   <previousVersion>0</previousVersion>
-  <lastModified>2020-03-13T10:54:42</lastModified>
+  <lastModified>2021-06-17T16:27:43</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/20180519/IVOA-v1.0.vo-dml.xml</url>
@@ -224,10 +224,10 @@
     </attribute>
   </dataType>
 
-  <dataType>
+  <dataType abstract="true">
     <vodml-id>Point</vodml-id>
     <name>Point</name>
-    <description>Multi-dimensional spatial coordinate. The Point MUST refer to a spatial coordinate system (SpaceSys).  The coordinate values map, in order, to the axes described by the associated CoordSpace.  Values for unused/undefined dimensions need not be provided.</description>
+    <description>Multi-dimensional spatial coordinate. The Point MUST refer to a spatial coordinate system (SpaceSys) which associates the point with corresponding coordinate domain space and frame metadata.</description>
     <extends>
       <vodml-ref>coords:Coordinate</vodml-ref>
     </extends>
@@ -239,8 +239,109 @@
         <vodml-ref>coords:SpaceSys</vodml-ref>
       </datatype>
     </constraint>
+  </dataType>
+
+  <dataType>
+    <vodml-id>CartesianPoint</vodml-id>
+    <name>CartesianPoint</name>
+    <description>A spatial coordinate in a Cartesian coordinate space.  Any associated CoordSpace MUST be a CartesianCoordSpace.  If no CoordSpace is provided, a Standard Cartesian CoordSpace is assumed.  Values for unused/undefined dimensions need not be provided.
+</description>
+    <extends>
+      <vodml-ref>coords:Point</vodml-ref>
+    </extends>
     <attribute>
-      <vodml-id>Point.axis1</vodml-id>
+      <vodml-id>CartesianPoint.x</vodml-id>
+      <name>x</name>
+      <description>The coordinate value along the 'X' axis.</description>
+      <datatype>
+        <vodml-ref>ivoa:Quantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>CartesianPoint.y</vodml-id>
+      <name>y</name>
+      <description>The coordinate value along the 'Y' axis.</description>
+      <datatype>
+        <vodml-ref>ivoa:Quantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>CartesianPoint.z</vodml-id>
+      <name>z</name>
+      <description>The coordinate value along the 'Z' axis.</description>
+      <datatype>
+        <vodml-ref>ivoa:Quantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <vodml-id>LonLatPoint</vodml-id>
+    <name>LonLatPoint</name>
+    <description>A spatial coordinate in a Spherical coordinate space defining a Celestial position in Latitude and Longitude.  Any associated CoordSpace MUST conform to this description.  If no CoordSpace is provided, a Standard Spherical CoordSpace is assumed.  Values for unused/undefined dimensions need not be provided.
+</description>
+    <extends>
+      <vodml-ref>coords:Point</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>LonLatPoint.lon</vodml-id>
+      <name>lon</name>
+      <description>The longitude of the Point, as a Quantity with angular units.</description>
+      <datatype>
+        <vodml-ref>ivoa:Quantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>LonLatPoint.lat</vodml-id>
+      <name>lat</name>
+      <description>The latitude of the Point, as a Quantity with angular units.</description>
+      <datatype>
+        <vodml-ref>ivoa:Quantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>LonLatPoint.dist</vodml-id>
+      <name>dist</name>
+      <description>The distance to the Point from the origin.</description>
+      <datatype>
+        <vodml-ref>ivoa:Quantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <vodml-id>GenericPoint</vodml-id>
+    <name>GenericPoint</name>
+    <description>GenericPoint supports the representation of spatial coordinates in a custom coordinate space, or any space which is not covered by the other specializations.   The coordinate values map, in order, to the axes described by the associated CoordSpace.  If no CoordSpace is provided, the behavior is undefined.  Values for unused/undefined dimensions need not be provided.</description>
+    <extends>
+      <vodml-ref>coords:Point</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>GenericPoint.axis1</vodml-id>
       <name>axis1</name>
       <description>Coordinate value along the first axis of the associated coordinate space, expressed as an ivoa:Quantity.</description>
       <datatype>
@@ -252,7 +353,7 @@
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>Point.axis2</vodml-id>
+      <vodml-id>GenericPoint.axis2</vodml-id>
       <name>axis2</name>
       <description>Coordinate value along the second axis of the associated coordinate space, expressed as an ivoa:Quantity.</description>
       <datatype>
@@ -264,7 +365,7 @@
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>Point.axis3</vodml-id>
+      <vodml-id>GenericPoint.axis3</vodml-id>
       <name>axis3</name>
       <description>Coordinate value along the third axis of the associated coordinate space, expressed as an ivoa:Quantity.</description>
       <datatype>

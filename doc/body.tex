@@ -77,29 +77,79 @@
       This coordinate MUST contain a value expressed as an ivoa:Quantity.
 
 
-  \subsection{Point}
+  \subsection{Point (Abstract)}
   \label{sect:Point}
-    Multi-dimensional spatial coordinate. The Point MUST refer to a spatial coordinate system (SpaceSys). The coordinate values map, in order, to the axes described by the associated CoordSpace. Values for unused/undefined dimensions need not be provided.
+    Multi-dimensional spatial coordinate. The Point MUST refer to a spatial coordinate system (SpaceSys) which associates the point with corresponding coordinate domain space and frame metadata.
 
     \noindent \textbf{subset} \newline
     \indent   \textbf{role: coords:Coordinate.coordSys} \newline
     \indent   \textbf{type: coords:SpaceSys} \newline
 
 
-    \subsubsection{Point.axis1}
-      \textbf{vodml-id: Point.axis1} \newline
+  \subsection{CartesianPoint}
+  \label{sect:CartesianPoint}
+    A spatial coordinate in a Cartesian coordinate space. Any associated CoordSpace MUST be a CartesianCoordSpace. If no CoordSpace is provided, a Standard Cartesian CoordSpace is assumed. Values for unused/undefined dimensions need not be provided.
+
+    \subsubsection{CartesianPoint.x}
+      \textbf{vodml-id: CartesianPoint.x} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:Quantity}} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      The coordinate value along the 'X' axis.
+
+    \subsubsection{CartesianPoint.y}
+      \textbf{vodml-id: CartesianPoint.y} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:Quantity}} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      The coordinate value along the 'Y' axis.
+
+    \subsubsection{CartesianPoint.z}
+      \textbf{vodml-id: CartesianPoint.z} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:Quantity}} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      The coordinate value along the 'Z' axis.
+
+
+  \subsection{LonLatPoint}
+  \label{sect:LonLatPoint}
+    A spatial coordinate in a Spherical coordinate space defining a Celestial position in Latitude and Longitude. Any associated CoordSpace MUST conform to this description. If no CoordSpace is provided, a Standard Spherical CoordSpace is assumed. Values for unused/undefined dimensions need not be provided.
+
+    \subsubsection{LonLatPoint.lon}
+      \textbf{vodml-id: LonLatPoint.lon} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:Quantity}} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      The longitude of the Point, as a Quantity with angular units.
+
+    \subsubsection{LonLatPoint.lat}
+      \textbf{vodml-id: LonLatPoint.lat} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:Quantity}} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      The latitude of the Point, as a Quantity with angular units.
+
+    \subsubsection{LonLatPoint.dist}
+      \textbf{vodml-id: LonLatPoint.dist} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:Quantity}} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      The distance to the Point from the origin.
+
+
+  \subsection{GenericPoint}
+  \label{sect:GenericPoint}
+    GenericPoint supports the representation of spatial coordinates in a custom coordinate space, or any space which is not covered by the other specializations. The coordinate values map, in order, to the axes described by the associated CoordSpace. If no CoordSpace is provided, the behavior is undefined. Values for unused/undefined dimensions need not be provided.
+
+    \subsubsection{GenericPoint.axis1}
+      \textbf{vodml-id: GenericPoint.axis1} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:Quantity}} \newline
       \textbf{multiplicity: 0..1} \newline 
       Coordinate value along the first axis of the associated coordinate space, expressed as an ivoa:Quantity.
 
-    \subsubsection{Point.axis2}
-      \textbf{vodml-id: Point.axis2} \newline
+    \subsubsection{GenericPoint.axis2}
+      \textbf{vodml-id: GenericPoint.axis2} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:Quantity}} \newline
       \textbf{multiplicity: 0..1} \newline 
       Coordinate value along the second axis of the associated coordinate space, expressed as an ivoa:Quantity.
 
-    \subsubsection{Point.axis3}
-      \textbf{vodml-id: Point.axis3} \newline
+    \subsubsection{GenericPoint.axis3}
+      \textbf{vodml-id: GenericPoint.axis3} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:Quantity}} \newline
       \textbf{multiplicity: 0..1} \newline 
       Coordinate value along the third axis of the associated coordinate space, expressed as an ivoa:Quantity.
