@@ -58,8 +58,8 @@ infrastructure that enable VO applications.
 \subsection{Motivation}
 Astronomy, being primarily a science that crucially depends on observations, has a very basic 
 need for complete, accurate, and unambiguous metadata regarding coordinate information, meaning 
-all coordinates of the observable space and noting that several of these are intertwined. The Data 
-Model described in this document aims to provide a model for such metadata.
+all coordinates of the observable space and noting that several of these are intertwined. This 
+document aims to provide a data model for such metadata.
 
 \subsection{Context and Scope}
 This document results from updating the \href{http://www.ivoa.net/documents/latest/STC.html}{``Space-Time Coordinate Metadata for the Virtual Observatory''} (STC) \citep{2007ivoa.spec.1030R} model for use in VO-DML compliant models. That model provides metadata describing Space-Time related, and other Coordinates. These metadata are to be used for specifying coordinate-related information for datasets, catalogs, and queries.  In this work, our primary focus is to support the use cases described below, while keeping the broader scope in mind to inform design decisions for future expansion.
@@ -79,7 +79,7 @@ corresponding Error(s).  For the majority of cases dealing with astronomical dat
   \item Coordinate System: [coords model]  The term 'Coordinate System' is used to mean both ``the space in which a coordinate resides'', and ``a unique domain space, factoring in specific reference frame metadata''.  In this model, we adopt the latter definition.  A Coordinate System provides a complete description of the domain space, including both the coordinate space description and any associated Frame metadata.
 \end{itemize}
 
-This document describes the Coordinates model which provides the metadata describing:
+\noindent This document describes the Coordinates model which provides the metadata describing:
 \begin{itemize}
 \item the coordinate space; axes, and domain ranges
 \item coordinate frames with metadata describing the origin and orientation of the coordinate space
@@ -93,17 +93,29 @@ This document describes the Coordinates model which provides the metadata descri
 \subsection{Use Cases}
 \label{sect:usecases}
 
+This is a core data model, intended to be used within other models describing higher level products.
+As such, there are a vast number of usage threads which the model is required to support.  Rather than
+enumerating individual usage threads here, we describe the concepts which must be covered and criteria
+which must be met to facilitate these various usage threads.
+
+
 \subsubsection{Cube model support}
 \label{uc:Cube-model-support}
-  The primary use case for this work is in support of the CubeDM. \\
-  The CubeDM is a N-Dimensional model for pixelated images and sparse cube data.  
+  The primary use case for this work is in support of the Cube Data Model (CubeDM); 
+  a N-Dimensional model for pixelated images and sparse cube data.  
   The following is a brief outline of the most relevant features pertaining to the
-  development of the Measurement, Coordinates, and Transform component models.
+  development of this model.
 
   \begin{itemize}
     \item General
     \begin{itemize}
        \item knowledge of the pixel and physical domain spaces provided at a high level
+       \begin{itemize}
+          \item To support cases like data discovery, where users are interested in the 
+            description of the domain space more than in the data itself, this information should 
+            be fully encapsulated in a high-level object which may be conveyed independently 
+            of the data.
+       \end{itemize}
        \item definition of the domain space includes the following criteria
        \begin{itemize}
           \item dimensionality (typically 1,2 or 3 for physical domain), pixel domain may be of any dimension
@@ -116,59 +128,78 @@ This document describes the Coordinates model which provides the metadata descri
              \item planetary ephemeris
              \item equinox
           \end{itemize}
+          \item Any units associated with the domain specification must be compatible with, but not necessarily identical to units associated with the coordinate values.
+          \item To minimize the inclusion of unnecessary, boiler plate content in serializations, the model must not require inclusion of the
+                domain space description for commonly used spaces (e.g. the Celestial Sphere). 
        \end{itemize}
     \end{itemize}
-    \item Pixelated Image Cube
+    \item Pixelated Image Cube \\
+      Pixelated image cubes contain the following concepts relevant to this model.
     \begin{itemize}
-       \item complete specification of pixel coordinate domain; number of axes, number of pixels per axis
-       \item mappings of various pixel axes to corresponding physical axes
+       \item complete specification of pixel coordinate domain
+       \begin{itemize}
+          \item number of axes
+          \item number of pixels per axis
+       \end{itemize}
+       \item mappings of the various pixel axes to corresponding physical axes
        \begin{itemize}
           \item spatial domain typically mapping 2-3 pixel axes to physical axes
           \item other domains are typically 1 dimensional
-          \item pixel axes may be involved in multiple mappings to different physical spaces
-        \end{itemize}
-        \item mappings may be stacked to define progressive transitions through a domain (e.g.:  pixel -> ccd -> detector -> sky -> wcs )
-        \begin{itemize}
-           \item intermediate stages may or may not be explicitely defined 
-        \end{itemize}
-        \item image data value is typically given in a physical domain, but may itself be mapped to other domains
+          \item pixel axes may be involved in multiple mappings to different physical spaces \\
+            e.g.:  pixel -> detector and pixel -> sky
+       \end{itemize}
+       \item mappings may be stacked to define progressive transitions through a domain.  Intermediate stages may or may not be explicitely defined. \\
+          e.g.:  pixel -> ccd -> detector -> sky -> wcs
+       \item image data value is typically given in a physical domain, but may itself be mapped to other domains
     \end{itemize}
-    \item Sparse Cube
+    \item Sparse Cube \\
+      The Sparse Cube is structurally different from a Pixelated Image, but contains many of the same concepts.  To facilitate the development
+      of efficient, reusable code, the models should use the same objects in these various contexts wherever feasible.
     \begin{itemize}
-       \item data axes cover a wide array of physical domains including, but not limited to Spatial, Temporal, Spectral, Polarization,
-       \item individual domains may be represented multiple times in different frames ( ccd, detector, sky;  pha, energy )
-       \item data values may have associated errors
-       \begin{itemize}
-          \item typical error forms include: symmetric( +/- a ), asymmetric( +a:-b ), interval ( a:b ), matrix, elliptical
-          \item can become quite complex: probability distributions, error maps, etc.
-          \item quality indicators:
+       \item data axes cover a wide array of physical domains including, but not limited to Spatial, Temporal, Spectral, Polarization
+       \item individual domains may be represented multiple times:
+         \begin{itemize}
+            \item with a shared domain specification (e.g. a 'target' and 'observed' position)
+            \item or with different domain specifications (e.g. ccd, detector, sky positions;  pha, energy )
+         \end{itemize}
+    \end{itemize}
+    \item Physical Data (Observables) \\
+       Sparse cubes contain a wide variety of observable data.
+    \begin{itemize}
+       \item It is impractical to describe each as a specialized type, so this model must support a simple description applicable to any 1-dimensional data.
+       \item The nature of the observable's domain space fall into 3 main categories:
+         \begin{itemize}
+            \item Continuous data covering a particular range, which may be unbounded.  e.g. position, time, temperature, pressure, magnitude
+            \item Binned data, with specified size.  e.g. pulse height channels (pha)
+            \item Discrete data, limited to a very specific set of values. e.g. stellar class, polarization state
+         \end{itemize}
+       \item Observable data values fall into the following categories:
+         \begin{itemize}
+            \item Physical Quantities: value + unit, this form applies to the vast majority of astronomical data.
+            \item Binned value: integer value specifying the bin number
+            \item Discrete value: often given by an enumeration or vocabulary, these values typically represent a determined or assigned state.
+         \end{itemize}
+       \item Some observables require the existence of additional metadata in order for clients or applications to properly interpret the value.
+             This additional Frame metadata must be easily discovered and accessible from the value.
+       \item Examples of some of the more commonly seen domains/data in astronomical data cubes.
+       \begin{itemize}      
+          \item Spatial
           \begin{itemize}
-             \item global status, typically numeric
-             \item bit array, where each bit is associated with a particular quality state 
+             \item Cartesian space:  chip, detector, sky
+             \item Spherical space: Equatorial, Ecliptic, Galactic, LongLat
           \end{itemize}
-          \item associated errors may be separable or correlated among multiple data axes
-        \end{itemize}
-        \item data axes may be virtual, defined as a mapping from other data axes (same description as above)
-    \end{itemize}
-    \item Physical Data (Observables)
-    \begin{itemize}
-       \item focus on the following domains which are frequently included in astronomical data cubes: Spatial, Spectral, Temporal, Polarization
-       \item Spatial
-       \begin{itemize}
-          \item Cartesian space:  chip, detector, sky
-          \item Spherical space: Equatorial, Ecliptic, Galactic, LongLat
-       \end{itemize}
-       \item Time
-       \begin{itemize}
-          \item 1-Dimensional: JD, MJD, ISOTime, TimeOffset
-       \end{itemize}
-       \item Polarization
-       \begin{itemize}
-          \item Discrete space: Polarization states (Stokes, Linear, Circular, Vector )
-       \end{itemize}
-       \item Spectral
-       \begin{itemize}
-          \item 1-Dimensional: energy, frequency, wavelength
+          \item Time
+          \begin{itemize}
+             \item 1-Dimensional: JD, MJD, ISOTime, TimeOffset
+          \end{itemize}
+          \item Polarization
+          \begin{itemize}
+             \item Discrete space: Polarization states (Stokes, Linear, Circular, Vector )
+          \end{itemize}
+          \item Spectral
+          \begin{itemize}
+             \item 1-Dimensional: energy, frequency, wavelength
+          \end{itemize}
        \end{itemize}
     \end{itemize}
   \end{itemize}
@@ -180,8 +211,15 @@ An implementation project focused on the Transform model. The purpose of which i
     \item serialization in YAML of complete WCS metadata, including source/target frames and the various Transform operation sequences between them.
     \item the generation and passing thereof between two Transform library implementations ( AST, gWCS )
   \end{itemize}
-
-
+  The primary Coordinate model concepts involved in this project are:
+  \begin{itemize}
+    \item Coordinate System: including both the Frame and CoordSpace metadata
+    \begin{itemize}
+       \item referenced by the transform operations, this metadata must be separable from the other model components.
+    \end{itemize}
+    \item Coordinates: as the 'input' and 'result' of transform processes.
+  \end{itemize}
+  
 \subsection{Requirements}
 \label{sect:reqs}
 
