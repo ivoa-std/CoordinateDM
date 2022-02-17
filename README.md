@@ -1,4 +1,4 @@
-[![PDF-Release](https://img.shields.io/badge/PDF-Release-green)](https://github.com/ivoa-std/CoordinateDM/releases/download/auto-pdf-stabke/Coordinates.pdf)
+[![PDF-Release](https://img.shields.io/badge/PDF-Release-green)](https://github.com/ivoa-std/CoordinateDM/releases/download/auto-pdf-stable/Coordinates.pdf)
 [![PDF-Preview](https://img.shields.io/badge/PDF-Preview-blue)](https://github.com/ivoa-std/CoordinateDM/releases/download/auto-pdf-preview/Coordinates-draft.pdf)
 
 # What is it?
