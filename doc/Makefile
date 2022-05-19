@@ -7,7 +7,7 @@ DOCNAME = Coordinates
 DOCVERSION = 1.0
 
 # Publication date, ISO format; update manually for "releases"
-DOCDATE = 2021-09-24
+DOCDATE = 2022-05-17
 
 # What is it you're writing: NOTE, WD, PR, REC, PEN, or EN
 DOCTYPE = PR

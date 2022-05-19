@@ -166,9 +166,9 @@
      * Provide the time scale used (e.g. TT, TDB, TAI, GPS, ET, UTC, TCG, TCB). \newline
      * Provide the reference position (place where the time is measured).
     \item  Note the following:  \newline
+     * The unit of both JD and MJD (day) is implicit.  \newline
      * JD and MJD do not imply a time scale; it needs to be provided separately.  \newline
-     * JD and MJD are dimensionless, though a unit of 'day' is implied.  \newline
-     * It is a bad idea to mix UTC with JD or MJD, since not all UTC days are the same length. Instead, use the restricted form of ISO-8601: [[+|-]c]ccyy-mm-dd[Thh[:mm[:ss[.ss...]]]], with no time zone characters. \newline
+     * JD and MJD are not recommended for expressing times in UTC since not all UTC days are the same length.  Instead, UTC times are best expressed as a formatted string such as the ISOTime type described in Section \ref{sect:ISOTime}. \newline
      * TDB runs on average synchronously with TT, but corrects for the relativistic effects caused by deviations in the orbit of the Earth from perfect circularity and constant gravitational potential. \newline
     \item Recommendations:  \newline
      * Avoid UTC. It is trivial to convert the times provided by, e.g., space agencies, to TT immediately when you get them, and it will save headaches later on.  \newline
@@ -183,7 +183,7 @@
     \item What if you deal with incomplete data?  \newline
      * If you do not know the time scale and/or reference position, you can provide them as UNKNOWN and set the systematic error/uncertainty to, say, 1000 s. 100 s will do if only the time scale is unknown.
     \item What else is there to know?  \newline
-     * Quite a lot, especially the so-called coordinate time scales (TCG and TCB). Because TDB runs, on average, synchronously with TT, but in a very different potential well, which requires different values for fundamental physical constants in the barycenter. That is awkward and the coordinate time scales fix that by running at different rates. More in the above cited A\&A paper.\newline
+     * Quite a lot! Complete and accurate Time metadata is extremely important for many IVOA use cases. We strongly encourage a review of the above cited FITS WCS paper when describing temporal data.\newline
     \end{enumerate}
 
     \noindent \textbf{subset} \newline
