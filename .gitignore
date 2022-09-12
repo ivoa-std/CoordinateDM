@@ -27,3 +27,4 @@ ivoatexmeta.tex
 *.swp
 /.idea/
 /.gradle/
+/build/
