@@ -14,7 +14,7 @@ IVOA Data Model for Astronomical Coordinates and Systems, covering the following
 
 
 # Status
-Latest stable version is [PR-1.0](https://www.ivoa.net/documents/Coords/20200310/index.html)
+Latest stable version is [REC-1.0](https://www.ivoa.net/documents/Coords/index.html)
 
 
 # License
