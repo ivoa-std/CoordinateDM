@@ -14,8 +14,10 @@ vodml {
     )
 
 }
-
-
+/* uncomment below to run the generation of vodml from vodsl automatically */
+//tasks.named("vodmlJavaGenerate") {
+//    dependsOn("vodslToVodml")
+//}
 
 tasks.register("UmlToVodml", net.ivoa.vodml.gradle.plugin.XmiTask::class.java) {
     xmiScript.set("xmi2vo-dml_Modelio3.7_UML2.4.1.xsl") // the conversion script
