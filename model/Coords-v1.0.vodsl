@@ -3,7 +3,7 @@ model coords (1.0) "This model defines objects which describe the coordinate spa
 "
      
  author "Arnold Rots, Mark Cresitello-Dittmar, Omar Laurino"
-       include "IVOA-v1.0.vodsl"
+       include "../build/tmp/IVOA-v1.0.vodsl" // note that this is auto generated from dependencies during build
      
     primitive Epoch  "We define epoch as a primitive data type with the expected form '<type><year>' where type = 'J' or 'B' for Julian or Besselian respectively, and year is expressed as a decimal year.  e.g.: 'B1950', 'J2000.0'"
 enum Handedness  "The handedness of a coordinate space.  For most cases, this will be a fixed value in the specification of the coordinate space.  We provide this element to allow this flexibility when needed.  In this document, it is used in the Pixel domain."

@@ -1,5 +1,5 @@
 plugins {
-    id("net.ivoa.vo-dml.vodmltools") version "0.3.14"
+    id("net.ivoa.vo-dml.vodmltools") version "0.3.16"
     `maven-publish`
     application
 }
